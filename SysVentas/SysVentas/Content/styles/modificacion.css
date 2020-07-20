@@ -1,0 +1,19 @@
+﻿/*#######################################################*/
+#collapseU{
+    text-align:left !important;
+    font-size:13px !important;
+}
+.navbar-static-side ul li.active a {
+    transition: 0.8s all ease-in-out;
+}
+.collapsing {
+    width: 250px;
+    border: 0px !important;
+    background:transparent !important;
+}
+
+/*#######################################################*/
+#newbotton {
+    padding-bottom: 40px;
+}
+/*#######################################################*/
