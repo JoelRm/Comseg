@@ -12,7 +12,6 @@ namespace Datos.Clases
     {
         public List<UnidadCLS> ListarUnidades()
         {
-            //string sql = @"SELECT * FROM Unidad where EstadoEliminacion = 0;";
             List<UnidadCLS> listaUnidades = null;
             using (var db = new BDVentasEntities())
             {
@@ -34,6 +33,7 @@ namespace Datos.Clases
                 return listaUnidades;
             }
         }
+
         public int AgregarUnidad(UnidadCLS objUnidadCls)
         {
             int CodResult = 0;
@@ -62,8 +62,7 @@ namespace Datos.Clases
             }
             return CodResult;
         }
-
-
+        
         public int CambiarEstado(UnidadCLS objunidadCLS)
         {
             int codigoRpt = 0;
@@ -91,6 +90,93 @@ namespace Datos.Clases
             }
             
             return codigoRpt;
+        }
+
+        public List<UnidadCLS> ListarUnidadesPorFiltro(FiltroCLS objFiltro)
+        {
+            List<UnidadCLS> listaUnidades = null;
+            bool estado = true;
+            if (objFiltro.Estado == 0)
+                estado = false;
+
+            using (var db = new BDVentasEntities())
+            {
+                if (objFiltro.Nombre == "" || objFiltro.Nombre == null)
+                {
+                    if (objFiltro.Estado == 2)
+                    {
+                        listaUnidades = (from und in db.Unidad
+                                         where und.EstadoEliminacion == false
+                                         select new UnidadCLS
+                                         {
+                                             IdUnidad = und.IdUnidad,
+                                             NombreUnidad = und.NombreUnidad,
+                                             Factor = und.Factor,
+                                             FechaCreacion = und.FechaCreacion,
+                                             UsuarioCreacion = und.UsuarioCreacion,
+                                             FechaModificacion = und.FechaModificacion,
+                                             UsuarioModificacion = und.UsuarioModificacion,
+                                             EstadoUnidad = und.EstadoUnidad,
+                                             FechaCreacionJS = und.FechaCreacion.ToString()
+                                         }).ToList();
+                    }
+                    else
+                    {
+                        listaUnidades = (from und in db.Unidad
+                                         where und.EstadoEliminacion == false && und.EstadoUnidad == estado
+                                         select new UnidadCLS
+                                         {
+                                             IdUnidad = und.IdUnidad,
+                                             NombreUnidad = und.NombreUnidad,
+                                             Factor = und.Factor,
+                                             FechaCreacion = und.FechaCreacion,
+                                             UsuarioCreacion = und.UsuarioCreacion,
+                                             FechaModificacion = und.FechaModificacion,
+                                             UsuarioModificacion = und.UsuarioModificacion,
+                                             EstadoUnidad = und.EstadoUnidad,
+                                             FechaCreacionJS = und.FechaCreacion.ToString()
+                                         }).ToList();
+                    }
+                }
+                else
+                {
+                    if (objFiltro.Estado == 2)
+                    {
+                        listaUnidades = (from und in db.Unidad
+                                         where und.EstadoEliminacion == false && und.NombreUnidad.Contains(objFiltro.Nombre)
+                                         select new UnidadCLS
+                                         {
+                                             IdUnidad = und.IdUnidad,
+                                             NombreUnidad = und.NombreUnidad,
+                                             Factor = und.Factor,
+                                             FechaCreacion = und.FechaCreacion,
+                                             UsuarioCreacion = und.UsuarioCreacion,
+                                             FechaModificacion = und.FechaModificacion,
+                                             UsuarioModificacion = und.UsuarioModificacion,
+                                             EstadoUnidad = und.EstadoUnidad,
+                                             FechaCreacionJS = und.FechaCreacion.ToString()
+                                         }).ToList();
+                    }
+                    else
+                    {
+                        listaUnidades = (from und in db.Unidad
+                                         where und.EstadoEliminacion == false && und.EstadoUnidad == estado && und.NombreUnidad.Contains(objFiltro.Nombre) && und.EstadoUnidad == estado
+                                         select new UnidadCLS
+                                         {
+                                             IdUnidad = und.IdUnidad,
+                                             NombreUnidad = und.NombreUnidad,
+                                             Factor = und.Factor,
+                                             FechaCreacion = und.FechaCreacion,
+                                             UsuarioCreacion = und.UsuarioCreacion,
+                                             FechaModificacion = und.FechaModificacion,
+                                             UsuarioModificacion = und.UsuarioModificacion,
+                                             EstadoUnidad = und.EstadoUnidad,
+                                             FechaCreacionJS = und.FechaCreacion.ToString()
+                                         }).ToList();
+                    }
+                }
+            }
+            return listaUnidades;
         }
 
     }

@@ -1,11 +1,16 @@
 ﻿function cargarTablaUnidades() {
     mostrarLoader();
+    var flt = {};
+    flt.Nombre = $("#NombreUnidadFiltro").val();
+    flt.Estado = $('input[name="estado"]:checked').val();
+
     var rows = "";
     $.ajax({
         type: 'POST',
         url: '/Unidad/ListarUnidades',
-        dataType: 'json',
-        data: { id: '' },
+        data: '{flt: ' + JSON.stringify(flt) + '}',
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
         success: function (data) {
             for (var i = 0; i < data.lsUnidades.length; i++) {
                 rows += '<tr>';
@@ -26,6 +31,7 @@
                 rows += '</tr>';
             }
             document.getElementById("bodytbUnidad").innerHTML = rows;
+            $("#CerrarPopUpFiltros").trigger("click");
             ocultarLoader();
         },
         error: function (ex) {
@@ -123,4 +129,8 @@ function validarUnidades() {
         return false;
     }
     return true;
+};
+
+function abrirFiltros() {
+    $('#modalFiltros').modal('show');
 };

@@ -8,7 +8,7 @@ namespace Entidad
 {
     public class FiltroCLS
     {
-        public string NombreUnidad { get; set; }
-        public bool EstadoUnidad { get; set; }
+        public string Nombre { get; set; }
+        public int Estado { get; set; }
     }
 }

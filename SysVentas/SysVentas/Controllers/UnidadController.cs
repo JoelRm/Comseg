@@ -20,9 +20,9 @@ namespace SysVentas.Controllers
         }
 
         [HttpPost]
-        public JsonResult ListarUnidades(string id)
+        public JsonResult ListarUnidades(FiltroCLS flt)
         {
-            var lsUnidades = ObjUnidad.ListarUnidades();
+            var lsUnidades = ObjUnidad.ListarUnidadesPorFiltro(flt);
             return Json(new { lsUnidades, JsonRequestBehavior.AllowGet });
         }
 

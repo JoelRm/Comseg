@@ -21,5 +21,10 @@ namespace Negocio
         {
             return obj.CambiarEstado(objunidadCLS);
         }
+
+        public List<UnidadCLS> ListarUnidadesPorFiltro(FiltroCLS objFiltro)
+        {
+            return obj.ListarUnidadesPorFiltro(objFiltro);
+        }
     }
 }
