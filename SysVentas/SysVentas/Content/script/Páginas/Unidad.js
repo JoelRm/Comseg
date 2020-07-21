@@ -20,14 +20,14 @@
                 rows += '<td>' + data.lsUnidades[i].FechaCreacionJS + '</td>';
                 rows += '<td>' + data.lsUnidades[i].UsuarioCreacion + '</td>';
                 if (data.lsUnidades[i].EstadoUnidad) {
-                    rows += '<td><span onclick="cambiarEstado('+data.lsUnidades[i].IdUnidad+')" class="label label-sm label-success" > Activo</span></td>';
+                    rows += '<td><span onclick="cambiarEstado(' + data.lsUnidades[i].IdUnidad +')" title="Cambiar estado" class="label label-sm label-success" style="cursor: pointer;"> Activo</span></td>';
                 }
                 else {
-                    rows += '<td><span onclick="cambiarEstado(' + data.lsUnidades[i].IdUnidad +')" class="label label-sm label-danger">Desactivo</span></td>';
+                    rows += '<td><span onclick="cambiarEstado(' + data.lsUnidades[i].IdUnidad +')" title="Cambiar estado" class="label label-sm label-danger" style="cursor: pointer;">Desactivo</span></td>';
                 }
                 rows += '<td align="center">';
-                rows += '<i class="fa fa-edit" style="font-size:20px;" title="Editar"></i>';
-                rows += '<i class="fa fa-trash-o" style="font-size:20px;" title="Eliminar"></i></td>';
+                rows += '<i class="fa fa-edit" style="font-size:20px; cursor: pointer;" title="Editar"></i>';
+                rows += '<i class="fa fa-trash-o" style="font-size:20px; cursor: pointer;" title="Eliminar"></i></td>';
                 rows += '</tr>';
             }
             document.getElementById("bodytbUnidad").innerHTML = rows;
@@ -45,33 +45,28 @@
     ocultarLoader();
 };
 
-function cambiarEstado(idUnidad) {
-    mostrarLoader();
-    var und = {};
-    und.IdUnidad = idUnidad;
-    $.ajax({
-        type: "POST",
-        url: "/Unidad/CambiarEstado",
-        data: '{und: ' + JSON.stringify(und) + '}',
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        success: function (response) {
-            if (response.Code == 1) {
-                toastr.success('Se cambió el estado con éxito', 'Éxito');
-                cargarTablaUnidades();
-                ocultarLoader();
-            }
-            else {
-                toastr.error('Ocurrió un error al realizar el cambio de estado, inténtelo de nuevo', 'Error');
-                ocultarLoader();
-            }
-        },
-        error: function () {
-            toastr.error('Ocurrió un error, vuelve a intentar', 'Error');
-            ocultarLoader();
-        }
-    });
-}
+function limpiarValoresUnidad() {
+    $("#NombreUnidad").val('');
+    $("#FactorUnidad").val('');
+};
+
+function validarUnidades() {
+    var NombreUnidad = $("#NombreUnidad").val();
+    var Factor = $("#FactorUnidad").val();
+    if (NombreUnidad == '') {
+        toastr.error('Se requiere del campo Nombre Unidad', 'Error');
+        return false;
+    }
+    if (Factor == '') {
+        toastr.error('Se requiere del campo Factor', 'Error');
+        return false;
+    }
+    return true;
+};
+
+function abrirFiltros() {
+    $('#modalFiltros').modal('show');
+};
 
 function AgregarUnidad() {
     mostrarLoader();
@@ -112,25 +107,34 @@ function AgregarUnidad() {
     ocultarLoader();
 };
 
-function limpiarValoresUnidad() {
-    $("#NombreUnidad").val('');
-    $("#FactorUnidad").val('');
-};
+function cambiarEstado(idUnidad) {
+    mostrarLoader();
+    var und = {};
+    und.IdUnidad = idUnidad;
+    $.ajax({
+        type: "POST",
+        url: "/Unidad/CambiarEstado",
+        data: '{und: ' + JSON.stringify(und) + '}',
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (response) {
+            if (response.Code == 1) {
+                toastr.success('Se cambió el estado con éxito', 'Éxito');
+                cargarTablaUnidades();
+                ocultarLoader();
+            }
+            else {
+                toastr.error('Ocurrió un error al realizar el cambio de estado, inténtelo de nuevo', 'Error');
+                ocultarLoader();
+            }
+        },
+        error: function () {
+            toastr.error('Ocurrió un error, vuelve a intentar', 'Error');
+            ocultarLoader();
+        }
+    });
+}
 
-function validarUnidades() {
-    var NombreUnidad = $("#NombreUnidad").val();
-    var Factor = $("#FactorUnidad").val();
-    if (NombreUnidad == '') {
-        toastr.error('Se requiere del campo Nombre Unidad', 'Error');
-        return false;
-    }
-    if (Factor == '') {
-        toastr.error('Se requiere del campo Factor', 'Error');
-        return false;
-    }
-    return true;
-};
+function eliminarUnidad(idUnidad) {
 
-function abrirFiltros() {
-    $('#modalFiltros').modal('show');
-};
+}
