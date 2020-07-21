@@ -26,5 +26,20 @@ namespace Negocio
         {
             return obj.ListarUnidadesPorFiltro(objFiltro);
         }
+
+        public int EliminarUnidad(UnidadCLS objunidadCLS)
+        {
+            return obj.EliminarUnidad(objunidadCLS);
+        }
+
+        public UnidadCLS ObtenerUnidadPorId(int idUnd)
+        {
+            return obj.ObtenerUnidadPorId(idUnd);
+        }
+
+        public int EditarUnidad(UnidadCLS objUnidadCls)
+        {
+            return obj.EditarUnidad(objUnidadCls);
+        }
     }
 }

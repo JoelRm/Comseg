@@ -84,7 +84,7 @@
                     <button type="button" id="CerrarPopUpUnidad" data-dismiss="modal" class="btn btn-danger">
                         Cancelar
                     </button>
-                    <button type="button" onclick="AgregarUnidad()" class="btn btn-primary">
+                    <button type="button" onclick="agregarUnidad()" class="btn btn-primary">
                         Guardar
                     </button>
                 </div>
@@ -92,7 +92,6 @@
         </div>
     </div>
     <!--Fin Modal Nueva Unidad-->
-
     <!--Inicio Modal Filtros-->
     <div id="modalFiltros" class="modal fade">
         <div class="modal-dialog">
@@ -134,6 +133,41 @@
         </div>
     </div>
     <!--Fin Modal Filtros-->
+    <!--Inicio Modal Editar-->
+    <div id="modalEditar" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+                        &times;
+                    </button>
+                    <h4 class="modal-title">
+                        Editar Unidad
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-body pal">
+                        <div class="form-group">
+                            <input id="idUnidadEditar" name="idUnidadEditar" type="hidden" placeholder="Ingrese Nombre Unidad" class="form-control" />
+                            <input id="NombreUnidadEditar" name="NombreUnidadEditar" type="text" placeholder="Ingrese Nombre Unidad" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input onkeypress="return soloNumeros(event)" id="FactorUnidadEditar" name="FactorUnidadEditar" type="text" placeholder="Ingrese Número Factor de Unidad" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="CerrarPopUpUnidad" data-dismiss="modal" class="btn btn-danger">
+                        Cancelar
+                    </button>
+                    <button type="button" onclick="editarUnidad()" class="btn btn-primary">
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Fin Modal Editar-->
 
 </div>
 

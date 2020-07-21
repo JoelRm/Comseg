@@ -20,18 +20,18 @@
                 rows += '<td>' + data.lsUnidades[i].FechaCreacionJS + '</td>';
                 rows += '<td>' + data.lsUnidades[i].UsuarioCreacion + '</td>';
                 if (data.lsUnidades[i].EstadoUnidad) {
-                    rows += '<td><span onclick="cambiarEstado(' + data.lsUnidades[i].IdUnidad +')" title="Cambiar estado" class="label label-sm label-success" style="cursor: pointer;"> Activo</span></td>';
+                    rows += '<td><span onclick="cambiarEstado(' + data.lsUnidades[i].IdUnidad +')" title="Cambiar estado" class="label label-sm label-success" style="cursor: pointer;"> Activado</span></td>';
                 }
                 else {
-                    rows += '<td><span onclick="cambiarEstado(' + data.lsUnidades[i].IdUnidad +')" title="Cambiar estado" class="label label-sm label-danger" style="cursor: pointer;">Desactivo</span></td>';
+                    rows += '<td><span onclick="cambiarEstado(' + data.lsUnidades[i].IdUnidad +')" title="Cambiar estado" class="label label-sm label-danger" style="cursor: pointer;">Desactivado</span></td>';
                 }
                 rows += '<td align="center">';
-                rows += '<i class="fa fa-edit" style="font-size:20px; cursor: pointer;" title="Editar"></i>';
-                rows += '<i class="fa fa-trash-o" style="font-size:20px; cursor: pointer;" title="Eliminar"></i></td>';
+                rows += '<span onclick="obtenerUnidad(' + data.lsUnidades[i].IdUnidad +')" class="fa fa-edit" style="font-size:20px; cursor: pointer;" title="Editar"></span>';
+                rows += '<span onclick="eliminarUnidad(' + data.lsUnidades[i].IdUnidad +')" class="fa fa-trash-o" style="font-size:20px; cursor: pointer;" title="Eliminar"></span></td>';
                 rows += '</tr>';
             }
             document.getElementById("bodytbUnidad").innerHTML = rows;
-            $("#CerrarPopUpFiltros").trigger("click");
+            $('#modalFiltros').modal('hide');
             ocultarLoader();
         },
         error: function (ex) {
@@ -64,11 +64,25 @@ function validarUnidades() {
     return true;
 };
 
+function validarUnidadesEditar() {
+    var NombreUnidad = $("#NombreUnidadEditar").val();
+    var Factor = $("#FactorUnidadEditar").val();
+    if (NombreUnidad == '') {
+        toastr.error('Se requiere del campo Nombre Unidad', 'Error');
+        return false;
+    }
+    if (Factor == '') {
+        toastr.error('Se requiere del campo Factor', 'Error');
+        return false;
+    }
+    return true;
+}
+
 function abrirFiltros() {
     $('#modalFiltros').modal('show');
 };
 
-function AgregarUnidad() {
+function agregarUnidad() {
     mostrarLoader();
     if (validarUnidades()) {
         var und = {};
@@ -83,20 +97,21 @@ function AgregarUnidad() {
             success: function (response) {
                 if (response.Code == 2) {
                     toastr.error('Ya existen registros con un nombre similar, intente otro', 'Error');
-                    cargarTablaUnidades();
+                    ocultarLoader();
                 }
                 else {
                     if (response.Code == 1) {
-                        $("#CerrarPopUpUnidad").trigger("click");
+                        $('#modal-nuevo').modal('hide');
                         limpiarValoresUnidad();
                         cargarTablaUnidades();
                         toastr.success('Se agregaron los datos correctamente', 'Éxito');
+                        ocultarLoader();
                     }
                     else {
                         toastr.error('Error al agregar los datos', 'Error');
+                        ocultarLoader();
                     }
                 }
-                ocultarLoader();
             },
             error: function () {
                 toastr.error('Ocurrió un error, vuelve a intentar', 'Error');
@@ -136,5 +151,86 @@ function cambiarEstado(idUnidad) {
 }
 
 function eliminarUnidad(idUnidad) {
+    mostrarLoader();
+    var und = {};
+    und.IdUnidad = idUnidad;
+    $.ajax({
+        type: "POST",
+        url: "/Unidad/EliminarUnidad",
+        data: '{und: ' + JSON.stringify(und) + '}',
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (response) {
+            if (response.Code == 1) {
+                toastr.success('Se eliminó con éxito', 'Éxito');
+                cargarTablaUnidades();
+                ocultarLoader();
+            }
+            else {
+                toastr.error('Ocurrió un error al realizar la eliminación, inténtelo de nuevo', 'Error');
+                ocultarLoader();
+            }
+        },
+        error: function () {
+            toastr.error('Ocurrió un error, vuelve a intentar', 'Error');
+            ocultarLoader();
+        }
+    });
+}
 
+function obtenerUnidad(idUnidad) {
+    mostrarLoader();
+    $('#modalEditar').modal('show');
+    var IdUnidad = idUnidad;
+    $.ajax({
+        type: "POST",
+        url: "/Unidad/ObtenerUnidadPorId",
+        data: '{und: ' + IdUnidad + '}',
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (response) {
+            $("#idUnidadEditar").val(response.unidadCLS.IdUnidad);
+            $("#NombreUnidadEditar").val(response.unidadCLS.NombreUnidad);
+            $("#FactorUnidadEditar").val(response.unidadCLS.Factor);
+            ocultarLoader();
+        },
+        error: function () {
+            toastr.error('Ocurrió un error, vuelve a intentar', 'Error');
+            ocultarLoader();
+        }
+    });
+}
+
+function editarUnidad() {
+    mostrarLoader();
+    if (validarUnidadesEditar()) {
+        var und = {};
+        und.IdUnidad = $("#idUnidadEditar").val();
+        und.NombreUnidad = $("#NombreUnidadEditar").val();
+        und.Factor = $("#FactorUnidadEditar").val();
+        $.ajax({
+            type: "POST",
+            url: "/Unidad/EditarUnidad",
+            data: '{und: ' + JSON.stringify(und) + '}',
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
+                if (response.Code == 1) {
+                    toastr.success('Se realizaron los cambios con éxito', 'Éxito');
+                    cargarTablaUnidades();
+                    $('#modalEditar').modal('hide');
+                    ocultarLoader();
+                }
+                else {
+                    toastr.error('Error al agregar los datos', 'Error');
+                    ocultarLoader();
+                }
+            },
+            error: function () {
+                toastr.error('Ocurrió un error, vuelve a intentar', 'Error');
+                ocultarLoader();
+            }
+        });
+    }
+    ocultarLoader();
 }

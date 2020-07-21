@@ -63,21 +63,21 @@ namespace Datos.Clases
             return CodResult;
         }
         
-        public int CambiarEstado(UnidadCLS objunidadCLS)
+        public int CambiarEstado(UnidadCLS objUnidadCls)
         {
             int codigoRpt = 0;
             try
             {
                 using (var db = new BDVentasEntities())
                 {
-                    Unidad oUnidad = db.Unidad.Where(p => p.IdUnidad.Equals(objunidadCLS.IdUnidad)).First();
+                    Unidad oUnidad = db.Unidad.Where(p => p.IdUnidad.Equals(objUnidadCls.IdUnidad)).First();
 
                     if (oUnidad.EstadoUnidad)
-                        objunidadCLS.EstadoUnidad = false;
+                        objUnidadCls.EstadoUnidad = false;
                     else
-                        objunidadCLS.EstadoUnidad = true;
+                        objUnidadCls.EstadoUnidad = true;
 
-                    oUnidad.EstadoUnidad = objunidadCLS.EstadoUnidad;
+                    oUnidad.EstadoUnidad = objUnidadCls.EstadoUnidad;
                     db.SaveChanges();
 
                     codigoRpt = 1;
@@ -179,5 +179,60 @@ namespace Datos.Clases
             return listaUnidades;
         }
 
+        public int EliminarUnidad(UnidadCLS objUnidadCls)
+        {
+            int cdgoRpt = 0;
+            try
+            {
+                using (var db = new BDVentasEntities())
+                {
+                    Unidad oUnidad = db.Unidad.Where(p => p.IdUnidad.Equals(objUnidadCls.IdUnidad)).First();
+                    oUnidad.EstadoEliminacion = true;
+                    db.SaveChanges();
+                    cdgoRpt = 1;
+                }
+            }
+            catch (Exception e)
+            {
+                cdgoRpt = 0;    
+            }
+            return cdgoRpt;
+        }
+
+        public UnidadCLS ObtenerUnidadPorId(int idUnd)
+        {
+            UnidadCLS objUnidadCLS = new UnidadCLS();
+            using (var db = new BDVentasEntities())
+            {
+                Unidad oUnidad = db.Unidad.Where(p => p.IdUnidad.Equals(idUnd)).First();
+                objUnidadCLS.IdUnidad = oUnidad.IdUnidad;
+                objUnidadCLS.NombreUnidad = oUnidad.NombreUnidad;
+                objUnidadCLS.Factor = oUnidad.Factor;
+            }
+            return objUnidadCLS;
+        }
+
+        public int EditarUnidad(UnidadCLS objUnidadCls)
+        {
+            int cdgoRpt = 0;
+            try
+            {
+                using (var db = new BDVentasEntities())
+                {
+                    Unidad oUnidad = db.Unidad.Where(p => p.IdUnidad.Equals(objUnidadCls.IdUnidad)).First();
+                    oUnidad.NombreUnidad = objUnidadCls.NombreUnidad;
+                    oUnidad.Factor = objUnidadCls.Factor;
+                    objUnidadCls.FechaModificacion = DateTime.Now;
+                    objUnidadCls.UsuarioModificacion = "Admin";
+                    db.SaveChanges();
+                    cdgoRpt = 1;
+                }
+            }
+            catch (Exception e)
+            {
+                cdgoRpt = 0;
+            }
+            return cdgoRpt;
+        }
     }
 }
