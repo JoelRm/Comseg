@@ -62,8 +62,9 @@ a {
 }
 a:hover,
 a:focus {
-  color: #dc6767;
-  text-decoration: none;
+    color: #1f68b1;
+    /*color: #dc6767;*/
+    text-decoration: none;
 }
 a:focus {
   outline: thin dotted #333;
@@ -2103,7 +2104,8 @@ ul.nav.nav-tabs li a {
   padding: 10px 20px;
 }
 ul.nav.nav-tabs li.active a {
-  background: #dc6767;
+  /*background: #dc6767;*//*JRM #1f68b1;*/
+  background: Gray;
   color: #fff;
   border: 0px;
 }
