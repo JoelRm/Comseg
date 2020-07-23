@@ -78,75 +78,102 @@
             <!--BEGIN SIDEBAR MENU-->
             <nav id="sidebar" role="navigation" data-step="2" data-intro="Template has &lt;b&gt;many navigation styles&lt;/b&gt;"
                  data-position="right" class="navbar-default navbar-static-side">
-                <div class="sidebar-collapse menu-scroll">
-                    <ul id="side-menu" class="nav">
+                <div class="sidebar-collapse menu-scroll main_menu">
+					<ul id="side-menu" class="nav">
 
-                        <div class="clearfix"></div>
-                        <li class="@Html.IsActive(1)">
-                            <a href="@Url.Action("Index","Dashboard")">
-                                <i class="fa fa-desktop fa-fw">
+						<div class="clearfix"></div>
+						<li class="@Html.IsActive(1)">
+							<a href="@Url.Action("Index","Dashboard")">
+								<i class="fa fa-desktop fa-fw">
 
-                                </i><span class="menu-title">Dashboard</span>
-                            </a>
-                        </li>
+								</i><span class="menu-title">Dashboard</span>
+							</a>
+						</li>
 
-                        <li class="@Html.IsActive(2)">
-                            <a data-toggle="collapse" href="#collapseU" aria-expanded="true" aria-controls="collapseU">
-                                <i class="fa fa-bar-chart-o fa-fw">
-                                </i>
-                                <span class="menu-title">
-                                    Mantenimiento
-                                </span>
-                                <span class="fa arrow"></span>
-                            </a>
-                            <span>
-								<a class="btn collapse" id="collapseU" href="@Url.Action("Index","Unidad")">
-                                    <i class="fa fa-bar-chart-o fa-fw">
-                                    </i>
-                                    <span class="menu-title">
-                                        Unidad
-									  </span></a>
-                            </span>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-shopping-cart fa-fw">
-                                    <div class="icon-bg bg-pink"></div>
-                                </i><span class="menu-title">Ventas</span>
-                            </a>
 
-                        </li>
-                        <li>
-                            <a href="UIElements.html">
-                                <i class="fa fa-truck fa-fw">
 
-                                </i><span class="menu-title">Compras</span>
-                            </a>
 
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-money fa-fw">
-                                    <div class="icon-bg bg-pink"></div>
-                                </i><span class="menu-title">Caja</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="Forms.html">
-                                <i class="fa fa-edit fa-fw">
 
-                                </i><span class="menu-title">Inventario</span>
-                            </a>
+						<li class="@Html.IsActive(2)">
+							<a href="#">
+								<i class="fa fa-bar-chart-o">
+								</i>
+								<span class="menu-title">
+									Mantenimiento
+								</span>
+								<span class="fa fa-chevron-down">
+								</span>
+							</a>
+							<ul class="nav child_menu side-menu" id="">
+								<li class="current-page" >
+									<a href="@Url.Action("Index","Unidad")" >
 
-                        </li>
-                        <li>
-                            <a href="Tables.html">
-                                <i class="fa fa-th-list fa-fw">
-                                </i><span class="menu-title">Reportes</span>
-                            </a>
+										Unidad
 
-                        </li>
-                    </ul>
+									</a>
+								</li>
+							</ul>
+							<ul class="nav child_menu">
+								<li class="current-page">
+									<a href="@Url.Action("Index","Linea")">
+
+										Linea
+
+									</a>
+								</li>
+							</ul>
+							<ul class="nav child_menu">
+								<li class="current-page">
+									<a href="@Url.Action("Index","Marca")">
+
+										Marca
+
+									</a>
+								</li>
+							</ul>
+						</li>
+
+
+
+						<li>
+							<a href="#">
+								<i class="fa fa-shopping-cart fa-fw">
+									<div class="icon-bg bg-pink"></div>
+								</i><span class="menu-title">Ventas</span>
+							</a>
+
+						</li>
+						<li>
+							<a href="UIElements.html">
+								<i class="fa fa-truck fa-fw">
+
+								</i><span class="menu-title">Compras</span>
+							</a>
+
+						</li>
+						<li>
+							<a href="#">
+								<i class="fa fa-money fa-fw">
+									<div class="icon-bg bg-pink"></div>
+								</i><span class="menu-title">Caja</span>
+							</a>
+						</li>
+						<li>
+							<a href="Forms.html">
+								<i class="fa fa-edit fa-fw">
+
+								</i><span class="menu-title">Inventario</span>
+							</a>
+
+						</li>
+						<li>
+							<a href="Tables.html">
+								<i class="fa fa-th-list fa-fw">
+								</i><span class="menu-title">Reportes</span>
+							</a>
+
+						</li>
+					</ul>
                 </div>
             </nav>
             <!--END SIDEBAR MENU-->

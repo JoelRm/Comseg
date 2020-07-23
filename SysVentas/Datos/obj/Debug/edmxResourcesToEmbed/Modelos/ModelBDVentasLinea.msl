@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BDVentasLineaStoreContainer" CdmEntityContainer="BDVentasLineaEntities">
+    <EntitySetMapping Name="Linea">
+      <EntityTypeMapping TypeName="BDVentasLinea.Linea">
+        <MappingFragment StoreEntitySet="Linea">
+          <ScalarProperty Name="IdLinea" ColumnName="IdLinea" />
+          <ScalarProperty Name="NombreLinea" ColumnName="NombreLinea" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+          <ScalarProperty Name="EstadoLinea" ColumnName="EstadoLinea" />
+          <ScalarProperty Name="EstadoEliminacion" ColumnName="EstadoEliminacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

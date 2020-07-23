@@ -50,7 +50,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\LineaDA.cs" />
+    <Compile Include="Clases\MarcaDA.cs" />
     <Compile Include="Clases\UnidadDA.cs" />
+    <Compile Include="Modelos\Linea.cs">
+      <DependentUpon>ModelBDVentas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Marca.cs">
+      <DependentUpon>ModelBDVentas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\ModelBDVentas.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
