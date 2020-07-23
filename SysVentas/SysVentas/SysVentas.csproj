@@ -213,6 +213,8 @@
     <Content Include="Content\script\main.js" />
     <Content Include="Content\script\modernizr.min.js" />
     <Content Include="Content\script\pace.min.js" />
+    <Content Include="Content\script\Páginas\Linea.js" />
+    <Content Include="Content\script\Páginas\Marca.js" />
     <Content Include="Content\script\Páginas\Unidad.js" />
     <Content Include="Content\script\respond.min.js" />
     <Content Include="Content\script\responsive-tabs.js" />
@@ -354,6 +356,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Code\HtmlHelper.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\LineaController.cs" />
+    <Compile Include="Controllers\MarcaController.cs" />
     <Compile Include="Controllers\UnidadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -370,6 +374,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Unidad\Index.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Linea\Index.cshtml" />
+    <Content Include="Views\Marca\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,8 +1,5 @@
 ﻿/*#######################################################*/
-#collapseU{
-    text-align:left !important;
-    font-size:13px !important;
-}
+
 .navbar-static-side ul li.active a {
     transition: 0.8s all ease-in-out;
 }
@@ -17,3 +14,61 @@
     padding-bottom: 40px;
 }
 /*#######################################################*/
+
+.active a span.fa {
+    text-align: right !important;
+    margin-right: 4px;
+}
+.main_menu span.fa {
+    float: right;
+    text-align: center;
+    margin-top: 5px;
+    font-size: 10px;
+    min-width: inherit;
+    color: rgb(196, 207, 218);
+}
+.nav li .current-page {
+    background: #3e77ab;
+    transition: 0.8s all ease-in-out;
+}
+
+.nav .child_menu li {
+    padding-left: 36px;
+}
+    .nav .child_menu li:before {
+        background: rgba(255, 255, 255, 0.56);
+        bottom: auto;
+        content: "";
+        height: 8px;
+        left: 23px;
+        margin-top: 15px;
+        position: absolute;
+        right: auto;
+        width: 8px;
+        z-index: 1;
+        border-radius: 50%;
+    }
+
+    .nav .child_menu li:after {
+        border-left: 1px solid rgba(255, 255, 255, 0.24);
+        bottom: 0;
+        content: "";
+        left: 27px;
+        position: absolute;
+        top: 0;
+    }
+.nav .child_menu>li>a {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 12px;
+    padding: 9px !important;
+}
+.navbar-static-side ul li:hover {
+    background: #303030;
+    transition: 0.8s all ease-in-out;
+    outline: none;
+    color: #FFF;
+}
+
+.navbar-static-side ul li ul li {
+    border-bottom: none;
+}
