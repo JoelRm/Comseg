@@ -18,6 +18,8 @@
     <EntitySet Name="Unidad" EntityType="Self.Unidad" />
     <EntitySet Name="Linea" EntityType="BDVentasModel.Linea" />
     <EntitySet Name="Marca" EntityType="BDVentasModel.Marca" />
+    <EntitySet Name="Sucursal" EntityType="BDVentasModel.Sucursal" />
+    <EntitySet Name="TipoTienda" EntityType="BDVentasModel.TipoTienda" />
   </EntityContainer>
   <EntityType Name="Linea">
     <Key>
@@ -43,6 +45,33 @@
     <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UsuarioModificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="EstadoMarca" Type="Boolean" Nullable="false" />
+    <Property Name="EstadoEliminacion" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sucursal">
+    <Key>
+      <PropertyRef Name="IdSucursal" />
+    </Key>
+    <Property Name="IdSucursal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreSucursal" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IdTipoTienda" Type="Int32" Nullable="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UsuarioModificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EstadoSucursal" Type="Boolean" Nullable="false" />
+    <Property Name="EstadoEliminacion" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoTienda">
+    <Key>
+      <PropertyRef Name="IdTipoTienda" />
+    </Key>
+    <Property Name="IdTipoTienda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreTipoTienda" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UsuarioModificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EstadoTipoTienda" Type="Boolean" Nullable="false" />
     <Property Name="EstadoEliminacion" Type="Boolean" Nullable="false" />
   </EntityType>
 </Schema>

@@ -16,7 +16,7 @@ namespace SysVentas.Controllers
         // GET: Linea
         public ActionResult Index()
         {
-            ViewBag.menuActive = 2;
+            ViewBag.menuActive = 3;
             return View();
         }
 

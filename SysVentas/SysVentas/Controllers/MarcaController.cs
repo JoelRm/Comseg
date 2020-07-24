@@ -16,7 +16,7 @@ namespace SysVentas.Controllers
         // GET: Marca
         public ActionResult Index()
         {
-            ViewBag.menuActive = 2;
+            ViewBag.menuActive = 4;
             return View();
         }
 
