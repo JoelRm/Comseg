@@ -27,8 +27,13 @@
     min-width: inherit;
     color: rgb(196, 207, 218);
 }
-.nav li .current-page {
+.nav li .current-page- {
     background: #3e77ab;
+    transition: 0.8s all ease-in-out;
+}
+
+.nav li .current-page-active {
+    background: #303030;
     transition: 0.8s all ease-in-out;
 }
 
