@@ -89,12 +89,7 @@
 								</i><span class="menu-title">Dashboard</span>
 							</a>
 						</li>
-
-
-
-
-
-						<li class="@Html.IsActive(2)">
+						<li>
 							<a href="#">
 								<i class="fa fa-bar-chart-o">
 								</i>
@@ -104,8 +99,8 @@
 								<span class="fa fa-chevron-down">
 								</span>
 							</a>
-							<ul class="nav child_menu side-menu" id="">
-								<li class="current-page" >
+							<ul class="nav child_menu side-menu">
+								<li class="current-page-@Html.IsActive(2)" >
 									<a href="@Url.Action("Index","Unidad")" >
 
 										Unidad
@@ -114,7 +109,7 @@
 								</li>
 							</ul>
 							<ul class="nav child_menu">
-								<li class="current-page">
+								<li class="current-page-@Html.IsActive(3)">
 									<a href="@Url.Action("Index","Linea")">
 
 										Linea
@@ -123,7 +118,7 @@
 								</li>
 							</ul>
 							<ul class="nav child_menu">
-								<li class="current-page">
+								<li class="current-page-@Html.IsActive(4)">
 									<a href="@Url.Action("Index","Marca")">
 
 										Marca

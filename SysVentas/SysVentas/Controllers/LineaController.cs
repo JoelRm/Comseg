@@ -1,11 +1,5 @@
 ﻿using Entidad;
 using Negocio;
-
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace SysVentas.Controllers
@@ -16,7 +10,7 @@ namespace SysVentas.Controllers
         // GET: Linea
         public ActionResult Index()
         {
-            ViewBag.menuActive = 2;
+            ViewBag.menuActive = 3;
             return View();
         }
 
