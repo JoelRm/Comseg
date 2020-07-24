@@ -44,5 +44,34 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Sucursal">
+      <EntityTypeMapping TypeName="BDVentasModel.Sucursal">
+        <MappingFragment StoreEntitySet="Sucursal">
+          <ScalarProperty Name="EstadoEliminacion" ColumnName="EstadoEliminacion" />
+          <ScalarProperty Name="EstadoSucursal" ColumnName="EstadoSucursal" />
+          <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="IdTipoTienda" ColumnName="IdTipoTienda" />
+          <ScalarProperty Name="NombreSucursal" ColumnName="NombreSucursal" />
+          <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoTienda">
+      <EntityTypeMapping TypeName="BDVentasModel.TipoTienda">
+        <MappingFragment StoreEntitySet="TipoTienda">
+          <ScalarProperty Name="EstadoEliminacion" ColumnName="EstadoEliminacion" />
+          <ScalarProperty Name="EstadoTipoTienda" ColumnName="EstadoTipoTienda" />
+          <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="NombreTipoTienda" ColumnName="NombreTipoTienda" />
+          <ScalarProperty Name="IdTipoTienda" ColumnName="IdTipoTienda" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

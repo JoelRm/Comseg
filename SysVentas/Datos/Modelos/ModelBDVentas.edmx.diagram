@@ -8,6 +8,8 @@
         <EntityTypeShape EntityType="BDVentasModel.Unidad" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BDVentasModel.Linea" Width="1.5" PointX="3.375" PointY="0.75" />
         <EntityTypeShape EntityType="BDVentasModel.Marca" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="BDVentasModel.Sucursal" Width="1.5" PointX="3.375" PointY="4.75" />
+        <EntityTypeShape EntityType="BDVentasModel.TipoTienda" Width="1.5" PointX="5.375" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

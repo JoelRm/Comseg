@@ -15,4 +15,3 @@ C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Entidad\bin\Debug\Entidad.pdb
 C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Entidad\obj\Debug\Entidad.csproj.CoreCompileInputs.cache
 C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Entidad\obj\Debug\Entidad.dll
 C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Entidad\obj\Debug\Entidad.pdb
-C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Entidad\obj\Debug\Entidad.csprojAssemblyReference.cache
