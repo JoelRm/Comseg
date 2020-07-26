@@ -215,6 +215,7 @@
     <Content Include="Content\script\pace.min.js" />
     <Content Include="Content\script\Páginas\Linea.js" />
     <Content Include="Content\script\Páginas\Marca.js" />
+    <Content Include="Content\script\Páginas\Producto.js" />
     <Content Include="Content\script\Páginas\Sucursal.js" />
     <Content Include="Content\script\Páginas\TipoTienda.js" />
     <Content Include="Content\script\Páginas\Unidad.js" />

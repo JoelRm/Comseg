@@ -155,7 +155,7 @@ namespace Datos.Clases
                     else
                     {
                         listaLinea = (from lna in db.Linea
-                                         where lna.EstadoEliminacion == false && lna.EstadoLinea == estado && lna.NombreLinea.Contains(objFiltro.Nombre) && lna.EstadoLinea == estado
+                                         where lna.EstadoEliminacion == false && lna.EstadoLinea == estado && lna.NombreLinea.Contains(objFiltro.Nombre)
                                          select new LineaCLS
                                          {
                                              IdLinea = lna.IdLinea,
