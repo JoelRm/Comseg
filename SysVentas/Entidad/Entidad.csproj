@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FiltroCLS.cs" />
+    <Compile Include="ImpuestoCLS.cs" />
     <Compile Include="LineaCLS.cs" />
     <Compile Include="MarcaCLS.cs" />
+    <Compile Include="MonedaCLS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SucursalCLS.cs" />
     <Compile Include="TipoTiendaCLS.cs" />

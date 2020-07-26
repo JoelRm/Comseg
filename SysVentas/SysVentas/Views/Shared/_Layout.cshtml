@@ -82,6 +82,8 @@
 					<ul id="side-menu" class="nav">
 
 						<div class="clearfix"></div>
+
+
 						<li class="@Html.IsActive(1)">
 							<a href="@Url.Action("Index","Dashboard")">
 								<i class="fa fa-desktop fa-fw">
@@ -89,8 +91,8 @@
 								</i><span class="menu-title">Dashboard</span>
 							</a>
 						</li>
-						<li>
-							<a href="#">
+						<li class="fondrown">
+							<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> 
 								<i class="fa fa-bar-chart-o">
 								</i>
 								<span class="menu-title">
@@ -99,47 +101,53 @@
 								<span class="fa fa-chevron-down">
 								</span>
 							</a>
-							<ul class="nav child_menu side-menu">
-								<li class="current-page-@Html.IsActive(2)">
+							<ul class="nav child_menu collapse list-unstyled" id="pageSubmenu">
+								<li class="@Html.IsActive(2)">
 									<a href="@Url.Action("Index","Unidad")">
 
 										Unidad
 
 									</a>
 								</li>
-							</ul>
-							<ul class="nav child_menu">
-								<li class="current-page-@Html.IsActive(3)">
+								<li class="@Html.IsActive(3)">
 									<a href="@Url.Action("Index","Linea")">
 
 										Linea
 
 									</a>
 								</li>
-							</ul>
-							<ul class="nav child_menu">
-								<li class="current-page-@Html.IsActive(4)">
+								<li class="@Html.IsActive(4)">
 									<a href="@Url.Action("Index","Marca")">
 
 										Marca
 
 									</a>
 								</li>
-							</ul>
-							<ul class="nav child_menu">
-								<li class="current-page-@Html.IsActive(5)">
+								<li class="@Html.IsActive(5)">
 									<a href="@Url.Action("Index","TipoTienda")">
 
 										Tipo tienda
 
 									</a>
 								</li>
-							</ul>
-							<ul class="nav child_menu">
-								<li class="current-page-@Html.IsActive(6)">
+								<li class="@Html.IsActive(6)">
 									<a href="@Url.Action("Index","Sucursal")">
 
 										Sucursal
+
+									</a>
+								</li>
+								<li class="@Html.IsActive(7)">
+									<a href="@Url.Action("Index","Moneda")">
+
+										Moneda
+
+									</a>
+								</li>
+								<li class="@Html.IsActive(8)">
+									<a href="@Url.Action("Index","Impuesto")">
+
+										Impuesto
 
 									</a>
 								</li>

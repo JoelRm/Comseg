@@ -50,11 +50,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\ImpuestoDA.cs" />
     <Compile Include="Clases\LineaDA.cs" />
     <Compile Include="Clases\MarcaDA.cs" />
+    <Compile Include="Clases\MonedaDA.cs" />
     <Compile Include="Clases\SucursalDA.cs" />
     <Compile Include="Clases\TipoTiendaDA.cs" />
     <Compile Include="Clases\UnidadDA.cs" />
+    <Compile Include="Modelos\Impuesto.cs">
+      <DependentUpon>ModelBDVentas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\Linea.cs">
       <DependentUpon>ModelBDVentas.tt</DependentUpon>
     </Compile>
@@ -75,6 +80,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelBDVentas.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Moneda.cs">
+      <DependentUpon>ModelBDVentas.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\Sucursal.cs">
       <DependentUpon>ModelBDVentas.tt</DependentUpon>

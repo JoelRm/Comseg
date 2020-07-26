@@ -30,5 +30,7 @@ namespace Datos.Modelos
         public virtual DbSet<Marca> Marca { get; set; }
         public virtual DbSet<Sucursal> Sucursal { get; set; }
         public virtual DbSet<TipoTienda> TipoTienda { get; set; }
+        public virtual DbSet<Impuesto> Impuesto { get; set; }
+        public virtual DbSet<Moneda> Moneda { get; set; }
     }
 }

@@ -16,7 +16,7 @@
                 rows += '<tr>';
                 rows += '<td>' + data.lsSucursales[i].IdSucursal + '</td>';
                 rows += '<td>' + data.lsSucursales[i].NombreSucursal + '</td>';
-                rows += '<td>' + data.lsSucursales[i].IdTipoTienda + '</td>';
+                rows += '<td>' + data.lsSucursales[i].NombreTipoTienda + '</td>';
                 rows += '<td>' + data.lsSucursales[i].FechaCreacionJS + '</td>';
                 rows += '<td>' + data.lsSucursales[i].UsuarioCreacion + '</td>';
                 if (data.lsSucursales[i].EstadoSucursal) {
@@ -47,18 +47,17 @@
 
 function limpiarValoresSucursal() {
     $("#NombreSucursal").val('');
-    $("#FactorSucursal").val('');
 };
 
 function validarSucursales() {
     var NombreSucursal = $("#NombreSucursal").val();
-    var Factor = $("#FactorSucursal").val();
+    var IdTipoTienda = $("#IdTipoTienda").val();
     if (NombreSucursal == '') {
         toastr.error('Se requiere del campo Nombre Sucursal', 'Error');
         return false;
     }
-    if (Factor == '') {
-        toastr.error('Se requiere del campo Factor', 'Error');
+    if (IdTipoTienda == '') {
+        toastr.error('Se requiere del campo Tipo Tienda', 'Error');
         return false;
     }
     return true;
@@ -87,7 +86,7 @@ function agregarSucursal() {
     if (validarSucursales()) {
         var scl = {};
         scl.NombreSucursal = $("#NombreSucursal").val();
-        scl.Factor = $("#FactorSucursal").val();
+        scl.IdTipoTienda = $("#IdTipoTienda").val();
         $.ajax({
             type: "POST",
             url: "/Sucursal/AgregarSucursal",
