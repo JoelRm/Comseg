@@ -1,6 +1,7 @@
 ﻿using Datos.Clases;
 using Entidad;
 using System.Collections.Generic;
+
 namespace Negocio
 {
     public class UnidadNE

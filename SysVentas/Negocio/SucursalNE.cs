@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
+﻿using System.Collections.Generic;
 using Datos.Clases;
 using Entidad;
+
 namespace Negocio
 {
     public class SucursalNE
