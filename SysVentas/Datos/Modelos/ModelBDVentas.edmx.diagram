@@ -6,10 +6,12 @@
     <edmx:Diagrams>
       <Diagram DiagramId="db9dff5f68414255a79940357908a797" Name="Diagram1">
         <EntityTypeShape EntityType="BDVentasModel.Unidad" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDVentasModel.Linea" Width="1.5" PointX="3.375" PointY="0.75" />
-        <EntityTypeShape EntityType="BDVentasModel.Marca" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="BDVentasModel.Sucursal" Width="1.5" PointX="3.375" PointY="4.75" />
-        <EntityTypeShape EntityType="BDVentasModel.TipoTienda" Width="1.5" PointX="5.375" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVentasModel.Linea" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BDVentasModel.Marca" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BDVentasModel.Sucursal" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="BDVentasModel.TipoTienda" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDVentasModel.Impuesto" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="BDVentasModel.Moneda" Width="1.5" PointX="7.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
