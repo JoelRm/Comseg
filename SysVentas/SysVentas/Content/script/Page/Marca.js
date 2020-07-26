@@ -44,11 +44,9 @@
     ocultarLoader();
 };
 
-
 function limpiarValoresMarca() {
     $("#NombreMarca").val('');
 };
-
 
 function validarMarca() {
     var NombreMarca = $("#NombreMarca").val();
@@ -61,8 +59,6 @@ function validarMarca() {
     return true;
 };
 
-
-
 function validarMarcaEditar() {
     var NombreUnidad = $("#NombreMarcaEditar").val();
     var Factor = $("#FactorMarcaEditar").val();
@@ -73,8 +69,6 @@ function validarMarcaEditar() {
 
     return true;
 }
-
-
 
 function abrirFiltros() {
     $('#modalFiltros').modal('show');
@@ -120,8 +114,6 @@ function agregarMarca() {
     ocultarLoader();
 };
 
-
-
 function cambiarEstado(idMarca) {
     mostrarLoader();
     var mca = {};
@@ -149,8 +141,6 @@ function cambiarEstado(idMarca) {
         }
     });
 }
-
-
 
 function eliminarMarca(idMarca) {
     mostrarLoader();
@@ -180,8 +170,6 @@ function eliminarMarca(idMarca) {
     });
 }
 
-
-
 function obtenerMarca(idMarca) {
     mostrarLoader();
     $('#modalEditar').modal('show');
@@ -203,9 +191,6 @@ function obtenerMarca(idMarca) {
         }
     });
 }
-
-
-
 
 function editarMarca() {
     mostrarLoader();

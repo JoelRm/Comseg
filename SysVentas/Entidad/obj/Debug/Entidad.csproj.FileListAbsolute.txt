@@ -4,15 +4,14 @@ C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE\SysVentas\Entidad\obj\D
 C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE\SysVentas\Entidad\obj\Debug\Entidad.dll
 C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE\SysVentas\Entidad\obj\Debug\Entidad.pdb
 C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE\SysVentas\Entidad\obj\Debug\Entidad.csprojAssemblyReference.cache
-C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\Entidad\bin\Debug\Entidad.dll
-C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\Entidad\bin\Debug\Entidad.pdb
-C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\Entidad\obj\Debug\Entidad.csprojAssemblyReference.cache
-C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\Entidad\obj\Debug\Entidad.csproj.CoreCompileInputs.cache
-C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\Entidad\obj\Debug\Entidad.dll
-C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\Entidad\obj\Debug\Entidad.pdb
 C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Entidad\bin\Debug\Entidad.dll
 C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Entidad\bin\Debug\Entidad.pdb
 C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Entidad\obj\Debug\Entidad.csproj.CoreCompileInputs.cache
 C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Entidad\obj\Debug\Entidad.dll
 C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Entidad\obj\Debug\Entidad.pdb
 C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Entidad\obj\Debug\Entidad.csprojAssemblyReference.cache
+C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\Entidad\bin\Debug\Entidad.dll
+C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\Entidad\bin\Debug\Entidad.pdb
+C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\Entidad\obj\Debug\Entidad.csproj.CoreCompileInputs.cache
+C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\Entidad\obj\Debug\Entidad.dll
+C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\Entidad\obj\Debug\Entidad.pdb

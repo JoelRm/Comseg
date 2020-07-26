@@ -44,11 +44,9 @@
     ocultarLoader();
 };
 
-
 function limpiarValoresLinea() {
     $("#NombreLinea").val('');
 };
-
 
 function validarLinea() {
     var NombreLinea = $("#NombreLinea").val();
@@ -61,8 +59,6 @@ function validarLinea() {
     return true;
 };
 
-
-
 function validarLineaEditar() {
     var NombreUnidad = $("#NombreLineaEditar").val();
     var Factor = $("#FactorLineaEditar").val();
@@ -73,8 +69,6 @@ function validarLineaEditar() {
     
     return true;
 }
-
-
 
 function abrirFiltros() {
     $('#modalFiltros').modal('show');
@@ -120,8 +114,6 @@ function agregarLinea() {
     ocultarLoader();
 };
 
-
-
 function cambiarEstado(idLinea) {
     mostrarLoader();
     var lna = {};
@@ -149,8 +141,6 @@ function cambiarEstado(idLinea) {
         }
     });
 }
-
-
 
 function eliminarLinea(idLinea) {
     mostrarLoader();
@@ -180,8 +170,6 @@ function eliminarLinea(idLinea) {
     });
 }
 
-
-
 function obtenerLinea(idLinea) {
     mostrarLoader();
     $('#modalEditar').modal('show');
@@ -203,9 +191,6 @@ function obtenerLinea(idLinea) {
         }
     });
 }
-
-
-
 
 function editarLinea() {
     mostrarLoader();
