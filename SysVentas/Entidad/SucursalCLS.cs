@@ -18,5 +18,7 @@ namespace Entidad
         public bool EstadoSucursal { get; set; }
 
         public string FechaCreacionJS { get; set; }
+
+        public string NombreTipoTienda { get; set; }
     }
 }

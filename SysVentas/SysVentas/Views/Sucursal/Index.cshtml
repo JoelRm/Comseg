@@ -1,5 +1,5 @@
-﻿@*@using Entidad
-	@model List<SucursalCLS>*@
+﻿@using Entidad
+@model List<TipoTiendaCLS>
 @{
 	ViewBag.Title = "Index";
 	Layout = "~/Views/Shared/_Layout.cshtml";
@@ -76,7 +76,12 @@
 							<input id="NombreSucursal" name="NombreSucursal" type="text" placeholder="Ingrese Nombre Sucursal" class="form-control" />
 						</div>
 						<div class="form-group">
-							<input onkeypress="return soloNumeros(event)" id="FactorSucursal" name="FactorSucursal" type="text" placeholder="Ingrese el ID de de Sucursal" class="form-control" />
+							<select class="form-control" id="IdTipoTienda">
+								@foreach (var lsTipoTienda in Model)
+								{
+									<option id="IdTipoTienda" name="IdTipoTienda" value="@lsTipoTienda.IdTipoTienda">@lsTipoTienda.NombreTipoTienda</option>
+								}
+							</select>
 						</div>
 					</div>
 				</div>

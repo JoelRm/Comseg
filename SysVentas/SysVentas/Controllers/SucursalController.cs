@@ -12,16 +12,19 @@ namespace SysVentas.Controllers
     public class SucursalController : Controller
     {
         SucursalNE ObjSucursal = new SucursalNE();
+        TipoTiendaNE ObjTipoTienda = new TipoTiendaNE();
         // GET: Sucursal
         public ActionResult Index()
         {
+            var lsTipoTienda = ObjTipoTienda.ListarTipoTiendas();
             ViewBag.menuActive = 6;
-            return View();
+            return View(lsTipoTienda);
         }
 
         [HttpPost]
         public JsonResult ListarSucursales(FiltroCLS flt)
         {
+           
             var lsSucursales = ObjSucursal.ListarSucursalesPorFiltro(flt);
             return Json(new { lsSucursales, JsonRequestBehavior.AllowGet });
         }

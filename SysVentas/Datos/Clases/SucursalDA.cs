@@ -107,7 +107,7 @@ namespace Datos.Clases
                 {
                     if (objFiltro.Estado == 2)
                     {
-                        listaSucursales = (from scl in db.Sucursal
+                        listaSucursales = (from scl in db.Sucursal join TipoT in db.TipoTienda on scl.IdTipoTienda equals TipoT.IdTipoTienda
                                          where scl.EstadoEliminacion == false
                                          select new SucursalCLS
                                          {
@@ -119,13 +119,16 @@ namespace Datos.Clases
                                              FechaModificacion = scl.FechaModificacion,
                                              UsuarioModificacion = scl.UsuarioModificacion,
                                              EstadoSucursal = scl.EstadoSucursal,
-                                             FechaCreacionJS = scl.FechaCreacion.ToString()
+                                             FechaCreacionJS = scl.FechaCreacion.ToString(),
+                                             NombreTipoTienda = TipoT.NombreTipoTienda
+
                                          }).ToList();
                     }
                     else
                     {
                         listaSucursales = (from scl in db.Sucursal
-                                         where scl.EstadoEliminacion == false && scl.EstadoSucursal == estado
+                                           join TipoT in db.TipoTienda on scl.IdTipoTienda equals TipoT.IdTipoTienda
+                                           where scl.EstadoEliminacion == false && scl.EstadoSucursal == estado 
                                          select new SucursalCLS
                                          {
                                              IdSucursal = scl.IdSucursal,
@@ -136,7 +139,8 @@ namespace Datos.Clases
                                              FechaModificacion = scl.FechaModificacion,
                                              UsuarioModificacion = scl.UsuarioModificacion,
                                              EstadoSucursal = scl.EstadoSucursal,
-                                             FechaCreacionJS = scl.FechaCreacion.ToString()
+                                             FechaCreacionJS = scl.FechaCreacion.ToString(),
+                                             NombreTipoTienda = TipoT.NombreTipoTienda
                                          }).ToList();
                     }
                 }
