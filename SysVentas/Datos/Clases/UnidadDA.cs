@@ -232,5 +232,69 @@ namespace Datos.Clases
             }
             return cdgoRpt;
         }
+
+        public List<UnidadCLS> ListarUnidadesPorFiltroProductoUnd(FiltroCLS objFiltroCLS)
+        {
+            List<UnidadCLS> listaUnidades = null;
+            using (var db = new BDVentasEntities())
+            {
+                if (objFiltroCLS.Cadena == null)
+                {
+                    listaUnidades = (from und in db.Unidad
+                                     where und.EstadoEliminacion == false
+                                     select new UnidadCLS
+                                     {
+                                         IdUnidad = und.IdUnidad,
+                                         NombreUnidad = und.NombreUnidad,
+                                         Factor = und.Factor,
+                                         FechaCreacion = und.FechaCreacion,
+                                         UsuarioCreacion = und.UsuarioCreacion,
+                                         FechaModificacion = und.FechaModificacion,
+                                         UsuarioModificacion = und.UsuarioModificacion,
+                                         EstadoUnidad = und.EstadoUnidad,
+                                         FechaCreacionJS = und.FechaCreacion.ToString()
+                                     }).ToList();
+                }
+                else
+                {
+
+                    string[] prueba = objFiltroCLS.Cadena.Split(',');
+
+                    List<UnidadCLS> obj = new List<UnidadCLS>();
+
+                    for (int i = 0; i < prueba.Length; i++)
+                    {
+                        obj.Add(new UnidadCLS
+                        {
+                            IdUnidad = int.Parse(prueba[i])
+                        });
+                    }
+
+
+                    listaUnidades = (from und in db.Unidad
+                                     where und.EstadoEliminacion == false
+                                     select new UnidadCLS
+                                     {
+                                         IdUnidad = und.IdUnidad,
+                                         NombreUnidad = und.NombreUnidad,
+                                         Factor = und.Factor,
+                                         FechaCreacion = und.FechaCreacion,
+                                         UsuarioCreacion = und.UsuarioCreacion,
+                                         FechaModificacion = und.FechaModificacion,
+                                         UsuarioModificacion = und.UsuarioModificacion,
+                                         EstadoUnidad = und.EstadoUnidad,
+                                         FechaCreacionJS = und.FechaCreacion.ToString()
+                                     }).ToList();
+
+                    listaUnidades = (from list in listaUnidades
+                             where !(obj.Any(item2 => item2.IdUnidad == list.IdUnidad))
+                             select list).ToList();
+                }
+            }
+            
+            
+
+            return listaUnidades;
+        }
     }
 }

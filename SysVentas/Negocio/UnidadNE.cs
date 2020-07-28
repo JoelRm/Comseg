@@ -42,5 +42,9 @@ namespace Negocio
         {
             return obj.EditarUnidad(objUnidadCls);
         }
+        public List<UnidadCLS> ListarUnidadesPorFiltroProductoUnd(FiltroCLS objFiltroCLS)
+        {
+            return obj.ListarUnidadesPorFiltroProductoUnd(objFiltroCLS);
+        }
     }
 }
