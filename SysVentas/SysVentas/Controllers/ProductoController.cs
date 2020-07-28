@@ -11,6 +11,7 @@ namespace SysVentas.Controllers
         // GET: Producto
         public ActionResult Index()
         {
+            ViewBag.menuActive = 9;
             return View();
         }
 

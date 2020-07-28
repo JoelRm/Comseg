@@ -1,0 +1,14 @@
+C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Datos\bin\Release\Datos.dll.config
+C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Datos\bin\Release\Datos.dll
+C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Datos\bin\Release\Datos.pdb
+C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Datos\bin\Release\Entidad.dll
+C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Datos\bin\Release\EntityFramework.dll
+C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Datos\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Datos\bin\Release\Entidad.pdb
+C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Datos\bin\Release\EntityFramework.xml
+C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Datos\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Datos\obj\Release\Datos.csprojAssemblyReference.cache
+C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Datos\obj\Release\Datos.csproj.CoreCompileInputs.cache
+C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Datos\obj\Release\Datos.csproj.CopyComplete
+C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Datos\obj\Release\Datos.dll
+C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Datos\obj\Release\Datos.pdb
