@@ -23,18 +23,38 @@
 	<div class="nav nav-tabs responsive">
 		<div class="panel panel-grey">
 			<div class="panel-heading" id="newbotton">
-				<div class="col-sm-6 col-md-8">Listado de Sucursales</div>
+				<div class="col-sm-6 col-md-10">Listado de Sucursales</div>
+				<!--
 				<div class="col-sm-3 col-md-2">
 					<a href="#" role="button" onclick="abrirFiltros();" data-target="" class="btn btn-info btn-sm btn-block">Filtro</a>
 				</div>
+				-->
 				<div class="col-sm-3 col-md-2">
-					<button type="button" class="btn btn-danger btn-sm btn-block" data-toggle="modal" data-target="#modal-nuevo">
+					<button type="button" class="btn btn-danger btn-sm btn-block " data-toggle="modal" data-target="#modal-nuevo">
 						Nuevo
 					</button>
 				</div>
 
 			</div>
 			<div class="panel-body">
+
+
+				<div class="form-group row" style="margin-left:0px; margin-right:0px;">
+					<input id="NombreSucursalFiltro" name="NombreSucursalFiltro" type="text" placeholder="Buscar sucursales" class="busqueda col-md-4" />
+					<button type="button" onclick="cargarTablaSucursales()" class="btn btn-primary">
+						Buscar sucursal
+					</button>
+					<div class="radio-container radio-edit">
+						<input type="radio" name="estado" id="todos" checked value="2" />
+						<label for="todos">Todos los Estados</label>
+						<input type="radio" name="estado" id="activos" value="1" />
+						<label for="activos">Estado Activado</label>
+						<input type="radio" name="estado" id="inactivos" value="0" />
+						<label for="inactivos">Estado Desactivado</label>
+					</div>
+				</div>
+
+
 				<table id="tbSucursal" class="table table-hover table-bordered">
 					<thead>
 						<tr>
@@ -100,6 +120,7 @@
 	<!--Inicio Modal Filtros-->
 	<div id="modalFiltros" class="modal fade">
 		<div class="modal-dialog">
+			<!--
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
@@ -135,9 +156,12 @@
 					</button>
 				</div>
 			</div>
+				-->
 		</div>
 	</div>
 	<!--Fin Modal Filtros-->
+
+
 	<!--Inicio Modal Editar-->
 	<div id="modalEditar" class="modal fade">
 		<div class="modal-dialog">
