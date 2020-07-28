@@ -33,7 +33,7 @@
 
             </div>
             <div class="panel-body">
-                <table id="tbUnidad" class="table table-hover table-bordered">
+                <table id="tbProducto" class="table table-hover table-bordered">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -45,7 +45,7 @@
                             <th>Acción</th>
                         </tr>
                     </thead>
-                    <tbody id="bodytbUnidad">
+                    <tbody id="bodytbProducto">
                         <tr>
                             <td colspan="7">Seleccione filtros para realizar una búsqueda</td>
                         </tr>
@@ -137,7 +137,7 @@
                         </ul>
                         <div id="generalTabContent" class="tab-content" style="padding:0px;">
                             <div id="tab-und" class="tab-pane fade in active">
-                                <table id="tbUnidad" class="table table-hover table-bordered">
+                                <table id="tbProductoUnidad" class="table table-hover table-bordered">
                                     <thead>
                                         <tr>
                                             <th>Unidad</th>
@@ -146,9 +146,10 @@
                                             <th>Und Venta</th>
                                             <th>Estado</th>
                                             <th>Quitar</th>
+                                            <th style="display:none">IdUnidad</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="bodytbUnidad">
+                                    <tbody id="bodytbProductoUnidad">
                                         <tr>
                                             <td colspan="6">Agregue unidades</td>
                                         </tr>
@@ -164,7 +165,7 @@
                                 </div>
                             </div>
                             <div id="tab-alm" class="tab-pane fade in">
-                                <table id="tbUnidad" class="table table-hover table-bordered">
+                                <table id="tbProductoAlmacen" class="table table-hover table-bordered">
                                     <thead>
                                         <tr>
                                             <th>Sucursal</th>
@@ -172,7 +173,7 @@
                                             <th>Estado</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="bodytbUnidad">
+                                    <tbody id="bodytbProductoAlmacen">
                                         <tr>
                                             <td colspan="7">Seleccione filtros para realizar una búsqueda</td>
                                         </tr>
@@ -199,29 +200,37 @@
 </div>
 <!--Fin Modal Nuevo Producto-->
 
-<div id="ModalAgregarNombre" class="modal fade" style="top:25%; left:20%">
+<div id="ModalAgregarNombre" class="modal fade" style="top:15%; left:20%">
     <div class="modal-dialog">
-        <div class="modal-content" style="width:50%; height:50%">
+        <div class="modal-content" style="width:50%;">
             <div class="modal-header">
                 <h4 class="modal-title">
                     Lista Unidades
                 </h4>
             </div>
             <div class="modal-body">
-                <table id="tbUnidad" class="table table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nombre Unidad</th>
-                            <th>Factor</th>
-                        </tr>
-                    </thead>
-                    <tbody id="bodytbUnidad">
-                        <tr>
-                            <td colspan="7">Cargando..</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div style="height:250px; overflow-y: scroll;">
+                    <table id="tbUnidad" class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre Unidad</th>
+                                <th>Factor</th>
+                                <th style="display:none">Id</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bodytbUnidad">
+                            @*<tr>
+                            <td colspan="3">Cargando..</td>
+                        </tr>*@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="agregarProductoUnidad()" class="btn btn-success">
+                    Agregar
+                </button>
             </div>
         </div>
     </div>
