@@ -32,5 +32,6 @@ namespace Datos.Modelos
         public virtual DbSet<TipoTienda> TipoTienda { get; set; }
         public virtual DbSet<Impuesto> Impuesto { get; set; }
         public virtual DbSet<Moneda> Moneda { get; set; }
+        public virtual DbSet<TipoPersona> TipoPersona { get; set; }
     }
 }

@@ -23,13 +23,13 @@
 	<div class="nav nav-tabs responsive">
 		<div class="panel panel-grey">
 			<div class="panel-heading" id="newbotton">
-				<div class="col-sm-6 col-md-10">Listado de Sucursales</div>
+				<div class="col-sm-8 col-md-10">Listado de Sucursales</div>
 				<!--
 				<div class="col-sm-3 col-md-2">
 					<a href="#" role="button" onclick="abrirFiltros();" data-target="" class="btn btn-info btn-sm btn-block">Filtro</a>
 				</div>
 				-->
-				<div class="col-sm-3 col-md-2">
+				<div class="col-sm-4 col-md-2">
 					<button type="button" class="btn btn-danger btn-sm btn-block " data-toggle="modal" data-target="#modal-nuevo">
 						Nuevo
 					</button>
@@ -40,10 +40,18 @@
 
 
 				<div class="form-group row" style="margin-left:0px; margin-right:0px;">
-					<input id="NombreSucursalFiltro" name="NombreSucursalFiltro" type="text" placeholder="Buscar sucursales" class="busqueda col-md-4" />
-					<button type="button" onclick="cargarTablaSucursales()" class="btn btn-primary">
-						Buscar sucursal
-					</button>
+					<!--Busqueda en tiempo real-->
+					<input id="idSucursal" type="hidden" class="form-control" />
+					<input id="nombreSucursal" type="hidden" class="form-control" />
+					<input onkeyup="buscarSucursal(event)" id="NombreSucursalFiltro" type="text" placeholder="Buscar sucursales" class="busqueda col-md-4 col-sm-4" />
+					<div class="divPredictivo" id="divPredictivoSucursal">
+						<div class="divPredictivob">
+							<div class="divPredictivoa">
+								<ul class="ulPredictivo" role="listbox" id="ulPredictivoSucursalJRM"></ul>
+							</div>
+						</div>
+					</div>
+					<!--Busqueda en tiempo real-->
 					<div class="radio-container radio-edit">
 						<input type="radio" name="estado" id="todos" checked value="2" />
 						<label for="todos">Todos los Estados</label>
@@ -52,6 +60,9 @@
 						<input type="radio" name="estado" id="inactivos" value="0" />
 						<label for="inactivos">Estado Desactivado</label>
 					</div>
+					<button type="button" onclick="cargarTablaSucursales()" class="btn btn-primary botonbusqueda">
+						Buscar sucursal
+					</button>
 				</div>
 
 
@@ -118,9 +129,9 @@
 	</div>
 	<!--Fin Modal Nueva Sucursal-->
 	<!--Inicio Modal Filtros-->
-	<div id="modalFiltros" class="modal fade">
+	@*<div id="modalFiltros" class="modal fade">
 		<div class="modal-dialog">
-			<!--
+			
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
@@ -156,9 +167,9 @@
 					</button>
 				</div>
 			</div>
-				-->
+
 		</div>
-	</div>
+	</div>*@
 	<!--Fin Modal Filtros-->
 
 

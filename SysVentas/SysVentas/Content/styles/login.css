@@ -1,0 +1,77 @@
+﻿body {
+    height: 100%;
+}
+body {
+    background-image: url('../images/login/back.png');
+    background-color: rgba(82, 86, 255, 0.1);
+    background-size:initial;
+    background-repeat:no-repeat;
+    background-position:center;
+    
+
+    padding-top: 120px;
+    padding-bottom: 40px;
+}
+
+.login {
+
+    background:rgba(0, 0, 0, 0.50);
+    border-radius:0px 0px 30px 0px;
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+.login:hover{
+    box-shadow: 0px 0px 10px 1px #3c3c3c;
+}
+.login-fondo h1{
+    color:white;
+
+}
+.login-fondo img{
+    border-radius:5px;
+
+}
+.login-fondo img:hover{
+    box-shadow:0px 0px 5px 0px rgb(128, 128, 128), 0px 0px 5px 1px #3c3c3c inset;
+}
+
+
+
+    .login .checkbox {
+        font-weight: 400;
+        color:white;
+    }
+
+    .login .form-control {
+        position: relative;
+        box-sizing: border-box;
+        height: auto;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+        .login .form-control:focus {
+            z-index: 2;
+        }
+
+    .login input[type="email"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .login input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .recordar{
+        color:white !important;
+        float:none !important;
+    }
+.text-muted {
+    color: #A0A0A0;
+}
