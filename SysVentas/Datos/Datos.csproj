@@ -55,6 +55,7 @@
     <Compile Include="Clases\MarcaDA.cs" />
     <Compile Include="Clases\MonedaDA.cs" />
     <Compile Include="Clases\SucursalDA.cs" />
+    <Compile Include="Clases\TipoPersonaDA.cs" />
     <Compile Include="Clases\TipoTiendaDA.cs" />
     <Compile Include="Clases\UnidadDA.cs" />
     <Compile Include="Modelos\Impuesto.cs">
@@ -85,6 +86,9 @@
       <DependentUpon>ModelBDVentas.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\Sucursal.cs">
+      <DependentUpon>ModelBDVentas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\TipoPersona.cs">
       <DependentUpon>ModelBDVentas.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\TipoTienda.cs">

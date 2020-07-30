@@ -1,4 +1,8 @@
-﻿function cargarTablaSucursales() {
+﻿
+
+
+
+function cargarTablaSucursales() {
     mostrarLoader();
     var flt = {};
     flt.Nombre = $("#NombreSucursalFiltro").val();
