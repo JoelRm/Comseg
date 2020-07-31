@@ -49,6 +49,7 @@
     <Compile Include="MonedaCLS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SucursalCLS.cs" />
+    <Compile Include="TipoPersonaCLS.cs" />
     <Compile Include="TipoTiendaCLS.cs" />
     <Compile Include="UnidadCLS.cs" />
   </ItemGroup>

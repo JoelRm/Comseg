@@ -16,6 +16,22 @@
     <Property Name="EstadoAlmacen" Type="bit" Nullable="false" />
     <Property Name="EstadoEliminacion" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdTipoPersona" Type="int" />
+    <Property Name="NroDocumentoCliente" Type="varchar" MaxLength="12" />
+    <Property Name="NombreCliente" Type="varchar(max)" />
+    <Property Name="DireccionCliente" Type="varchar" MaxLength="100" />
+    <Property Name="NumeroContactoCliente" Type="varchar" MaxLength="9" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="UsuarioCreacion" Type="varchar" MaxLength="20" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="UsuarioModificacion" Type="varchar" MaxLength="20" />
+    <Property Name="EstadoEliminacion" Type="bit" />
+  </EntityType>
   <EntityType Name="Impuesto">
     <Key>
       <PropertyRef Name="IdImpuesto" />
@@ -118,6 +134,24 @@
     <Property Name="UsuarioModificacion" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="Estado" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="IdProveedor" />
+    </Key>
+    <Property Name="IdProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdTipoPersona" Type="int" Nullable="false" />
+    <Property Name="NroDocumentoProveedor" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="NombreProveedor" Type="varchar(max)" Nullable="false" />
+    <Property Name="DireccionProveedor" Type="varchar" MaxLength="100" />
+    <Property Name="NombreContactoProveedor" Type="varchar" MaxLength="100" />
+    <Property Name="NumeroContactoProveedor" Type="varchar" MaxLength="9" />
+    <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+    <Property Name="UsuarioCreacion" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="UsuarioModificacion" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="EstadoProveedor" Type="bit" Nullable="false" />
+    <Property Name="EstadoEliminacion" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="Sucursal">
     <Key>
       <PropertyRef Name="IdSucursal" />
@@ -130,6 +164,19 @@
     <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
     <Property Name="UsuarioModificacion" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="EstadoSucursal" Type="bit" Nullable="false" />
+    <Property Name="EstadoEliminacion" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoPersona">
+    <Key>
+      <PropertyRef Name="IdTipoPersona" />
+    </Key>
+    <Property Name="IdTipoPersona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreTipoPersona" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+    <Property Name="UsuarioCreacion" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="UsuarioModificacion" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="EstadoTipoPersona" Type="bit" Nullable="false" />
     <Property Name="EstadoEliminacion" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="TipoTienda">
@@ -161,6 +208,7 @@
   </EntityType>
   <EntityContainer Name="BDVentasModelStoreContainer">
     <EntitySet Name="Almacen" EntityType="Self.Almacen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Impuesto" EntityType="Self.Impuesto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Linea" EntityType="Self.Linea" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Marca" EntityType="Self.Marca" Schema="dbo" store:Type="Tables" />
@@ -168,7 +216,9 @@
     <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProductoAlmacen" EntityType="Self.ProductoAlmacen" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProductoUnidad" EntityType="Self.ProductoUnidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sucursal" EntityType="Self.Sucursal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoPersona" EntityType="Self.TipoPersona" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoTienda" EntityType="Self.TipoTienda" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Unidad" EntityType="Self.Unidad" Schema="dbo" store:Type="Tables" />
   </EntityContainer>

@@ -9,13 +9,16 @@
         <EntityTypeShape EntityType="BDVentasModel.Linea" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="BDVentasModel.Marca" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="BDVentasModel.Sucursal" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="BDVentasModel.TipoTienda" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BDVentasModel.Impuesto" Width="1.5" PointX="5.375" PointY="4.75" />
         <EntityTypeShape EntityType="BDVentasModel.Moneda" Width="1.5" PointX="7.375" PointY="0.75" />
-        <EntityTypeShape EntityType="BDVentasModel.Almacen" Width="1.5" PointX="7.375" PointY="4.75" />
-        <EntityTypeShape EntityType="BDVentasModel.Producto" Width="1.5" PointX="0.75" PointY="8.75" />
-        <EntityTypeShape EntityType="BDVentasModel.ProductoAlmacen" Width="1.5" PointX="2.75" PointY="8.75" />
-        <EntityTypeShape EntityType="BDVentasModel.ProductoUnidad" Width="1.5" PointX="4.75" PointY="8.75" />
-        <EntityTypeShape EntityType="BDVentasModel.TipoTienda" Width="1.5" PointX="7.375" PointY="8.75" />
+        <EntityTypeShape EntityType="BDVentasModel.TipoPersona" Width="2.125" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="BDVentasModel.Almacen" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="BDVentasModel.Cliente" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="BDVentasModel.Producto" Width="1.5" PointX="4.75" PointY="8.75" />
+        <EntityTypeShape EntityType="BDVentasModel.ProductoAlmacen" Width="1.5" PointX="6.75" PointY="8.75" />
+        <EntityTypeShape EntityType="BDVentasModel.ProductoUnidad" Width="1.5" PointX="8.75" PointY="8.75" />
+        <EntityTypeShape EntityType="BDVentasModel.Proveedor" Width="1.5" PointX="10.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

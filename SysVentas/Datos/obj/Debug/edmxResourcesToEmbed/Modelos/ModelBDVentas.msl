@@ -59,6 +59,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TipoTienda">
+      <EntityTypeMapping TypeName="BDVentasModel.TipoTienda">
+        <MappingFragment StoreEntitySet="TipoTienda">
+          <ScalarProperty Name="EstadoEliminacion" ColumnName="EstadoEliminacion" />
+          <ScalarProperty Name="EstadoTipoTienda" ColumnName="EstadoTipoTienda" />
+          <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="NombreTipoTienda" ColumnName="NombreTipoTienda" />
+          <ScalarProperty Name="IdTipoTienda" ColumnName="IdTipoTienda" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Impuesto">
       <EntityTypeMapping TypeName="BDVentasModel.Impuesto">
         <MappingFragment StoreEntitySet="Impuesto">
@@ -89,6 +103,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TipoPersona">
+      <EntityTypeMapping TypeName="BDVentasModel.TipoPersona">
+        <MappingFragment StoreEntitySet="TipoPersona">
+          <ScalarProperty Name="EstadoEliminacion" ColumnName="EstadoEliminacion" />
+          <ScalarProperty Name="EstadoTipoPersona" ColumnName="EstadoTipoPersona" />
+          <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="NombreTipoPersona" ColumnName="NombreTipoPersona" />
+          <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Almacen">
       <EntityTypeMapping TypeName="BDVentasModel.Almacen">
         <MappingFragment StoreEntitySet="Almacen">
@@ -103,6 +131,23 @@
           <ScalarProperty Name="DireccionAlmacen" ColumnName="DireccionAlmacen" />
           <ScalarProperty Name="NombreAlmacen" ColumnName="NombreAlmacen" />
           <ScalarProperty Name="IdAlmacen" ColumnName="IdAlmacen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="BDVentasModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="EstadoEliminacion" ColumnName="EstadoEliminacion" />
+          <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="NumeroContactoCliente" ColumnName="NumeroContactoCliente" />
+          <ScalarProperty Name="DireccionCliente" ColumnName="DireccionCliente" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="NroDocumentoCliente" ColumnName="NroDocumentoCliente" />
+          <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -157,17 +202,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TipoTienda">
-      <EntityTypeMapping TypeName="BDVentasModel.TipoTienda">
-        <MappingFragment StoreEntitySet="TipoTienda">
+    <EntitySetMapping Name="Proveedor">
+      <EntityTypeMapping TypeName="BDVentasModel.Proveedor">
+        <MappingFragment StoreEntitySet="Proveedor">
           <ScalarProperty Name="EstadoEliminacion" ColumnName="EstadoEliminacion" />
-          <ScalarProperty Name="EstadoTipoTienda" ColumnName="EstadoTipoTienda" />
+          <ScalarProperty Name="EstadoProveedor" ColumnName="EstadoProveedor" />
           <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
           <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
           <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
           <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
-          <ScalarProperty Name="NombreTipoTienda" ColumnName="NombreTipoTienda" />
-          <ScalarProperty Name="IdTipoTienda" ColumnName="IdTipoTienda" />
+          <ScalarProperty Name="NumeroContactoProveedor" ColumnName="NumeroContactoProveedor" />
+          <ScalarProperty Name="NombreContactoProveedor" ColumnName="NombreContactoProveedor" />
+          <ScalarProperty Name="DireccionProveedor" ColumnName="DireccionProveedor" />
+          <ScalarProperty Name="NombreProveedor" ColumnName="NombreProveedor" />
+          <ScalarProperty Name="NroDocumentoProveedor" ColumnName="NroDocumentoProveedor" />
+          <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

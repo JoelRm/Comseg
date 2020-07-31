@@ -170,6 +170,7 @@ C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\SysVentas\obj\Debug\SysVentas.cspro
 C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\SysVentas\obj\Debug\SysVentas.csproj.CopyComplete
 C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\SysVentas\obj\Debug\SysVentas.dll
 C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\SysVentas\obj\Debug\SysVentas.pdb
+C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\SysVentas\bin\System.Web.Mvc.xml
 C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\SysVentas\bin\SysVentas.dll.config
 C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\SysVentas\bin\SysVentas.dll
 C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\SysVentas\bin\SysVentas.pdb
@@ -241,7 +242,6 @@ C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\Sy
 C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\SysVentas\bin\System.Web.Webpages.Deployment.xml
 C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\SysVentas\bin\System.Web.Webpages.Razor.xml
 C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\SysVentas\bin\System.Web.Helpers.xml
-C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\SysVentas\bin\System.Web.Mvc.xml
 C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\SysVentas\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\SysVentas\bin\Datos.pdb
 C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\SysVentas\bin\Datos.dll.config

@@ -15,3 +15,4 @@ C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\En
 C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\Entidad\obj\Debug\Entidad.csproj.CoreCompileInputs.cache
 C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\Entidad\obj\Debug\Entidad.dll
 C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\Entidad\obj\Debug\Entidad.pdb
+C:\Users\jrojamal\Desktop\SISTEMA VENTAS - COMSEG\FUENTE GIT\Comseg\SysVentas\Entidad\obj\Debug\Entidad.csprojAssemblyReference.cache

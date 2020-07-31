@@ -1,0 +1,92 @@
+﻿
+.form-control{
+    width:inherit;
+}
+
+/*#######################################################*/
+
+.nav ul li.active{
+    background: #3e77ab !important;
+}
+
+/*#######################################################*/
+#newbotton {
+    padding-bottom: 40px;
+}
+/*#######################################################*/
+
+.active a span.fa {
+    text-align: right !important;
+    margin-right: 4px;
+}
+/*fecha dropdown*/
+.main_menu span.fa {
+    float: right;
+    text-align: center;
+    /*margin-top: 5px;
+    font-size: 10px;*/
+    min-width: inherit;
+    color: #FFF;
+}
+.nav li page- {
+    background: #3C3C3C;
+    transition: 0.8s all ease-in-out;
+}
+
+/*ACTIVE PAG*/
+
+.nav .child_menu li {
+    padding-left: 0px;
+}
+
+
+/* INICIO LINEA Y PUNTO*/
+.child_menu li::before {
+    background: rgba(255, 255, 255, 0.56);
+    bottom: auto;
+    content: "";
+    height: 8px;
+    left: 20px;
+    margin-top: 15px;
+    position: absolute;
+    right: 20px;
+    width: 8px;
+    z-index: 1;
+    border-radius: 20%;
+}
+
+
+/* FIN LINEA Y PUNTO*/
+
+
+/* MANTENINIMIENTO LETRAS Y FONDO>*/
+.nav .child_menu li a {
+    color: white !important;
+    font-size: 12px;
+    padding: 9px !important;
+    padding-left: 9px;
+    /*text-align: center;*/
+    padding-left: 50px !important;
+}
+    .nav .child_menu li a:hover {
+        color: inherit;
+        font-size: 12px;
+        padding: 9px !important;
+        background: #3e77ab !important;
+        transition: 0.3s all ease-in-out;
+        padding-left: 60px !important;
+    }
+
+
+
+#sidebar .main_menu .nav ul li:hover {
+    transition: 0.3s all ease-in-out;
+    color: inherit;
+}
+
+#sidebar ul li ul li {
+    border-bottom: 1px groove rgba(255, 255, 255, 0.28);
+}
+.fondrown, .fondrown li a, .fondrown li {
+    background: rgba(255, 255, 255, 0.08) !important;
+}

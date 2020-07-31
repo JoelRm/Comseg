@@ -50,8 +50,5 @@ namespace Negocio
         {
             return obj.EditarMarca(objMarcaCls);
         }
-
-
-
     }
 }

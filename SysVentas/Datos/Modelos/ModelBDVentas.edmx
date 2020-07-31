@@ -21,6 +21,22 @@
           <Property Name="EstadoAlmacen" Type="bit" Nullable="false" />
           <Property Name="EstadoEliminacion" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTipoPersona" Type="int" />
+          <Property Name="NroDocumentoCliente" Type="varchar" MaxLength="12" />
+          <Property Name="NombreCliente" Type="varchar(max)" />
+          <Property Name="DireccionCliente" Type="varchar" MaxLength="100" />
+          <Property Name="NumeroContactoCliente" Type="varchar" MaxLength="9" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="UsuarioCreacion" Type="varchar" MaxLength="20" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="UsuarioModificacion" Type="varchar" MaxLength="20" />
+          <Property Name="EstadoEliminacion" Type="bit" />
+        </EntityType>
         <EntityType Name="Impuesto">
           <Key>
             <PropertyRef Name="IdImpuesto" />
@@ -123,6 +139,24 @@
           <Property Name="UsuarioModificacion" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Estado" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="Proveedor">
+          <Key>
+            <PropertyRef Name="IdProveedor" />
+          </Key>
+          <Property Name="IdProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTipoPersona" Type="int" Nullable="false" />
+          <Property Name="NroDocumentoProveedor" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="NombreProveedor" Type="varchar(max)" Nullable="false" />
+          <Property Name="DireccionProveedor" Type="varchar" MaxLength="100" />
+          <Property Name="NombreContactoProveedor" Type="varchar" MaxLength="100" />
+          <Property Name="NumeroContactoProveedor" Type="varchar" MaxLength="9" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="EstadoProveedor" Type="bit" Nullable="false" />
+          <Property Name="EstadoEliminacion" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Sucursal">
           <Key>
             <PropertyRef Name="IdSucursal" />
@@ -135,6 +169,19 @@
           <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
           <Property Name="UsuarioModificacion" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="EstadoSucursal" Type="bit" Nullable="false" />
+          <Property Name="EstadoEliminacion" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoPersona">
+          <Key>
+            <PropertyRef Name="IdTipoPersona" />
+          </Key>
+          <Property Name="IdTipoPersona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreTipoPersona" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="EstadoTipoPersona" Type="bit" Nullable="false" />
           <Property Name="EstadoEliminacion" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="TipoTienda">
@@ -166,6 +213,7 @@
         </EntityType>
         <EntityContainer Name="BDVentasModelStoreContainer">
           <EntitySet Name="Almacen" EntityType="Self.Almacen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Impuesto" EntityType="Self.Impuesto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Linea" EntityType="Self.Linea" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Marca" EntityType="Self.Marca" Schema="dbo" store:Type="Tables" />
@@ -173,7 +221,9 @@
           <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductoAlmacen" EntityType="Self.ProductoAlmacen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductoUnidad" EntityType="Self.ProductoUnidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sucursal" EntityType="Self.Sucursal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoPersona" EntityType="Self.TipoPersona" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoTienda" EntityType="Self.TipoTienda" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Unidad" EntityType="Self.Unidad" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -200,13 +250,16 @@
           <EntitySet Name="Linea" EntityType="BDVentasModel.Linea" />
           <EntitySet Name="Marca" EntityType="BDVentasModel.Marca" />
           <EntitySet Name="Sucursal" EntityType="BDVentasModel.Sucursal" />
+          <EntitySet Name="TipoTienda" EntityType="BDVentasModel.TipoTienda" />
           <EntitySet Name="Impuesto" EntityType="BDVentasModel.Impuesto" />
           <EntitySet Name="Moneda" EntityType="BDVentasModel.Moneda" />
+          <EntitySet Name="TipoPersona" EntityType="BDVentasModel.TipoPersona" />
           <EntitySet Name="Almacen" EntityType="BDVentasModel.Almacen" />
+          <EntitySet Name="Cliente" EntityType="BDVentasModel.Cliente" />
           <EntitySet Name="Producto" EntityType="BDVentasModel.Producto" />
           <EntitySet Name="ProductoAlmacen" EntityType="BDVentasModel.ProductoAlmacen" />
           <EntitySet Name="ProductoUnidad" EntityType="BDVentasModel.ProductoUnidad" />
-          <EntitySet Name="TipoTienda" EntityType="BDVentasModel.TipoTienda" />
+          <EntitySet Name="Proveedor" EntityType="BDVentasModel.Proveedor" />
         </EntityContainer>
         <EntityType Name="Linea">
           <Key>
@@ -248,6 +301,19 @@
           <Property Name="EstadoSucursal" Type="Boolean" Nullable="false" />
           <Property Name="EstadoEliminacion" Type="Boolean" Nullable="false" />
         </EntityType>
+        <EntityType Name="TipoTienda">
+          <Key>
+            <PropertyRef Name="IdTipoTienda" />
+          </Key>
+          <Property Name="IdTipoTienda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreTipoTienda" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoTipoTienda" Type="Boolean" Nullable="false" />
+          <Property Name="EstadoEliminacion" Type="Boolean" />
+        </EntityType>
         <EntityType Name="Impuesto">
           <Key>
             <PropertyRef Name="IdImpuesto" />
@@ -276,6 +342,19 @@
           <Property Name="EstadoMoneda" Type="Boolean" Nullable="false" />
           <Property Name="EstadoEliminacion" Type="Boolean" Nullable="false" />
         </EntityType>
+        <EntityType Name="TipoPersona">
+          <Key>
+            <PropertyRef Name="IdTipoPersona" />
+          </Key>
+          <Property Name="IdTipoPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreTipoPersona" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoTipoPersona" Type="Boolean" Nullable="false" />
+          <Property Name="EstadoEliminacion" Type="Boolean" Nullable="false" />
+        </EntityType>
         <EntityType Name="Almacen">
           <Key>
             <PropertyRef Name="IdAlmacen" />
@@ -291,6 +370,22 @@
           <Property Name="UsuarioModificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="EstadoAlmacen" Type="Boolean" Nullable="false" />
           <Property Name="EstadoEliminacion" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTipoPersona" Type="Int32" />
+          <Property Name="NroDocumentoCliente" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="NombreCliente" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DireccionCliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NumeroContactoCliente" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioCreacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoEliminacion" Type="Boolean" />
         </EntityType>
         <EntityType Name="Producto">
           <Key>
@@ -340,18 +435,23 @@
           <Property Name="UsuarioModificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="TipoTienda">
+        <EntityType Name="Proveedor">
           <Key>
-            <PropertyRef Name="IdTipoTienda" />
+            <PropertyRef Name="IdProveedor" />
           </Key>
-          <Property Name="IdTipoTienda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NombreTipoTienda" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTipoPersona" Type="Int32" Nullable="false" />
+          <Property Name="NroDocumentoProveedor" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="NombreProveedor" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DireccionProveedor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NombreContactoProveedor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NumeroContactoProveedor" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
           <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UsuarioModificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="EstadoTipoTienda" Type="Boolean" Nullable="false" />
-          <Property Name="EstadoEliminacion" Type="Boolean" />
+          <Property Name="EstadoProveedor" Type="Boolean" Nullable="false" />
+          <Property Name="EstadoEliminacion" Type="Boolean" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -417,6 +517,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TipoTienda">
+            <EntityTypeMapping TypeName="BDVentasModel.TipoTienda">
+              <MappingFragment StoreEntitySet="TipoTienda">
+                <ScalarProperty Name="EstadoEliminacion" ColumnName="EstadoEliminacion" />
+                <ScalarProperty Name="EstadoTipoTienda" ColumnName="EstadoTipoTienda" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="NombreTipoTienda" ColumnName="NombreTipoTienda" />
+                <ScalarProperty Name="IdTipoTienda" ColumnName="IdTipoTienda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Impuesto">
             <EntityTypeMapping TypeName="BDVentasModel.Impuesto">
               <MappingFragment StoreEntitySet="Impuesto">
@@ -447,6 +561,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TipoPersona">
+            <EntityTypeMapping TypeName="BDVentasModel.TipoPersona">
+              <MappingFragment StoreEntitySet="TipoPersona">
+                <ScalarProperty Name="EstadoEliminacion" ColumnName="EstadoEliminacion" />
+                <ScalarProperty Name="EstadoTipoPersona" ColumnName="EstadoTipoPersona" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="NombreTipoPersona" ColumnName="NombreTipoPersona" />
+                <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Almacen">
             <EntityTypeMapping TypeName="BDVentasModel.Almacen">
               <MappingFragment StoreEntitySet="Almacen">
@@ -461,6 +589,23 @@
                 <ScalarProperty Name="DireccionAlmacen" ColumnName="DireccionAlmacen" />
                 <ScalarProperty Name="NombreAlmacen" ColumnName="NombreAlmacen" />
                 <ScalarProperty Name="IdAlmacen" ColumnName="IdAlmacen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="BDVentasModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="EstadoEliminacion" ColumnName="EstadoEliminacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="NumeroContactoCliente" ColumnName="NumeroContactoCliente" />
+                <ScalarProperty Name="DireccionCliente" ColumnName="DireccionCliente" />
+                <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+                <ScalarProperty Name="NroDocumentoCliente" ColumnName="NroDocumentoCliente" />
+                <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -515,17 +660,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TipoTienda">
-            <EntityTypeMapping TypeName="BDVentasModel.TipoTienda">
-              <MappingFragment StoreEntitySet="TipoTienda">
+          <EntitySetMapping Name="Proveedor">
+            <EntityTypeMapping TypeName="BDVentasModel.Proveedor">
+              <MappingFragment StoreEntitySet="Proveedor">
                 <ScalarProperty Name="EstadoEliminacion" ColumnName="EstadoEliminacion" />
-                <ScalarProperty Name="EstadoTipoTienda" ColumnName="EstadoTipoTienda" />
+                <ScalarProperty Name="EstadoProveedor" ColumnName="EstadoProveedor" />
                 <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
                 <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
                 <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
                 <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
-                <ScalarProperty Name="NombreTipoTienda" ColumnName="NombreTipoTienda" />
-                <ScalarProperty Name="IdTipoTienda" ColumnName="IdTipoTienda" />
+                <ScalarProperty Name="NumeroContactoProveedor" ColumnName="NumeroContactoProveedor" />
+                <ScalarProperty Name="NombreContactoProveedor" ColumnName="NombreContactoProveedor" />
+                <ScalarProperty Name="DireccionProveedor" ColumnName="DireccionProveedor" />
+                <ScalarProperty Name="NombreProveedor" ColumnName="NombreProveedor" />
+                <ScalarProperty Name="NroDocumentoProveedor" ColumnName="NroDocumentoProveedor" />
+                <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
