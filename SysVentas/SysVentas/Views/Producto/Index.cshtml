@@ -22,10 +22,10 @@
         <div class="panel panel-grey">
             <div class="panel-heading" id="newbotton">
                 <div class="col-sm-6 col-md-8">Listado de Productos</div>
-                <div class="col-sm-3 col-md-2">
+                @*<div class="col-sm-3 col-md-2">
                     <a href="#" role="button" onclick="abrirFiltros();" data-target="" class="btn btn-info btn-sm btn-block">Filtro</a>
-                </div>
-                <div class="col-sm-3 col-md-2">
+                </div>*@
+                <div class="col-sm-4 col-md-4">
                     <button type="button" class="btn btn-danger btn-sm btn-block" data-toggle="modal" href="#modalNuevoProducto">
                         Nuevo
                     </button>
@@ -33,6 +33,23 @@
 
             </div>
             <div class="panel-body">
+
+                <div class="form-group row" style="margin-left:0px; margin-right:0px;">
+                    <input id="NombreProductoFiltro" name="NombreProductoFiltro" type="text" placeholder="Buscar Productos" class="busqueda col-md-4 col-sm-4" />
+
+                    <div class="radio-container radio-edit">
+                        <input type="radio" name="estado" id="todos" checked value="2" />
+                        <label for="todos">Todos los Estados</label>
+                        <input type="radio" name="estado" id="activos" value="1" />
+                        <label for="activos">Estado Activado</label>
+                        <input type="radio" name="estado" id="inactivos" value="0" />
+                        <label for="inactivos">Estado Desactivado</label>
+                    </div>
+                    <button type="button" onclick="cargarTablaLinea()" class="btn btn-primary botonbusqueda">
+                        Buscar Producto
+                    </button>
+                </div>
+
                 <table id="tbProducto" class="table table-hover table-bordered">
                     <thead>
                         <tr>
@@ -280,3 +297,61 @@
 </div>
 
 <script src="~/Content/script/Page/Producto.js"></script>
+
+
+<style>
+    /*Radio Buttons*/
+    .radio-container {
+        font-size: 20px;
+        padding: 8px;
+    }
+
+    input[type="radio"] {
+        display: none;
+    }
+
+    label {
+        color: #808080;
+        background: rgba(0,0,0,.1);
+        padding: 5px 15px 5px 36px;
+        display: inline-block;
+        position: relative;
+        font-size: 12px;
+        border-radius: 3px;
+        cursor: pointer;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+
+        label:hover {
+            background: rgba(0,116,217, 0.2);
+        }
+
+        label:before {
+            content: "";
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            background: none;
+            border: 3px solid #808080;
+            border-radius: 50%;
+            position: absolute;
+            left: 12px;
+            top: 8px;
+        }
+
+    input[type="radio"]:checked + label {
+        padding: 5px 15px;
+        background: #808080;
+        border-radius: 2px;
+        color: #fff;
+    }
+
+        input[type="radio"]:checked + label:before {
+            display: none;
+        }
+
+    /*Radio Buttons*/
+</style>

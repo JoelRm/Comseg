@@ -226,8 +226,8 @@ namespace Datos.Clases
                     oImpuesto.NombreImpuesto = objImpuestoCls.NombreImpuesto;
                     oImpuesto.ValorImpuesto = Decimal.Parse(objImpuestoCls.ValorImpuestoJS);
 
-                    objImpuestoCls.FechaModificacion = DateTime.Now;
-                    objImpuestoCls.UsuarioModificacion = "Admin";
+                    oImpuesto.FechaModificacion = DateTime.Now;
+                    oImpuesto.UsuarioModificacion = "Admin";
                     db.SaveChanges();
                     cdgoRpt = 1;
                 }

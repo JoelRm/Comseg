@@ -1,0 +1,243 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+    <div class="page-header pull-left">
+        <div class="page-title">
+            Almacén
+        </div>
+    </div>
+    <ol class="breadcrumb page-breadcrumb pull-right">
+        <li><i class="fa fa-home"></i>&nbsp;<a href="dashboard.html">Inicio</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li class="hidden"><a href="#">Linea</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li class="active">Almacén</li>
+    </ol>
+    <div class="clearfix">
+    </div>
+</div>
+<div class="page-content">
+    <div class="nav nav-tabs responsive">
+        <div class="panel panel-grey">
+            <div class="panel-heading" id="newbotton">
+                <div class="col-sm-8 col-md-8">Listado de Almacén</div>
+                <div class="col-sm-4 col-md-4">
+                    <button type="button" class="btn btn-danger btn-sm btn-block" data-toggle="modal" data-target="#modal-nuevo">
+                        Nuevo
+                    </button>
+                </div>
+
+            </div>
+            <div class="panel-body">
+
+                <div class="form-group row" style="margin-left:0px; margin-right:0px;">
+                    <input id="NombreAlmacenFiltro" name="NombreAlmacenFiltro" type="text" placeholder="Buscar Almacenes" class="busqueda col-md-4 col-sm-4" />
+
+                    <div class="radio-container radio-edit">
+                        <input type="radio" name="estado" id="todos" checked value="2" />
+                        <label id="label" for="todos">Todos los Estados</label>
+                        <input type="radio" name="estado" id="activos" value="1" />
+                        <label id="label" for="activos">Estado Activado</label>
+                        <input type="radio" name="estado" id="inactivos" value="0" />
+                        <label id="label" for="inactivos">Estado Desactivado</label>
+                    </div>
+                    <button type="button" onclick="cargarTablaAlmacen()" class="btn btn-primary botonbusqueda">
+                        Buscar Almacén
+                    </button>
+                </div>
+
+
+                <table id="tbAlmacen" class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre Sucursal</th>
+                            <th>Nombre Almacén</th>
+                            <th>Fecha Creación</th>
+                            <th>Usuario</th>
+                            <th>Estado</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bodytbAlmacen">
+                        <tr>
+                            <td colspan="7">Seleccione filtros para realizar una búsqueda</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Inicio Modal Nueva Linea-->
+    <div id="modal-nuevo" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+                        &times;
+                    </button>
+                    <h4 class="modal-title">
+                        Nuevo Almacén
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-body pal">
+                        <div class="form-group">
+                            <input id="NombreAlmacen" name="NombreAlmacen" type="text" placeholder="Ingrese Nombre Almacén" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input id="DireccionAlmacen" name="DireccionAlmacen" type="text" placeholder="Ingrese Dirección Almacén" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input id="idSucursal" type="hidden" class="form-control" />
+                            <input id="nombreSucursal" type="hidden" class="form-control" />
+                            <input onkeyup="buscarSucursal(event)" id="sucursalNuevo" type="text" placeholder="Ingrese Nombre Sucursal" class="form-control" autocomplete="off" />
+                            <div class="divPredictivo" id="divPredictivoSucursal">
+                                <div class="divPredictivob">
+                                    <div class="divPredictivoa">
+                                        <ul class="ulPredictivo" role="listbox" id="ulPredictivoSucursalJRM"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox" style="padding-left:20px;">
+                                <label>
+                                    <input tabindex="5" type="checkbox" id="IsPrincipal" value="S" />&nbsp; ¿Es almacén principal?</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="CerrarPopUpLinea" data-dismiss="modal" class="btn btn-danger">
+                        Cancelar
+                    </button>
+                    <button type="button" onclick="agregarAlmacen()" class="btn btn-primary">
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Fin Modal Nueva Linea-->
+   
+    <!--Inicio Modal Editar-->
+    <div id="modalEditar" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+                        &times;
+                    </button>
+                    <h4 class="modal-title">
+                        Editar Almacén
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-body pal">
+                        <div class="form-group">
+                            <input id="idAlmacenEditar" type="hidden" class="form-control" />
+                            <input id="NombreAlmacenEditar" name="NombreAlmacenEditar" type="text" placeholder="Ingrese Nombre Almacén" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input id="DireccionAlmacenEditar" name="DireccionAlmacenEditar" type="text" placeholder="Ingrese Dirección Almacén" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input id="idSucursalEditar" type="hidden" class="form-control" />
+                            <input id="nombreSucursalEditar" type="hidden" class="form-control" />
+                            <input onkeyup="buscarSucursal(event)" id="sucursalEditar" type="text" placeholder="Ingrese Nombre Sucursal" class="form-control" autocomplete="off" />
+                            <div class="divPredictivo" id="divPredictivoSucursal">
+                                <div class="divPredictivob">
+                                    <div class="divPredictivoa">
+                                        <ul class="ulPredictivo" role="listbox" id="ulPredictivoSucursalEditarJRM"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox" style="padding-left:20px;">
+                                <label>
+                                    <input tabindex="5" type="checkbox" id="IsPrincipalEditar" value="S" />&nbsp; ¿Es almacén principal?
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="CerrarPopUpLinea" data-dismiss="modal" class="btn btn-danger">
+                        Cancelar
+                    </button>
+                    <button type="button" onclick="editarAlmacen()" class="btn btn-primary">
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Fin Modal Editar-->
+
+</div>
+
+<script src="~/Content/script/Page/Almacen.js"></script>
+
+<style>
+    /*Radio Buttons*/
+    .radio-container {
+        font-size: 20px;
+        padding: 8px;
+    }
+
+    input[type="radio"] {
+        display: none;
+    }
+
+    #label {
+        color: #808080;
+        background: rgba(0,0,0,.1);
+        padding: 5px 15px 5px 36px;
+        display: inline-block;
+        position: relative;
+        font-size: 12px;
+        border-radius: 3px;
+        cursor: pointer;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+
+        #label:hover {
+            background: rgba(0,116,217, 0.2);
+        }
+
+        #label:before {
+            content: "";
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            background: none;
+            border: 3px solid #808080;
+            border-radius: 50%;
+            position: absolute;
+            left: 12px;
+            top: 8px;
+        }
+
+    input[type="radio"]:checked + #label {
+        padding: 5px 15px;
+        background: #808080;
+        border-radius: 2px;
+        color: #fff;
+    }
+
+        input[type="radio"]:checked + #label:before {
+            display: none;
+        }
+
+    /*Radio Buttons*/
+</style>
+

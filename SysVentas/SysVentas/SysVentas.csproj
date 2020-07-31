@@ -224,6 +224,7 @@
     <Content Include="Content\script\main.js" />
     <Content Include="Content\script\modernizr.min.js" />
     <Content Include="Content\script\pace.min.js" />
+    <Content Include="Content\script\Page\Almacen.js" />
     <Content Include="Content\script\Page\Impuesto.js" />
     <Content Include="Content\script\Page\Linea.js" />
     <Content Include="Content\script\Page\Marca.js" />
@@ -473,6 +474,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Code\HtmlHelper.cs" />
+    <Compile Include="Controllers\AlmacenController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\ImpuestoController.cs" />
     <Compile Include="Controllers\LineaController.cs" />
@@ -520,6 +522,7 @@
     <Content Include="Views\Producto\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\TipoPersona\Index.cshtml" />
+    <Content Include="Views\Almacen\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

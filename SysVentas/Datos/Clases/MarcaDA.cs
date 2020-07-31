@@ -216,10 +216,10 @@ namespace Datos.Clases
             {
                 using (var db = new BDVentasEntities())
                 {
-                    Marca oLinea = db.Marca.Where(p => p.IdMarca.Equals(objMarcaCls.IdMarca)).First();
-                    oLinea.NombreMarca = objMarcaCls.NombreMarca;
-                    objMarcaCls.FechaModificacion = DateTime.Now;
-                    objMarcaCls.UsuarioModificacion = "Admin";
+                    Marca oMarca = db.Marca.Where(p => p.IdMarca.Equals(objMarcaCls.IdMarca)).First();
+                    oMarca.NombreMarca = objMarcaCls.NombreMarca;
+                    oMarca.FechaModificacion = DateTime.Now;
+                    oMarca.UsuarioModificacion = "Admin";
                     db.SaveChanges();
                     cdgoRpt = 1;
                 }

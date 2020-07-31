@@ -41,7 +41,7 @@ namespace SysVentas.Controllers
         [HttpPost]
         public JsonResult ListarAlmacenes(FiltroCLS flt)
         {
-            var lsAlmacen = objAlmacen.ListarUnidadesPorFiltroProductoUnd(flt);
+            var lsAlmacen = objAlmacen.ListarAlmacenPorFiltroProductoAlm(flt);
             return Json(new { lsAlmacen, JsonRequestBehavior.AllowGet });
         }
 

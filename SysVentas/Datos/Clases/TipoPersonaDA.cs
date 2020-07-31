@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Datos.Modelos;
 using Entidad;
 
@@ -220,10 +218,10 @@ namespace Datos.Clases
             {
                 using (var db = new BDVentasEntities())
                 {
-                    TipoPersona oLinea = db.TipoPersona.Where(p => p.IdTipoPersona.Equals(objTipoPersonaCls.IdTipoPersona)).First();
-                    oLinea.NombreTipoPersona = objTipoPersonaCls.NombreTipoPersona;
-                    objTipoPersonaCls.FechaModificacion = DateTime.Now;
-                    objTipoPersonaCls.UsuarioModificacion = "Admin";
+                    TipoPersona oTipoPersona = db.TipoPersona.Where(p => p.IdTipoPersona.Equals(objTipoPersonaCls.IdTipoPersona)).First();
+                    oTipoPersona.NombreTipoPersona = objTipoPersonaCls.NombreTipoPersona;
+                    oTipoPersona.FechaModificacion = DateTime.Now;
+                    oTipoPersona.UsuarioModificacion = "Admin";
                     db.SaveChanges();
                     cdgoRpt = 1;
                 }

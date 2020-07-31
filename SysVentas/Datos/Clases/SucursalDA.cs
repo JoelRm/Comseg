@@ -224,8 +224,8 @@ namespace Datos.Clases
                     Sucursal oSucursal = db.Sucursal.Where(p => p.IdSucursal.Equals(objSucursalCls.IdSucursal)).First();
                     oSucursal.NombreSucursal = objSucursalCls.NombreSucursal;
                     oSucursal.IdTipoTienda = objSucursalCls.IdTipoTienda;
-                    objSucursalCls.FechaModificacion = DateTime.Now;
-                    objSucursalCls.UsuarioModificacion = "Admin";
+                    oSucursal.FechaModificacion = DateTime.Now;
+                    oSucursal.UsuarioModificacion = "Admin";
                     db.SaveChanges();
                     cdgoRpt = 1;
                 }
