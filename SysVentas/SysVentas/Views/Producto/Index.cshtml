@@ -171,17 +171,24 @@
                                             <th>Sucursal</th>
                                             <th>Almacén</th>
                                             <th>Estado</th>
+                                            <th>Quitar</th>
+                                            <th style="display:none">IdAlmacen</th>
                                         </tr>
                                     </thead>
                                     <tbody id="bodytbProductoAlmacen">
                                         <tr>
-                                            <td colspan="7">Seleccione filtros para realizar una búsqueda</td>
+                                            <td colspan="5">Agregue Almacenes</td>
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                            <div id="tab-prov" class="tab-pane fade in">
-
+                                <div class="row mbl">
+                                    <div class="col-lg-6">
+                                        <a onclick="abrirListaAlmacenes();" href="#" class="btn btn-success btn-sm mlm mrm">
+                                            <i class="fa fa-plus"></i>&nbsp;
+                                            Agregar Almacenes
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -200,7 +207,7 @@
 </div>
 <!--Fin Modal Nuevo Producto-->
 
-<div id="ModalAgregarNombre" class="modal fade" style="top:15%; left:20%">
+<div id="modalUnidades" class="modal fade" style="top:15%; left:20%">
     <div class="modal-dialog">
         <div class="modal-content" style="width:50%;">
             <div class="modal-header">
@@ -229,6 +236,42 @@
             </div>
             <div class="modal-footer">
                 <button type="button" onclick="agregarProductoUnidad()" class="btn btn-success">
+                    Agregar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalAlmacenes" class="modal fade" style="top:15%; left:20%">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:50%;">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    Lista Unidades
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div style="height:250px; overflow-y: scroll;">
+                    <table id="tbAlmacen" class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Sucursal</th>
+                                <th>Nombre Almacen</th>
+                                <th style="display:none">Id</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bodytbAlmacen">
+                            @*<tr>
+                                    <td colspan="3">Cargando..</td>
+                                </tr>*@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="agregarProductoAlmacen()" class="btn btn-success">
                     Agregar
                 </button>
             </div>

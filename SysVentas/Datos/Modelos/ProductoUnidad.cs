@@ -12,16 +12,17 @@ namespace Datos.Modelos
     using System;
     using System.Collections.Generic;
     
-    public partial class Unidad
+    public partial class ProductoUnidad
     {
+        public int IdProductoUnidad { get; set; }
+        public int IdProducto { get; set; }
         public int IdUnidad { get; set; }
-        public string NombreUnidad { get; set; }
-        public int Factor { get; set; }
+        public bool IsUnidadBase { get; set; }
+        public bool IsUnidadVenta { get; set; }
         public System.DateTime FechaCreacion { get; set; }
         public string UsuarioCreacion { get; set; }
         public System.DateTime FechaModificacion { get; set; }
         public string UsuarioModificacion { get; set; }
-        public bool EstadoUnidad { get; set; }
-        public Nullable<bool> EstadoEliminacion { get; set; }
+        public bool Estado { get; set; }
     }
 }

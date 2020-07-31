@@ -12,16 +12,20 @@
     <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UsuarioModificacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="EstadoUnidad" Type="Boolean" Nullable="false" />
-    <Property Name="EstadoEliminacion" Type="Boolean" Nullable="false" />
+    <Property Name="EstadoEliminacion" Type="Boolean" />
   </EntityType>
   <EntityContainer Name="BDVentasEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Unidad" EntityType="Self.Unidad" />
     <EntitySet Name="Linea" EntityType="BDVentasModel.Linea" />
     <EntitySet Name="Marca" EntityType="BDVentasModel.Marca" />
     <EntitySet Name="Sucursal" EntityType="BDVentasModel.Sucursal" />
-    <EntitySet Name="TipoTienda" EntityType="BDVentasModel.TipoTienda" />
     <EntitySet Name="Impuesto" EntityType="BDVentasModel.Impuesto" />
     <EntitySet Name="Moneda" EntityType="BDVentasModel.Moneda" />
+    <EntitySet Name="Almacen" EntityType="BDVentasModel.Almacen" />
+    <EntitySet Name="Producto" EntityType="BDVentasModel.Producto" />
+    <EntitySet Name="ProductoAlmacen" EntityType="BDVentasModel.ProductoAlmacen" />
+    <EntitySet Name="ProductoUnidad" EntityType="BDVentasModel.ProductoUnidad" />
+    <EntitySet Name="TipoTienda" EntityType="BDVentasModel.TipoTienda" />
   </EntityContainer>
   <EntityType Name="Linea">
     <Key>
@@ -63,19 +67,6 @@
     <Property Name="EstadoSucursal" Type="Boolean" Nullable="false" />
     <Property Name="EstadoEliminacion" Type="Boolean" Nullable="false" />
   </EntityType>
-  <EntityType Name="TipoTienda">
-    <Key>
-      <PropertyRef Name="IdTipoTienda" />
-    </Key>
-    <Property Name="IdTipoTienda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="NombreTipoTienda" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="UsuarioModificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="EstadoTipoTienda" Type="Boolean" Nullable="false" />
-    <Property Name="EstadoEliminacion" Type="Boolean" Nullable="false" />
-  </EntityType>
   <EntityType Name="Impuesto">
     <Key>
       <PropertyRef Name="IdImpuesto" />
@@ -103,5 +94,82 @@
     <Property Name="UsuarioModificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="EstadoMoneda" Type="Boolean" Nullable="false" />
     <Property Name="EstadoEliminacion" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Almacen">
+    <Key>
+      <PropertyRef Name="IdAlmacen" />
+    </Key>
+    <Property Name="IdAlmacen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreAlmacen" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DireccionAlmacen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IdSucursal" Type="Int32" Nullable="false" />
+    <Property Name="IsPrincipal" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UsuarioModificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EstadoAlmacen" Type="Boolean" Nullable="false" />
+    <Property Name="EstadoEliminacion" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoProducto" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="NombreProducto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IdLinea" Type="Int32" Nullable="false" />
+    <Property Name="IdMarca" Type="Int32" Nullable="false" />
+    <Property Name="IdImpuesto" Type="Int32" Nullable="false" />
+    <Property Name="IdMoneda" Type="Int32" Nullable="false" />
+    <Property Name="IdProveedor" Type="Int32" Nullable="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UsuarioModificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EstadoProducto" Type="Boolean" Nullable="false" />
+    <Property Name="EstadoEliminacion" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductoAlmacen">
+    <Key>
+      <PropertyRef Name="IdProductoAlmacen" />
+    </Key>
+    <Property Name="IdProductoAlmacen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdProducto" Type="Int32" Nullable="false" />
+    <Property Name="IdAlmacen" Type="Int32" Nullable="false" />
+    <Property Name="IsActivo" Type="Boolean" Nullable="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UsuarioModificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductoUnidad">
+    <Key>
+      <PropertyRef Name="IdProductoUnidad" />
+    </Key>
+    <Property Name="IdProductoUnidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdProducto" Type="Int32" Nullable="false" />
+    <Property Name="IdUnidad" Type="Int32" Nullable="false" />
+    <Property Name="IsUnidadBase" Type="Boolean" Nullable="false" />
+    <Property Name="IsUnidadVenta" Type="Boolean" Nullable="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UsuarioModificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoTienda">
+    <Key>
+      <PropertyRef Name="IdTipoTienda" />
+    </Key>
+    <Property Name="IdTipoTienda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreTipoTienda" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UsuarioModificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EstadoTipoTienda" Type="Boolean" Nullable="false" />
+    <Property Name="EstadoEliminacion" Type="Boolean" />
   </EntityType>
 </Schema>
