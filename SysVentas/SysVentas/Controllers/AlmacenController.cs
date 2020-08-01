@@ -56,5 +56,12 @@ namespace SysVentas.Controllers
             return Json(new { Code = codigoRpt, JsonRequestBehavior.AllowGet });
         }
 
+        [HttpPost]
+        public JsonResult EditarAlmacen(AlmacenCLS alm)
+        {
+            int codigoRpt = objAlmacen.EditarAlmacen(alm);
+            return Json(new { Code = codigoRpt, JsonRequestBehavior.AllowGet });
+        }
+
     }
 }

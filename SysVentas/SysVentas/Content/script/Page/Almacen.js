@@ -92,7 +92,7 @@ function agregarAlmacen() {
         var alm = {};
         alm.NombreAlmacen = $("#NombreAlmacen").val();
         alm.DireccionAlmacen = $("#DireccionAlmacen").val();
-        alm.IdSucusal = $("#idSucursal").val();
+        alm.IdSucursal = $("#idSucursal").val();
 
         var isChecked = document.getElementById('IsPrincipal').checked;
         if (isChecked) {
@@ -185,9 +185,9 @@ function obtenerAlmacen(idAlmacen) {
             $("#idAlmacenEditar").val(response.almacenCLS.IdAlmacen);
 
             if (response.almacenCLS.IsPrincipal == 'S') {
-                $('.IsPrincipalEditar').prop('checked', true);
+                document.getElementById('IsPrincipalEditar').checked = true;
             } else {
-                $('.IsPrincipalEditar').prop('checked', false);
+                document.getElementById('IsPrincipalEditar').checked = false;
             }
             
 
@@ -254,4 +254,69 @@ function eliminarAlmacen(idAlmacen) {
             ocultarLoader();
         }
     });
+};
+
+function validarAlmacenEditar() {
+
+    var NombreAlmacen = $("#NombreAlmacenEditar").val();
+    var DireccionAlmacen = $("#DireccionAlmacenEditar").val();
+    var idSucursal = $("#idSucursalEditar").val();
+
+    if (NombreAlmacen == '') {
+        toastr.error('Se requiere del campo Nombre Almacén', 'Error');
+        return false;
+    }
+    if (DireccionAlmacen == '') {
+        toastr.error('Se requiere del campo Dirección Almacén', 'Error');
+        return false;
+    }
+    if (idSucursal == '') {
+        toastr.error('Se requiere del campo Id Sucursal', 'Error');
+        return false;
+    }
+
+    return true;
+};
+
+function editarAlmacen() {
+    mostrarLoader();
+    if (validarAlmacenEditar()) {
+        var alm = {};
+        alm.IdAlmacen = $("#idAlmacenEditar").val();
+        alm.NombreAlmacen = $("#NombreAlmacenEditar").val();
+        alm.DireccionAlmacen = $("#DireccionAlmacenEditar").val();
+        alm.IdSucursal = $("#idSucursalEditar").val();
+
+        var isChecked = document.getElementById('IsPrincipalEditar').checked;
+        if (isChecked) {
+            alm.IsPrincipal = "S";
+        } else {
+            alm.IsPrincipal = "N";
+        }
+        
+        $.ajax({
+            type: "POST",
+            url: "/Almacen/EditarAlmacen",
+            data: '{alm: ' + JSON.stringify(alm) + '}',
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
+                if (response.Code == 1) {
+                    toastr.success('Se realizaron los cambios con éxito', 'Éxito');
+                    cargarTablaAlmacen();
+                    $('#modalEditar').modal('hide');
+                    ocultarLoader();
+                }
+                else {
+                    toastr.error('Error al agregar los datos', 'Error');
+                    ocultarLoader();
+                }
+            },
+            error: function () {
+                toastr.error('Ocurrió un error, vuelve a intentar', 'Error');
+                ocultarLoader();
+            }
+        });
+    }
+    ocultarLoader();
 };
