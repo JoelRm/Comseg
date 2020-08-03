@@ -13,6 +13,7 @@
         <EntityTypeShape EntityType="BDVentasModel.Impuesto" Width="1.5" PointX="5.375" PointY="4.75" />
         <EntityTypeShape EntityType="BDVentasModel.Moneda" Width="1.5" PointX="7.375" PointY="0.75" />
         <EntityTypeShape EntityType="BDVentasModel.TipoPersona" Width="2.125" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="BDVentasModel.Cliente" Width="1.5" PointX="0.75" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

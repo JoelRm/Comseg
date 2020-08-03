@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClienteNE.cs" />
     <Compile Include="ImpuestoNE.cs" />
     <Compile Include="LineaNE.cs" />
     <Compile Include="MarcaNE.cs" />

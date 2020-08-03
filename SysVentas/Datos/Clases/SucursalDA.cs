@@ -14,18 +14,21 @@ namespace Datos.Clases
             using (var db = new BDVentasEntities())
             {
                 listaSucursales = (from scl in db.Sucursal
-                                 where scl.EstadoEliminacion == false
-                                 select new SucursalCLS
-                                 {
-                                     IdSucursal = scl.IdSucursal,
-                                     NombreSucursal = scl.NombreSucursal,
-                                     IdTipoTienda = scl.IdTipoTienda,
-                                     FechaCreacion = scl.FechaCreacion,
-                                     UsuarioCreacion = scl.UsuarioCreacion,
-                                     FechaModificacion = scl.FechaModificacion,
-                                     UsuarioModificacion = scl.UsuarioModificacion,
-                                     EstadoSucursal = scl.EstadoSucursal,
-                                     FechaCreacionJS = scl.FechaCreacion.ToString()
+                                   join TipoT in db.TipoTienda on scl.IdTipoTienda equals TipoT.IdTipoTienda
+                                   where scl.EstadoEliminacion == false
+                                   select new SucursalCLS
+                                   {
+                                       IdSucursal = scl.IdSucursal,
+                                       NombreSucursal = scl.NombreSucursal,
+                                       IdTipoTienda = scl.IdTipoTienda,
+                                       FechaCreacion = scl.FechaCreacion,
+                                       UsuarioCreacion = scl.UsuarioCreacion,
+                                       FechaModificacion = scl.FechaModificacion,
+                                       UsuarioModificacion = scl.UsuarioModificacion,
+                                       EstadoSucursal = scl.EstadoSucursal,
+                                       FechaCreacionJS = scl.FechaCreacion.ToString(),
+                                       NombreTipoTienda = TipoT.NombreTipoTienda.ToString()
+                                     
                                  }).ToList();
 
                 return listaSucursales;
@@ -145,7 +148,8 @@ namespace Datos.Clases
                     if (objFiltro.Estado == 2)
                     {
                         listaSucursales = (from scl in db.Sucursal
-                                         where scl.EstadoEliminacion == false && scl.NombreSucursal.Contains(objFiltro.Nombre)
+                                           join TipoT in db.TipoTienda on scl.IdTipoTienda equals TipoT.IdTipoTienda
+                                           where scl.EstadoEliminacion == false && scl.NombreSucursal.Contains(objFiltro.Nombre)
                                          select new SucursalCLS
                                          {
                                              IdSucursal = scl.IdSucursal,
@@ -156,13 +160,15 @@ namespace Datos.Clases
                                              FechaModificacion = scl.FechaModificacion,
                                              UsuarioModificacion = scl.UsuarioModificacion,
                                              EstadoSucursal = scl.EstadoSucursal,
-                                             FechaCreacionJS = scl.FechaCreacion.ToString()
+                                             FechaCreacionJS = scl.FechaCreacion.ToString(),
+                                             NombreTipoTienda = TipoT.NombreTipoTienda
                                          }).ToList();
                     }
                     else
                     {
                         listaSucursales = (from scl in db.Sucursal
-                                         where scl.EstadoEliminacion == false && scl.EstadoSucursal == estado && scl.NombreSucursal.Contains(objFiltro.Nombre) && scl.EstadoSucursal == estado
+                                           join TipoT in db.TipoTienda on scl.IdTipoTienda equals TipoT.IdTipoTienda
+                                           where scl.EstadoEliminacion == false && scl.EstadoSucursal == estado && scl.NombreSucursal.Contains(objFiltro.Nombre) && scl.EstadoSucursal == estado
                                          select new SucursalCLS
                                          {
                                              IdSucursal = scl.IdSucursal,
@@ -173,7 +179,8 @@ namespace Datos.Clases
                                              FechaModificacion = scl.FechaModificacion,
                                              UsuarioModificacion = scl.UsuarioModificacion,
                                              EstadoSucursal = scl.EstadoSucursal,
-                                             FechaCreacionJS = scl.FechaCreacion.ToString()
+                                             FechaCreacionJS = scl.FechaCreacion.ToString(),
+                                             NombreTipoTienda = TipoT.NombreTipoTienda
                                          }).ToList();
                     }
                 }

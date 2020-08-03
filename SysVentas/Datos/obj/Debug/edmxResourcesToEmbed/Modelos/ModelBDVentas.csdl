@@ -23,6 +23,7 @@
     <EntitySet Name="Impuesto" EntityType="BDVentasModel.Impuesto" />
     <EntitySet Name="Moneda" EntityType="BDVentasModel.Moneda" />
     <EntitySet Name="TipoPersona" EntityType="BDVentasModel.TipoPersona" />
+    <EntitySet Name="Cliente" EntityType="BDVentasModel.Cliente" />
   </EntityContainer>
   <EntityType Name="Linea">
     <Key>
@@ -116,6 +117,23 @@
     <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UsuarioModificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="EstadoTipoPersona" Type="Boolean" Nullable="false" />
+    <Property Name="EstadoEliminacion" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdTipoPersona" Type="Int32" Nullable="false" />
+    <Property Name="NroDocumentoCliente" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="NombreCliente" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DireccionCliente" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroContactoCliente" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UsuarioModificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EstadoCliente" Type="Boolean" Nullable="false" />
     <Property Name="EstadoEliminacion" Type="Boolean" Nullable="false" />
   </EntityType>
 </Schema>

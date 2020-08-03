@@ -1,5 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="BDVentasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdTipoPersona" Type="int" Nullable="false" />
+    <Property Name="NroDocumentoCliente" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="NombreCliente" Type="varchar(max)" Nullable="false" />
+    <Property Name="DireccionCliente" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NumeroContactoCliente" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+    <Property Name="UsuarioCreacion" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="UsuarioModificacion" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="EstadoCliente" Type="bit" Nullable="false" />
+    <Property Name="EstadoEliminacion" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="Impuesto">
     <Key>
       <PropertyRef Name="IdImpuesto" />
@@ -109,6 +126,7 @@
     <Property Name="EstadoEliminacion" Type="bit" Nullable="false" />
   </EntityType>
   <EntityContainer Name="BDVentasModelStoreContainer">
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Impuesto" EntityType="Self.Impuesto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Linea" EntityType="Self.Linea" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Marca" EntityType="Self.Marca" Schema="dbo" store:Type="Tables" />
