@@ -55,6 +55,7 @@
     <Compile Include="Clases\LineaDA.cs" />
     <Compile Include="Clases\MarcaDA.cs" />
     <Compile Include="Clases\MonedaDA.cs" />
+    <Compile Include="Clases\ProveedorDA.cs" />
     <Compile Include="Clases\SucursalDA.cs" />
     <Compile Include="Clases\TipoPersonaDA.cs" />
     <Compile Include="Clases\TipoTiendaDA.cs" />

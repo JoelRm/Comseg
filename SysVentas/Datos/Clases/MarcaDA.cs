@@ -230,9 +230,6 @@ namespace Datos.Clases
             }
             return cdgoRpt;
         }
-
-
-
-
+        
     }
 }

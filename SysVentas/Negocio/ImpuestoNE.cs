@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-
 using Datos.Clases;
 using Entidad;
+
 namespace Negocio
 {
     public class ImpuestoNE

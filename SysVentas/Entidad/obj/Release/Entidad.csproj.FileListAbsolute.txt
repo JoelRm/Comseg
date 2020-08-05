@@ -1,6 +1,0 @@
-C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Entidad\bin\Release\Entidad.dll
-C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Entidad\bin\Release\Entidad.pdb
-C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Entidad\obj\Release\Entidad.csprojAssemblyReference.cache
-C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Entidad\obj\Release\Entidad.csproj.CoreCompileInputs.cache
-C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Entidad\obj\Release\Entidad.dll
-C:\Users\tienda\Desktop\Pry\Comseg\SysVentas\Entidad\obj\Release\Entidad.pdb

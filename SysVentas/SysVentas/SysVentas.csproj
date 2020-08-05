@@ -230,6 +230,7 @@
     <Content Include="Content\script\Page\Marca.js" />
     <Content Include="Content\script\Page\Moneda.js" />
     <Content Include="Content\script\Page\Producto.js" />
+    <Content Include="Content\script\Page\Proveedor.js" />
     <Content Include="Content\script\Page\Sucursal.js" />
     <Content Include="Content\script\Page\TipoPersona.js" />
     <Content Include="Content\script\Page\TipoTienda.js" />
@@ -482,6 +483,7 @@
     <Compile Include="Controllers\MarcaController.cs" />
     <Compile Include="Controllers\MonedaController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
+    <Compile Include="Controllers\ProveedorController.cs" />
     <Compile Include="Controllers\SucursalController.cs" />
     <Compile Include="Controllers\TipoPersonaController.cs" />
     <Compile Include="Controllers\TipoTiendaController.cs" />
@@ -523,6 +525,8 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\TipoPersona\Index.cshtml" />
     <Content Include="Views\Almacen\Index.cshtml" />
+    <Content Include="Views\Proveedor\Index.cshtml" />
+    <Content Include="Views\Proveedor\_ModalNuevoProveedor.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

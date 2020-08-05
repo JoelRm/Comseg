@@ -16,7 +16,7 @@ namespace Datos.Clases
             using (var db = new BDVentasEntities())
             {
                 listaTipoPersona = (from per in db.TipoPersona
-                                   where per.EstadoEliminacion == false
+                                   where per.EstadoEliminacion == false && per.EstadoTipoPersona == true
                                    select new TipoPersonaCLS
                                    {
                                        IdTipoPersona = per.IdTipoPersona,
