@@ -15,15 +15,16 @@ namespace Datos.Modelos
     public partial class Cliente
     {
         public int IdCliente { get; set; }
-        public Nullable<int> IdTipoPersona { get; set; }
+        public int IdTipoPersona { get; set; }
         public string NroDocumentoCliente { get; set; }
         public string NombreCliente { get; set; }
         public string DireccionCliente { get; set; }
         public string NumeroContactoCliente { get; set; }
-        public Nullable<System.DateTime> FechaCreacion { get; set; }
+        public System.DateTime FechaCreacion { get; set; }
         public string UsuarioCreacion { get; set; }
-        public Nullable<System.DateTime> FechaModificacion { get; set; }
+        public System.DateTime FechaModificacion { get; set; }
         public string UsuarioModificacion { get; set; }
-        public Nullable<bool> EstadoEliminacion { get; set; }
+        public bool EstadoCliente { get; set; }
+        public bool EstadoEliminacion { get; set; }
     }
 }

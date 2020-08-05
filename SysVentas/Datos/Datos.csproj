@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\AlmacenDA.cs" />
+    <Compile Include="Clases\ClienteDA.cs" />
     <Compile Include="Clases\ImpuestoDA.cs" />
     <Compile Include="Clases\LineaDA.cs" />
     <Compile Include="Clases\MarcaDA.cs" />
