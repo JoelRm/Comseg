@@ -12,16 +12,18 @@ namespace Datos.Modelos
     using System;
     using System.Collections.Generic;
     
-    public partial class Unidad
+    public partial class Cliente
     {
-        public int IdUnidad { get; set; }
-        public string NombreUnidad { get; set; }
-        public int Factor { get; set; }
-        public System.DateTime FechaCreacion { get; set; }
+        public int IdCliente { get; set; }
+        public Nullable<int> IdTipoPersona { get; set; }
+        public string NroDocumentoCliente { get; set; }
+        public string NombreCliente { get; set; }
+        public string DireccionCliente { get; set; }
+        public string NumeroContactoCliente { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
         public string UsuarioCreacion { get; set; }
-        public System.DateTime FechaModificacion { get; set; }
+        public Nullable<System.DateTime> FechaModificacion { get; set; }
         public string UsuarioModificacion { get; set; }
-        public bool EstadoUnidad { get; set; }
         public Nullable<bool> EstadoEliminacion { get; set; }
     }
 }

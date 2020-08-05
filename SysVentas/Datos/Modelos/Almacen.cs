@@ -12,16 +12,18 @@ namespace Datos.Modelos
     using System;
     using System.Collections.Generic;
     
-    public partial class Unidad
+    public partial class Almacen
     {
-        public int IdUnidad { get; set; }
-        public string NombreUnidad { get; set; }
-        public int Factor { get; set; }
+        public int IdAlmacen { get; set; }
+        public string NombreAlmacen { get; set; }
+        public string DireccionAlmacen { get; set; }
+        public int IdSucursal { get; set; }
+        public string IsPrincipal { get; set; }
         public System.DateTime FechaCreacion { get; set; }
         public string UsuarioCreacion { get; set; }
         public System.DateTime FechaModificacion { get; set; }
         public string UsuarioModificacion { get; set; }
-        public bool EstadoUnidad { get; set; }
-        public Nullable<bool> EstadoEliminacion { get; set; }
+        public bool EstadoAlmacen { get; set; }
+        public bool EstadoEliminacion { get; set; }
     }
 }

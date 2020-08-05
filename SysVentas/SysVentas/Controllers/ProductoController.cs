@@ -9,6 +9,8 @@ namespace SysVentas.Controllers
         LineaNE objLinea = new LineaNE();
         MarcaNE objMarca = new MarcaNE();
         UnidadNE objUnidad = new UnidadNE();
+        AlmacenNE objAlmacen = new AlmacenNE();
+
         // GET: Producto
         public ActionResult Index()
         {
@@ -35,5 +37,14 @@ namespace SysVentas.Controllers
             var lsUnidades = objUnidad.ListarUnidadesPorFiltroProductoUnd(flt);
             return Json(new { lsUnidades, JsonRequestBehavior.AllowGet });
         }
+
+        [HttpPost]
+        public JsonResult ListarAlmacenes(FiltroCLS flt)
+        {
+            var lsAlmacen = objAlmacen.ListarAlmacenPorFiltroProductoAlm(flt);
+            return Json(new { lsAlmacen, JsonRequestBehavior.AllowGet });
+        }
+
+        
     }
 }
