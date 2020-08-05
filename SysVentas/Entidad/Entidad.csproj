@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClienteCLS.cs" />
     <Compile Include="AlmacenCLS.cs" />
     <Compile Include="FiltroCLS.cs" />
     <Compile Include="ImpuestoCLS.cs" />
