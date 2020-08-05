@@ -50,15 +50,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\AlmacenDA.cs" />
     <Compile Include="Clases\ClienteDA.cs" />
     <Compile Include="Clases\ImpuestoDA.cs" />
     <Compile Include="Clases\LineaDA.cs" />
     <Compile Include="Clases\MarcaDA.cs" />
     <Compile Include="Clases\MonedaDA.cs" />
+    <Compile Include="Clases\ProveedorDA.cs" />
     <Compile Include="Clases\SucursalDA.cs" />
     <Compile Include="Clases\TipoPersonaDA.cs" />
     <Compile Include="Clases\TipoTiendaDA.cs" />
     <Compile Include="Clases\UnidadDA.cs" />
+    <Compile Include="Modelos\Almacen.cs">
+      <DependentUpon>ModelBDVentas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\Cliente.cs">
       <DependentUpon>ModelBDVentas.tt</DependentUpon>
     </Compile>
@@ -87,6 +92,18 @@
       <DependentUpon>ModelBDVentas.edmx</DependentUpon>
     </Compile>
     <Compile Include="Modelos\Moneda.cs">
+      <DependentUpon>ModelBDVentas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Producto.cs">
+      <DependentUpon>ModelBDVentas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\ProductoAlmacen.cs">
+      <DependentUpon>ModelBDVentas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\ProductoUnidad.cs">
+      <DependentUpon>ModelBDVentas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Proveedor.cs">
       <DependentUpon>ModelBDVentas.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\Sucursal.cs">

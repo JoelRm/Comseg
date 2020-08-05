@@ -9,7 +9,7 @@
 </head>
 <body>
 			<div class="login-fondo">
-				<form class="login text-center" action="/" method="post">
+				<form id="form" class="login text-center" action="/" method="post">
 					<img class="mb-4" src="~/Content/images/login/favicon2.png" alt="" width="220" height="72">
 					<h1 class="h3 mb-3 font-weight-normal">Inicio de sesión</h1>
 					<label for="email" class="sr-only">Usuario / Contraseña</label>
@@ -31,3 +31,31 @@
 		<script src="~/Scripts/jquery-3.0.0.min.js"></script>
 
 </body>
+
+<script>
+
+    $(document).ready(function () {
+        $("#form").on("submit", function (e) {
+            e.preventDefault()
+            var username = $("#email").val();
+            var password = $("#Password").val();
+            
+            alert('HOli');
+
+            location.href = "http://localhost:12065/dashboard";
+
+            //var userData = "username=" + username + "&password=" + password;
+            //console.log('test')
+            //$.ajax({
+            //    method: "post",
+            //    url: "register.php?",
+            //    data: userData,
+            //    success: function (backData) {
+            //        $("#registerOutput").html(backData);
+            //    }
+            //});
+        });
+
+    });
+
+</script>

@@ -219,8 +219,8 @@ namespace Datos.Clases
                     Moneda oMoneda = db.Moneda.Where(p => p.IdMoneda.Equals(objMonedaCls.IdMoneda)).First();
                     oMoneda.NombreMoneda = objMonedaCls.NombreMoneda;
                     oMoneda.SimboloMoneda = objMonedaCls.SimboloMoneda;
-                    objMonedaCls.FechaModificacion = DateTime.Now;
-                    objMonedaCls.UsuarioModificacion = "Admin";
+                    oMoneda.FechaModificacion = DateTime.Now;
+                    oMoneda.UsuarioModificacion = "Admin";
                     db.SaveChanges();
                     cdgoRpt = 1;
                 }

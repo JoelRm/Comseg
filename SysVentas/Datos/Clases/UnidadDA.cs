@@ -220,8 +220,8 @@ namespace Datos.Clases
                     Unidad oUnidad = db.Unidad.Where(p => p.IdUnidad.Equals(objUnidadCls.IdUnidad)).First();
                     oUnidad.NombreUnidad = objUnidadCls.NombreUnidad;
                     oUnidad.Factor = objUnidadCls.Factor;
-                    objUnidadCls.FechaModificacion = DateTime.Now;
-                    objUnidadCls.UsuarioModificacion = "Admin";
+                    oUnidad.FechaModificacion = DateTime.Now;
+                    oUnidad.UsuarioModificacion = "Admin";
                     db.SaveChanges();
                     cdgoRpt = 1;
                 }

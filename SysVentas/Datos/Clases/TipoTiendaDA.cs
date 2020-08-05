@@ -217,10 +217,10 @@ namespace Datos.Clases
             {
                 using (var db = new BDVentasEntities())
                 {
-                    TipoTienda oLinea = db.TipoTienda.Where(p => p.IdTipoTienda.Equals(objTipoTiendaCls.IdTipoTienda)).First();
-                    oLinea.NombreTipoTienda = objTipoTiendaCls.NombreTipoTienda;
-                    objTipoTiendaCls.FechaModificacion = DateTime.Now;
-                    objTipoTiendaCls.UsuarioModificacion = "Admin";
+                    TipoTienda oTipoTienda = db.TipoTienda.Where(p => p.IdTipoTienda.Equals(objTipoTiendaCls.IdTipoTienda)).First();
+                    oTipoTienda.NombreTipoTienda = objTipoTiendaCls.NombreTipoTienda;
+                    oTipoTienda.FechaModificacion = DateTime.Now;
+                    oTipoTienda.UsuarioModificacion = "Admin";
                     db.SaveChanges();
                     cdgoRpt = 1;
                 }

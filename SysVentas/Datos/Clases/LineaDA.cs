@@ -212,8 +212,8 @@ namespace Datos.Clases
                 {
                     Linea oLinea = db.Linea.Where(p => p.IdLinea.Equals(objLineaCls.IdLinea)).First();
                     oLinea.NombreLinea = objLineaCls.NombreLinea;
-                    objLineaCls.FechaModificacion = DateTime.Now;
-                    objLineaCls.UsuarioModificacion = "Admin";
+                    oLinea.FechaModificacion = DateTime.Now;
+                    oLinea.UsuarioModificacion = "Admin";
                     db.SaveChanges();
                     cdgoRpt = 1;
                 }

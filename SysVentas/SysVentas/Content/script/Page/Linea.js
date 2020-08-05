@@ -68,10 +68,6 @@ function validarLineaEditar() {
     }
     
     return true;
-}
-
-function abrirFiltros() {
-    $('#modalFiltros').modal('show');
 };
 
 function agregarLinea() {
@@ -140,7 +136,7 @@ function cambiarEstado(idLinea) {
             ocultarLoader();
         }
     });
-}
+};
 
 function eliminarLinea(idLinea) {
     mostrarLoader();
@@ -168,7 +164,7 @@ function eliminarLinea(idLinea) {
             ocultarLoader();
         }
     });
-}
+};
 
 function obtenerLinea(idLinea) {
     mostrarLoader();
@@ -190,7 +186,7 @@ function obtenerLinea(idLinea) {
             ocultarLoader();
         }
     });
-}
+};
 
 function editarLinea() {
     mostrarLoader();
@@ -223,4 +219,4 @@ function editarLinea() {
         });
     }
     ocultarLoader();
-}
+};
