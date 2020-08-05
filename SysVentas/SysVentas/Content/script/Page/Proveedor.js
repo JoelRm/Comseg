@@ -26,8 +26,8 @@
                     rows += '<td><span onclick="cambiarEstado(' + data.lsProveedor[i].IdProveedor + ')" title="Cambiar estado" class="label label-sm label-danger" style="cursor: pointer;">Desactivado</span></td>';
                 }
                 rows += '<td align="center">';
-                rows += '<span onclick="obtenerAlmacen(' + data.lsProveedor[i].IdProveedor + ')" class="fa fa-edit" style="font-size:20px; cursor: pointer;" title="Editar"></span>';
-                rows += '<span onclick="eliminarAlmacen(' + data.lsProveedor[i].IdProveedor + ')" class="fa fa-trash-o" style="font-size:20px; cursor: pointer;" title="Eliminar"></span></td>';
+                rows += '<span onclick="obtenerProveedor(' + data.lsProveedor[i].IdProveedor + ')" class="fa fa-edit" style="font-size:20px; cursor: pointer;" title="Editar"></span>';
+                rows += '<span onclick="eliminarProveedor(' + data.lsProveedor[i].IdProveedor + ')" class="fa fa-trash-o" style="font-size:20px; cursor: pointer;" title="Eliminar"></span></td>';
                 rows += '</tr>';
             }
             document.getElementById("bodytbProveedor").innerHTML = rows;
@@ -101,74 +101,55 @@ function limpiarValoresProveedor() {
 
 function validarProveedor() {
 
-    //var NombreAlmacen = $("#NombreAlmacen").val();
-    //var DireccionAlmacen = $("#DireccionAlmacen").val();
-    //var idSucursal = $("#idSucursal").val();
+    var numDocumento = $("#numDocumentoNuevo").val();
+    var idTipoPersona = $("#idTipoPersonaNuevo").val();
+    var nombreProveedor = $("#NombreProveedorNuevo").val();
+    var direccion = $("#DireccionProveedorNuevo").val();
+    var nombreContacto = $("#nombreContactoNuevo").val();
+    var numeroContacto = $("#numeroContactoNuevo").val();
 
-    //if (NombreAlmacen == '') {
-    //    toastr.error('Se requiere del campo Nombre Almacén', 'Error');
-    //    return false;
-    //}
-    //if (DireccionAlmacen == '') {
-    //    toastr.error('Se requiere del campo Dirección Almacén', 'Error');
-    //    return false;
-    //}
-    //if (idSucursal == '') {
-    //    toastr.error('Se requiere del campo Id Sucursal', 'Error');
-    //    return false;
-    //}
+    if (numDocumento == '') {
+        toastr.error('Se requiere del campo Número Documento', 'Error');
+        return false;
+    }
+    if (idTipoPersona == '0') {
+        toastr.error('Se requiere del campo Tipo Persona', 'Error');
+        return false;
+    }
+    if (nombreProveedor == '') {
+        toastr.error('Se requiere del campo Nombre Proveedor', 'Error');
+        return false;
+    }
+    if (direccion == '') {
+        toastr.error('Se requiere del campo Dirección Proveedor', 'Error');
+        return false;
+    }
+    if (nombreContacto == '') {
+        toastr.error('Se requiere del campo Nombre Contacto', 'Error');
+        return false;
+    }
+    if (numeroContacto == '') {
+        toastr.error('Se requiere del campo Número Contacto', 'Error');
+        return false;
+    }
 
     return true;
 };
 
-function obtenerAlmacen(idAlmacen) {
+function cambiarEstado(idProveedor) {
     mostrarLoader();
-    $('#modalEditar').modal('show');
-    var IdAlmacen = idAlmacen;
+    var prov = {};
+    prov.IdProveedor = idProveedor;
     $.ajax({
         type: "POST",
-        url: "/Almacen/ObtenerAlmacenPorId",
-        data: '{alm: ' + IdAlmacen + '}',
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        success: function (response) {
-            $("#NombreAlmacenEditar").val(response.almacenCLS.NombreAlmacen);
-            $("#DireccionAlmacenEditar").val(response.almacenCLS.DireccionAlmacen);
-            $("#idSucursalEditar").val(response.almacenCLS.IdSucursal);
-            $("#nombreSucursalEditar").val(response.almacenCLS.NombreSucursal);
-            $("#sucursalEditar").val(response.almacenCLS.NombreSucursal);
-            $("#idAlmacenEditar").val(response.almacenCLS.IdAlmacen);
-
-            if (response.almacenCLS.IsPrincipal == 'S') {
-                document.getElementById('IsPrincipalEditar').checked = true;
-            } else {
-                document.getElementById('IsPrincipalEditar').checked = false;
-            }
-
-
-            ocultarLoader();
-        },
-        error: function () {
-            toastr.error('Ocurrió un error, vuelve a intentar', 'Error');
-            ocultarLoader();
-        }
-    });
-};
-
-function cambiarEstado(idAlmacen) {
-    mostrarLoader();
-    var alm = {};
-    alm.IdAlmacen = idAlmacen;
-    $.ajax({
-        type: "POST",
-        url: "/Almacen/CambiarEstadoAlmacen",
-        data: '{alm: ' + JSON.stringify(alm) + '}',
+        url: "/Proveedor/CambiarEstadoProveedor",
+        data: '{prov: ' + JSON.stringify(prov) + '}',
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function (response) {
             if (response.Code == 1) {
                 toastr.success('Se cambió el estado con éxito', 'Éxito');
-                cargarTablaAlmacen();
+                cargarTablaProveedor();
                 ocultarLoader();
             }
             else {
@@ -183,20 +164,20 @@ function cambiarEstado(idAlmacen) {
     });
 };
 
-function eliminarAlmacen(idAlmacen) {
+function eliminarProveedor(idProveedor) {
     mostrarLoader();
-    var alm = {};
-    alm.IdAlmacen = idAlmacen;
+    var prov = {};
+    prov.IdProveedor = idProveedor;
     $.ajax({
         type: "POST",
-        url: "/Almacen/EliminarAlmacen",
-        data: '{alm: ' + JSON.stringify(alm) + '}',
+        url: "/Proveedor/EliminarProveedor",
+        data: '{prov: ' + JSON.stringify(prov) + '}',
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function (response) {
             if (response.Code == 1) {
                 toastr.success('Se eliminó con éxito', 'Éxito');
-                cargarTablaAlmacen();
+                cargarTablaProveedor();
                 ocultarLoader();
             }
             else {
@@ -211,55 +192,94 @@ function eliminarAlmacen(idAlmacen) {
     });
 };
 
-function validarAlmacenEditar() {
+function obtenerProveedor(idProveedor) {
+    mostrarLoader();
+    $('#modalEditarProveedor').modal('show');
+    var IdProveedor = idProveedor;
+    $.ajax({
+        type: "POST",
+        url: "/Proveedor/ObtenerProveedorPorId",
+        data: '{prov: ' + IdProveedor + '}',
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (response) {
+            $("#idProveedorEditar").val(response.proveedorCLS.IdProveedor);
+            $("#numDocumentoEditar").val(response.proveedorCLS.NroDocumento);
+            $("#NombreProveedorEditar").val(response.proveedorCLS.NombreProveedor);
+            $("#DireccionProveedorEditar").val(response.proveedorCLS.DireccionProveedor);
+            $("#nombreContactoEditar").val(response.proveedorCLS.NombreContacto);
+            $("#numeroContactoEditar").val(response.proveedorCLS.NumeroContacto);
+            $("#idTipoPersonaEditar").val(response.proveedorCLS.IdTipoPersona);
 
-    var NombreAlmacen = $("#NombreAlmacenEditar").val();
-    var DireccionAlmacen = $("#DireccionAlmacenEditar").val();
-    var idSucursal = $("#idSucursalEditar").val();
+            ocultarLoader();
+        },
+        error: function () {
+            toastr.error('Ocurrió un error, vuelve a intentar', 'Error');
+            ocultarLoader();
+        }
+    });
+};
 
-    if (NombreAlmacen == '') {
-        toastr.error('Se requiere del campo Nombre Almacén', 'Error');
+function validarProveedorEditar() {
+
+    var numDocumento = $("#numDocumentoEditar").val();
+    var idTipoPersona = $("#idTipoPersonaEditar").val();
+    var nombreProveedor = $("#NombreProveedorEditar").val();
+    var direccion = $("#DireccionProveedorEditar").val();
+    var nombreContacto = $("#nombreContactoEditar").val();
+    var numeroContacto = $("#numeroContactoEditar").val();
+
+    if (numDocumento == '') {
+        toastr.error('Se requiere del campo Número Documento', 'Error');
         return false;
     }
-    if (DireccionAlmacen == '') {
-        toastr.error('Se requiere del campo Dirección Almacén', 'Error');
+    if (idTipoPersona == '0') {
+        toastr.error('Se requiere del campo Tipo Persona', 'Error');
         return false;
     }
-    if (idSucursal == '') {
-        toastr.error('Se requiere del campo Id Sucursal', 'Error');
+    if (nombreProveedor == '') {
+        toastr.error('Se requiere del campo Nombre Proveedor', 'Error');
+        return false;
+    }
+    if (direccion == '') {
+        toastr.error('Se requiere del campo Dirección Proveedor', 'Error');
+        return false;
+    }
+    if (nombreContacto == '') {
+        toastr.error('Se requiere del campo Nombre Contacto', 'Error');
+        return false;
+    }
+    if (numeroContacto == '') {
+        toastr.error('Se requiere del campo Número Contacto', 'Error');
         return false;
     }
 
     return true;
 };
 
-function editarAlmacen() {
+function editarProveedor() {
     mostrarLoader();
-    if (validarAlmacenEditar()) {
-        var alm = {};
-        alm.IdAlmacen = $("#idAlmacenEditar").val();
-        alm.NombreAlmacen = $("#NombreAlmacenEditar").val();
-        alm.DireccionAlmacen = $("#DireccionAlmacenEditar").val();
-        alm.IdSucursal = $("#idSucursalEditar").val();
-
-        var isChecked = document.getElementById('IsPrincipalEditar').checked;
-        if (isChecked) {
-            alm.IsPrincipal = "S";
-        } else {
-            alm.IsPrincipal = "N";
-        }
+    if (validarProveedorEditar()) {
+        var prov = {};
+        prov.NroDocumento = $("#numDocumentoEditar").val();
+        prov.IdTipoPersona = $("#idTipoPersonaEditar").val();
+        prov.NombreProveedor = $("#NombreProveedorEditar").val();
+        prov.DireccionProveedor = $("#DireccionProveedorEditar").val();
+        prov.NombreContacto = $("#nombreContactoEditar").val();
+        prov.NumeroContacto = $("#numeroContactoEditar").val();
+        prov.IdProveedor = $("#idProveedorEditar").val();
 
         $.ajax({
             type: "POST",
-            url: "/Almacen/EditarAlmacen",
-            data: '{alm: ' + JSON.stringify(alm) + '}',
+            url: "/Proveedor/EditarProveedor",
+            data: '{prov: ' + JSON.stringify(prov) + '}',
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (response) {
                 if (response.Code == 1) {
                     toastr.success('Se realizaron los cambios con éxito', 'Éxito');
-                    cargarTablaAlmacen();
-                    $('#modalEditar').modal('hide');
+                    cargarTablaProveedor();
+                    $('#modalEditarProveedor').modal('hide');
                     ocultarLoader();
                 }
                 else {

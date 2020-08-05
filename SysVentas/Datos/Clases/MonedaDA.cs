@@ -15,6 +15,7 @@ namespace Datos.Clases
             {
                 listaMonedas = (from mod in db.Moneda
                                where mod.EstadoEliminacion == false
+                               && mod.EstadoMoneda == true
                                select new MonedaCLS
                                {
                                    IdMoneda = mod.IdMoneda,

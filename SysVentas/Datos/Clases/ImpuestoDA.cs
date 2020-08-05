@@ -15,7 +15,8 @@ namespace Datos.Clases
             using (var db = new BDVentasEntities())
             {
                 listaImpuesto = (from imp in db.Impuesto
-                                 where imp.EstadoEliminacion == false
+                                 where imp.EstadoEliminacion == false &&
+                                 imp.EstadoImpuesto == true
                                  select new ImpuestoCLS
                                  {
                                      IdImpuesto = imp.IdImpuesto,

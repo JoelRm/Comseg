@@ -1,0 +1,35 @@
+﻿<div id="modalAlmacenes" class="modal fade" style="top:15%; left:20%">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:50%;">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    Lista Unidades
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div style="height:250px; overflow-y: scroll;">
+                    <table id="tbAlmacen" class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Sucursal</th>
+                                <th>Nombre Almacen</th>
+                                <th style="display:none">Id</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bodytbAlmacen">
+                            @*<tr>
+                                    <td colspan="3">Cargando..</td>
+                                </tr>*@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="agregarProductoAlmacen()" class="btn btn-success">
+                    Agregar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

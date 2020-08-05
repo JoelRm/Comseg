@@ -152,6 +152,7 @@ namespace Datos.Clases
                 Proveedor oProveedor = db.Proveedor.Where(p => p.IdProveedor.Equals(idProv)).First();
                 objProveedorCLS.IdProveedor = oProveedor.IdProveedor;
                 objProveedorCLS.IdTipoPersona = oProveedor.IdTipoPersona;
+                objProveedorCLS.NroDocumento = oProveedor.NroDocumentoProveedor;
                 objProveedorCLS.NombreProveedor = oProveedor.NombreProveedor;
                 objProveedorCLS.DireccionProveedor = oProveedor.DireccionProveedor;
                 objProveedorCLS.NombreContacto = oProveedor.NombreContactoProveedor;
