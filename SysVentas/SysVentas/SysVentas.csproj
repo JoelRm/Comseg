@@ -527,6 +527,12 @@
     <Content Include="Views\Almacen\Index.cshtml" />
     <Content Include="Views\Proveedor\Index.cshtml" />
     <Content Include="Views\Proveedor\_ModalNuevoProveedor.cshtml" />
+    <Content Include="Views\Proveedor\_ModalEditarProveedor.cshtml" />
+    <Content Include="Views\Almacen\_ModalNuevoAlmacen.cshtml" />
+    <Content Include="Views\Almacen\_ModalEditarAlmacen.cshtml" />
+    <Content Include="Views\Producto\_ModalNuevoProducto.cshtml" />
+    <Content Include="Views\Producto\_ModalNuevoUnidadProducto.cshtml" />
+    <Content Include="Views\Producto\_ModalNuevoAlmacenProducto.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

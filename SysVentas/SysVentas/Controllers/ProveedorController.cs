@@ -1,6 +1,5 @@
 ﻿using Entidad;
 using Negocio;
-using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace SysVentas.Controllers
@@ -32,6 +31,34 @@ namespace SysVentas.Controllers
         public JsonResult AgregarProveedor(ProveedorCLS prov)
         {
             int codigoRpt = objProveedorNE.AgregarProveedor(prov);
+            return Json(new { Code = codigoRpt, JsonRequestBehavior.AllowGet });
+        }
+
+        [HttpPost]
+        public JsonResult ObtenerProveedorPorId(int prov)
+        {
+            var proveedorCLS = objProveedorNE.ObtenerProveedorPorId(prov);
+            return Json(new { proveedorCLS, JsonRequestBehavior.AllowGet });
+        }
+
+        [HttpPost]
+        public JsonResult EditarProveedor(ProveedorCLS prov)
+        {
+            int codigoRpt = objProveedorNE.EditarProveedor(prov);
+            return Json(new { Code = codigoRpt, JsonRequestBehavior.AllowGet });
+        }
+
+        [HttpPost]
+        public JsonResult CambiarEstadoProveedor(ProveedorCLS prov)
+        {
+            var codigRpt = objProveedorNE.CambiarEstadoProveedor(prov);
+            return Json(new { Code = codigRpt, JsonRequestBehavior.AllowGet });
+        }
+
+        [HttpPost]
+        public JsonResult EliminarProveedor(ProveedorCLS prov)
+        {
+            int codigoRpt = objProveedorNE.EliminarProveedor(prov);
             return Json(new { Code = codigoRpt, JsonRequestBehavior.AllowGet });
         }
 

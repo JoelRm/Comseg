@@ -1,0 +1,196 @@
+﻿@using Entidad
+@{
+    List<MonedaCLS> listaMoneda = (List<MonedaCLS>)ViewBag.listaMoneda;
+    List<ImpuestoCLS> listaImpuesto = (List<ImpuestoCLS>)ViewBag.listaImpuesto;
+}
+<!--Inicio Modal Nuevo Producto-->
+<div id="modalNuevoProducto" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                    Nuevo Producto
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-body pal">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input id="codProductoNuevo" type="text" placeholder="Ingrese Código Producto" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input id="nombreProductoNuevo" type="text" placeholder="Ingrese Nombre Producto" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select class="form-control">
+                                    @foreach (var item in listaMoneda)
+                                    {
+                                        <option value="@item.IdMoneda">@item.NombreMoneda</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select class="form-control">
+                                    @foreach (var item in listaImpuesto)
+                                    {
+                                        <option value="@item.IdImpuesto">@item.NombreImpuesto</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input id="idLinea" type="hidden" class="form-control" />
+                                <input id="nombreLinea" type="hidden" class="form-control" />
+                                <input onkeyup="buscarLinea(event)" id="lineaProdNuevo" type="text" placeholder="Ingrese Nombre Línea" class="form-control" autocomplete="off" />
+                                <div class="divPredictivo" id="divPredictivoLinea">
+                                    <div class="divPredictivob">
+                                        <div class="divPredictivoa">
+                                            <ul class="ulPredictivo" role="listbox" id="ulPredictivoLineaJRM"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input id="idMarca" type="hidden" class="form-control" />
+                                <input id="nombreMarca" type="hidden" class="form-control" />
+                                <input onkeyup="buscarMarca(event)" id="marcaProdNuevo" type="text" placeholder="Ingrese Nombre Marca" class="form-control" autocomplete="off" />
+                                <div class="divPredictivo" id="divPredictivoMarca">
+                                    <div class="divPredictivob">
+                                        <div class="divPredictivoa">
+                                            <ul class="ulPredictivo" role="listbox" id="ulPredictivoMarcaJRM"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mbn">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab-und" data-toggle="tab">Unidades</a></li>
+                            <li><a href="#tab-alm" data-toggle="tab">Almacén</a></li>
+                            <li><a href="#tab-prov" data-toggle="tab">Proveedor</a></li>
+                        </ul>
+                        <div id="generalTabContent" class="tab-content" style="padding:0px;">
+                            <div id="tab-und" class="tab-pane fade in active">
+                                <div class="form-body pal">
+                                    <table id="tbProductoUnidad" class="table table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Unidad</th>
+                                                <th>Factor</th>
+                                                <th>Und Base</th>
+                                                <th>Und Venta</th>
+                                                <th>Estado</th>
+                                                <th>Quitar</th>
+                                                <th style="display:none">IdUnidad</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="bodytbProductoUnidad">
+                                            <tr>
+                                                <td colspan="6">Agregue unidades</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="row mbl">
+                                        <div class="col-lg-6">
+                                            <a onclick="abrirListaunidades();" href="#" class="btn btn-success btn-sm mlm mrm">
+                                                <i class="fa fa-plus"></i>&nbsp;
+                                                Agregar Unidades
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab-alm" class="tab-pane fade in">
+                                <div class="form-body pal">
+                                    <table id="tbProductoAlmacen" class="table table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Sucursal</th>
+                                                <th>Almacén</th>
+                                                <th>Estado</th>
+                                                <th>Quitar</th>
+                                                <th style="display:none">IdAlmacen</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="bodytbProductoAlmacen">
+                                            <tr>
+                                                <td colspan="5">Agregue Almacenes</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="row mbl">
+                                        <div class="col-lg-6">
+                                            <a onclick="abrirListaAlmacenes();" href="#" class="btn btn-success btn-sm mlm mrm">
+                                                <i class="fa fa-plus"></i>&nbsp;
+                                                Agregar Almacenes
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab-prov" class="tab-pane fade in">
+                                <div class="form-body pal">
+                                    <div class="form-group">
+                                        <input id="idProveedor" type="hidden" class="form-control" />
+                                        <input id="nombreProveedor" type="hidden" class="form-control" />
+                                        <input onkeyup="buscarProveedor(event)" id="ProveedorProdNuevo" type="text" placeholder="Ingrese Nombre Proveedor" class="form-control" autocomplete="off" />
+                                        <div class="divPredictivo" id="divPredictivoProveedor">
+                                            <div class="divPredictivob">
+                                                <div class="divPredictivoa">
+                                                    <ul class="ulPredictivo" role="listbox" id="ulPredictivoProveedorJRM"></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input id="undBaseDescripcion" type="text" placeholder="-" class="form-control" readonly />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input id="unidadVentaDescripcion" type="text" placeholder="-" class="form-control" readonly />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="CerrarPopUpUnidad" data-dismiss="modal" class="btn btn-danger">
+                    Cancelar
+                </button>
+                <button type="button" onclick="agregarUnidad()" class="btn btn-primary">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Fin Modal Nuevo Producto-->
+
+
+@Html.Partial("_ModalNuevoUnidadProducto");
+@Html.Partial("_ModalNuevoAlmacenProducto");

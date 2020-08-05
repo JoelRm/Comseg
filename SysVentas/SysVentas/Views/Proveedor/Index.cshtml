@@ -27,7 +27,7 @@
             <div class="panel-heading" id="newbotton">
                 <div class="col-sm-8 col-md-8">Listado de Proveedor</div>
                 <div class="col-sm-4 col-md-4">
-                    <button type="button" class="btn btn-danger btn-sm btn-block" data-toggle="modal" data-target="#modal-nuevo">
+                    <button type="button" class="btn btn-danger btn-sm btn-block" data-toggle="modal" data-target="#modal-nuevoProveedor">
                         Nuevo
                     </button>
                 </div>
@@ -75,63 +75,8 @@
     </div>
 </div>
 
-@Html.Partial("_ModalNuevoProveedor",Model);
-
-<!--Inicio Modal Editar-->
-<div id="modalEditar" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" data-dismiss="modal" aria-hidden="true" class="close">
-                    &times;
-                </button>
-                <h4 class="modal-title">
-                    Editar Almacén
-                </h4>
-            </div>
-            <div class="modal-body">
-                <div class="form-body pal">
-                    <div class="form-group">
-                        <input id="idAlmacenEditar" type="hidden" class="form-control" />
-                        <input id="NombreAlmacenEditar" name="NombreAlmacenEditar" type="text" placeholder="Ingrese Nombre Almacén" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <input id="DireccionAlmacenEditar" name="DireccionAlmacenEditar" type="text" placeholder="Ingrese Dirección Almacén" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <input id="idSucursalEditar" type="hidden" class="form-control" />
-                        <input id="nombreSucursalEditar" type="hidden" class="form-control" />
-                        <input onkeyup="buscarSucursal(event)" id="sucursalEditar" type="text" placeholder="Ingrese Nombre Sucursal" class="form-control" autocomplete="off" />
-                        <div class="divPredictivo" id="divPredictivoSucursal">
-                            <div class="divPredictivob">
-                                <div class="divPredictivoa">
-                                    <ul class="ulPredictivo" role="listbox" id="ulPredictivoSucursalEditarJRM"></ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="checkbox" style="padding-left:20px;">
-                            <label>
-                                <input tabindex="5" type="checkbox" id="IsPrincipalEditar" value="S" />&nbsp; ¿Es almacén principal?
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" id="CerrarPopUpLinea" data-dismiss="modal" class="btn btn-danger">
-                    Cancelar
-                </button>
-                <button type="button" onclick="editarAlmacen()" class="btn btn-primary">
-                    Guardar
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-<!--Fin Modal Editar-->
-
+@Html.Partial("_ModalNuevoProveedor", Model);
+@Html.Partial("_ModalEditarProveedor", Model);
 
 
 <script src="~/Content/script/Page/Proveedor.js"></script>
