@@ -21,6 +21,6 @@ namespace Datos.Modelos
         public System.DateTime FechaModificacion { get; set; }
         public string UsuarioModificacion { get; set; }
         public bool EstadoTipoTienda { get; set; }
-        public bool EstadoEliminacion { get; set; }
+        public Nullable<bool> EstadoEliminacion { get; set; }
     }
 }

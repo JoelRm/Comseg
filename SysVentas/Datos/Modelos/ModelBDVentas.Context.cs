@@ -33,6 +33,7 @@ namespace Datos.Modelos
         public virtual DbSet<Moneda> Moneda { get; set; }
         public virtual DbSet<Producto> Producto { get; set; }
         public virtual DbSet<ProductoAlmacen> ProductoAlmacen { get; set; }
+        public virtual DbSet<ProductoSucursalCosto> ProductoSucursalCosto { get; set; }
         public virtual DbSet<ProductoUnidad> ProductoUnidad { get; set; }
         public virtual DbSet<Proveedor> Proveedor { get; set; }
         public virtual DbSet<Sucursal> Sucursal { get; set; }

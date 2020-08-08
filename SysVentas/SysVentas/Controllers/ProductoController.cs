@@ -12,7 +12,9 @@ namespace SysVentas.Controllers
         AlmacenNE objAlmacen = new AlmacenNE();
         MonedaNE objMoneda = new MonedaNE();
         ImpuestoNE objImpuesto = new ImpuestoNE();
-
+        ProveedorNE objProveedor = new ProveedorNE();
+        ProductoNE objProducto = new ProductoNE();
+            
         // GET: Producto
         public ActionResult Index()
         {
@@ -26,12 +28,19 @@ namespace SysVentas.Controllers
         public void listarCombos()
         {
             var listaMoneda = objMoneda.ListarMonedas();
-            listaMoneda.Insert(0, new MonedaCLS { NombreMoneda = "--Seleccione--", IdMoneda = 0 });
+            listaMoneda.Insert(0, new MonedaCLS { NombreMoneda = "--SELECCIONE MONEDA--", IdMoneda = 0 });
             var listaImpuesto = objImpuesto.ListarImpuesto();
-            listaImpuesto.Insert(0, new ImpuestoCLS { NombreImpuesto = "--Seleccione--", IdImpuesto = 0 });
+            listaImpuesto.Insert(0, new ImpuestoCLS { NombreImpuesto = "--SELECCIONE IMPUESTO--", IdImpuesto = 0 });
 
             ViewBag.listaMoneda = listaMoneda;
             ViewBag.listaImpuesto = listaImpuesto;
+        }
+
+        [HttpPost]
+        public JsonResult ListarProducto(FiltroCLS fil)
+        {
+            var lsProducto = objProducto.ListarProductosPorFiltro(fil);
+            return Json(new { lsProducto, JsonRequestBehavior.AllowGet });
         }
 
         [HttpPost]
@@ -62,6 +71,18 @@ namespace SysVentas.Controllers
             return Json(new { lsAlmacen, JsonRequestBehavior.AllowGet });
         }
 
-        
+        [HttpPost]
+        public JsonResult ListarProveedor(FiltroCLS fil)
+        {
+            var lsProveedor = objProveedor.ListarProveedorPorFiltro(fil);
+            return Json(new { lsProveedor, JsonRequestBehavior.AllowGet });
+        }
+
+        [HttpPost]
+        public JsonResult AgregarProducto(ProductoCLS prod)
+        {
+            var codigoRpt = objProducto.AgregarProducto(prod);
+            return Json(new { Code = codigoRpt, JsonRequestBehavior.AllowGet });
+        }
     }
 }

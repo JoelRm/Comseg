@@ -61,7 +61,8 @@ namespace Datos.Clases
                                          UsuarioModificacion = alm.UsuarioModificacion,
                                          EstadoAlmacen = alm.EstadoAlmacen,
                                          FechaCreacionJS = alm.FechaCreacion.ToString(),
-                                         NombreSucursal = scl.NombreSucursal
+                                         NombreSucursal = scl.NombreSucursal,
+                                         IdSucursal = scl.IdSucursal
                                      }).ToList();
                 }
                 else
@@ -94,7 +95,8 @@ namespace Datos.Clases
                                         UsuarioModificacion = alm.UsuarioModificacion,
                                         EstadoAlmacen = alm.EstadoAlmacen,
                                         FechaCreacionJS = alm.FechaCreacion.ToString(),
-                                        NombreSucursal = scl.NombreSucursal
+                                        NombreSucursal = scl.NombreSucursal,
+                                        IdSucursal = scl.IdSucursal
                                     }).ToList();
 
                     listaAlmacen = (from list in listaAlmacen

@@ -14,6 +14,7 @@ namespace Entidad
         public string UsuarioModificacion { get; set; }
         public DateTime FechaModificacion { get; set; }
         public bool EstadoAlmacen { get; set; }
+        public bool EstadoEliminacion { get; set; }
 
         public string FechaCreacionJS { get; set; }
         public string NombreSucursal { get; set; }

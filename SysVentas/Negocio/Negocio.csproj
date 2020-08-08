@@ -47,6 +47,7 @@
     <Compile Include="LineaNE.cs" />
     <Compile Include="MarcaNE.cs" />
     <Compile Include="MonedaNE.cs" />
+    <Compile Include="ProductoNE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProveedorNE.cs" />
     <Compile Include="SucursalNE.cs" />
