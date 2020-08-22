@@ -18,8 +18,6 @@
                 rows += '<td>' + data.lsCliente[i].NroDocumentoCliente + '</td>';
                 rows += '<td>' + data.lsCliente[i].NombreCliente + '</td>';
                 rows += '<td>' + data.lsCliente[i].NombreTipoCliente + '</td>';
-                rows += '<td>' + data.lsCliente[i].NumeroContactoCliente + '</td>';
-                rows += '<td>' + data.lsCliente[i].DireccionCliente + '</td>';
                 rows += '<td>' + data.lsCliente[i].FechaCreacionJS + '</td>';
                 rows += '<td>' + data.lsCliente[i].UsuarioCreacion + '</td>';
                 if (data.lsCliente[i].EstadoCliente) {
@@ -34,7 +32,6 @@
                 rows += '</tr>';
             }
             document.getElementById("bodytbCliente").innerHTML = rows;
-            $('#modalFiltros').modal('hide');
             ocultarLoader();
         },
         error: function (ex) {
@@ -49,7 +46,7 @@
 };
 
 function limpiarValoresCliente() {
-     $("#NombreCliente").val('');
+    $("#NombreCliente").val('');
     $("#NroDocumentoCliente").val('');
     $("#DireccionCliente").val('');
     $("#NumeroContactoCliente").val('');
@@ -84,27 +81,6 @@ function validarCliente() {
     return true;
 };
 
-function validarClienteEditar() {
-    cli.NombreCliente = $("#NombreClienteEditar").val();
-    cli.NroDocumentoCliente = $("#NroDocumentoClienteEditar").val();
-    cli.DireccionCliente = $("#DireccionClienteEditar").val();
-    cli.NumeroContactoCliente = $("#NumeroContactoClienteEditar").val();
-    cli.IdTipoPersona = $("#IdTipoPersonaEditar").val();
-    if (NombreCliente == '') {
-        toastr.error('Se requiere del campo Nombre Cliente', 'Error');
-        return false;
-    }
-    if (Factor == '') {
-        toastr.error('Se requiere del campo Factor', 'Error');
-        return false;
-    }
-    return true;
-}
-
-function abrirFiltros() {
-    $('#modalFiltros').modal('show');
-};
-
 function agregarCliente() {
     mostrarLoader();
     if (validarCliente()) {
@@ -127,7 +103,7 @@ function agregarCliente() {
                 }
                 else {
                     if (response.Code == 1) {
-                        $('#modal-nuevo').modal('hide');
+                        $('#modalNuevoCliente').modal('hide');
                         limpiarValoresCliente();
                         cargarTablaClientes();
                         toastr.success('Se agregaron los datos correctamente', 'Éxito');
@@ -174,7 +150,7 @@ function cambiarEstado(idCliente) {
             ocultarLoader();
         }
     });
-}
+};
 
 function eliminarCliente(idCliente) {
     mostrarLoader();
@@ -202,11 +178,11 @@ function eliminarCliente(idCliente) {
             ocultarLoader();
         }
     });
-}
+};
 
 function obtenerCliente(idCliente) {
 
-    $('#modalEditar').modal('show');
+    $('#modalEditarCliente').modal('show');
     var IdCliente = idCliente;
     $.ajax({
         type: "POST",
@@ -215,12 +191,12 @@ function obtenerCliente(idCliente) {
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function (response) {
-            $("#idClienteEditar").val(response.ClienteCLS.IdCliente);
-            $("#NombreClienteEditar").val(response.ClienteCLS.NombreCliente);
-            $("#NroDocumentoClienteEditar").val(response.ClienteCLS.NroDocumentoCliente);
-            $("#DireccionClienteEditar").val(response.ClienteCLS.DireccionCliente);
-            $("#NumeroContactoClienteEditar").val(response.ClienteCLS.NumeroContactoCliente);
-            $("#IdTipoPersonaEditar").val(response.ClienteCLS.IdTipoPersona);
+            $("#idClienteEditar").val(response.clienteCLS.IdCliente);
+            $("#NombreClienteEditar").val(response.clienteCLS.NombreCliente);
+            $("#NroDocumentoClienteEditar").val(response.clienteCLS.NroDocumentoCliente);
+            $("#DireccionClienteEditar").val(response.clienteCLS.DireccionCliente);
+            $("#NumeroContactoClienteEditar").val(response.clienteCLS.NumeroContactoCliente);
+            $("#IdTipoPersonaEditar").val(response.clienteCLS.IdTipoPersona);
             ocultarLoader();
         },
         error: function () {
@@ -228,6 +204,35 @@ function obtenerCliente(idCliente) {
             ocultarLoader();
         }
     });
+};
+
+function validarClienteEditar() {
+    var NombreCliente = $("#NombreClienteEditar").val();
+    var NroDocumentoCliente = $("#NroDocumentoClienteEditar").val();
+    var DireccionCliente = $("#DireccionClienteEditar").val();
+    var NumeroContactoCliente = $("#NumeroContactoClienteEditar").val();
+    var IdTipoPersona = $("#IdTipoPersonaEditar").val();
+
+    if (NombreCliente == '') {
+        toastr.error('Se requiere del campo Nombre Cliente', 'Error');
+        return false;
+    }
+    if (IdTipoPersona == '') {
+        toastr.error('Se requiere del campo Tipo Cliente', 'Error');
+        return false;
+    }
+    if (NroDocumentoCliente == '') {
+        toastr.error('Se requiere el numero de documento', 'Error');
+        return false;
+    }
+    if (DireccionCliente == '') {
+        toastr.error('Se requiere la direccion del cliente', 'Error');
+        return false;
+    }
+    if (NumeroContactoCliente == '') {
+        toastr.error('Se requiere el numero de contacto', 'Error');
+    }
+    return true;
 }
 
 function editarCliente() {
@@ -250,7 +255,7 @@ function editarCliente() {
                 if (response.Code == 1) {
                     toastr.success('Se realizaron los cambios con éxito', 'Éxito');
                     cargarTablaClientes();
-                    $('#modalEditar').modal('hide');
+                    $('#modalEditarCliente').modal('hide');
                     ocultarLoader();
                 }
                 else {

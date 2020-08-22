@@ -69,7 +69,7 @@ function agregarProveedor() {
                 }
                 else {
                     if (response.Code == 1) {
-                        $('#modal-nuevo').modal('hide');
+                        $('#modalNuevoProveedor').modal('hide');
                         limpiarValoresProveedor();
                         cargarTablaProveedor();
                         toastr.success('Se agregaron los datos correctamente', 'Éxito');

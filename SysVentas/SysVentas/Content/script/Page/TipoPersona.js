@@ -30,7 +30,6 @@
                 rows += '</tr>';
             }
             document.getElementById("bodytbTipoPersona").innerHTML = rows;
-            $('#modalFiltros').modal('hide');
             ocultarLoader();
         },
         error: function (ex) {
@@ -44,11 +43,9 @@
     ocultarLoader();
 };
 
-
 function limpiarValoresTipoPersona() {
     $("#NombreTipoPersona").val('');
 };
-
 
 function validarTipoPersona() {
     var NombreTipoPersona = $("#NombreTipoPersona").val();
@@ -61,11 +58,8 @@ function validarTipoPersona() {
     return true;
 };
 
-
-
 function validarTipoPersonaEditar() {
     var NombreUnidad = $("#NombreTipoPersonaEditar").val();
-    var Factor = $("#FactorTipoPersonaEditar").val();
     if (NombreUnidad == '') {
         toastr.error('Se requiere del campo Nombre TipoPersona', 'Error');
         return false;
@@ -73,12 +67,6 @@ function validarTipoPersonaEditar() {
 
     return true;
 }
-
-
-
-function abrirFiltros() {
-    $('#modalFiltros').modal('show');
-};
 
 function agregarTipoPersona() {
     mostrarLoader();
@@ -99,7 +87,7 @@ function agregarTipoPersona() {
                 }
                 else {
                     if (response.Code == 1) {
-                        $('#modal-nuevo').modal('hide');
+                        $('#modalnuevoTipoPersona').modal('hide');
                         limpiarValoresTipoPersona();
                         cargarTablaTipoPersona();
                         toastr.success('Se agregaron los datos correctamente', 'Éxito');
@@ -119,8 +107,6 @@ function agregarTipoPersona() {
     }
     ocultarLoader();
 };
-
-
 
 function cambiarEstado(idTipoPersona) {
     mostrarLoader();
@@ -150,8 +136,6 @@ function cambiarEstado(idTipoPersona) {
     });
 }
 
-
-
 function eliminarTipoPersona(idTipoPersona) {
     mostrarLoader();
     var per = {};
@@ -180,11 +164,9 @@ function eliminarTipoPersona(idTipoPersona) {
     });
 }
 
-
-
 function obtenerTipoPersona(idTipoPersona) {
     mostrarLoader();
-    $('#modalEditar').modal('show');
+    $('#modalEditarTipoPersona').modal('show');
     var IdTipoPersona = idTipoPersona;
     $.ajax({
         type: "POST",
@@ -204,9 +186,6 @@ function obtenerTipoPersona(idTipoPersona) {
     });
 }
 
-
-
-
 function editarTipoPersona() {
     mostrarLoader();
     if (validarTipoPersonaEditar()) {
@@ -223,7 +202,7 @@ function editarTipoPersona() {
                 if (response.Code == 1) {
                     toastr.success('Se realizaron los cambios con éxito', 'Éxito');
                     cargarTablaTipoPersona();
-                    $('#modalEditar').modal('hide');
+                    $('#modalEditarTipoPersona').modal('hide');
                     ocultarLoader();
                 }
                 else {

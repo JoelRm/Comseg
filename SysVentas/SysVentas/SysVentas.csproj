@@ -536,6 +536,24 @@
     <Content Include="Views\Producto\_ModalNuevoProducto.cshtml" />
     <Content Include="Views\Producto\_ModalNuevoUnidadProducto.cshtml" />
     <Content Include="Views\Producto\_ModalNuevoAlmacenProducto.cshtml" />
+    <Content Include="Views\Impuesto\_ModalNuevoImpuesto.cshtml" />
+    <Content Include="Views\Impuesto\_ModalEditarImpuesto.cshtml" />
+    <Content Include="Views\Linea\_ModalNuevaLinea.cshtml" />
+    <Content Include="Views\Linea\_ModalEditarLinea.cshtml" />
+    <Content Include="Views\Marca\_ModalNuevaMarca.cshtml" />
+    <Content Include="Views\Marca\_ModalEditarMarca.cshtml" />
+    <Content Include="Views\Moneda\_ModalNuevaMoneda.cshtml" />
+    <Content Include="Views\Moneda\_ModalEditarMoneda.cshtml" />
+    <Content Include="Views\Sucursal\_ModalNuevaSucursal.cshtml" />
+    <Content Include="Views\Sucursal\_ModalEditarSucursal.cshtml" />
+    <Content Include="Views\TipoPersona\_ModalNuevoTipoPersona.cshtml" />
+    <Content Include="Views\TipoPersona\_ModalEditarTipoPersona.cshtml" />
+    <Content Include="Views\TipoTienda\_ModalNuevoTipoTienda.cshtml" />
+    <Content Include="Views\TipoTienda\_ModalEditarTipoTienda.cshtml" />
+    <Content Include="Views\Unidad\_ModalNuevaUnidad.cshtml" />
+    <Content Include="Views\Unidad\_ModalEditarUnidad.cshtml" />
+    <Content Include="Views\Cliente\_ModalNuevoCliente.cshtml" />
+    <Content Include="Views\Cliente\_ModalEditarCliente.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

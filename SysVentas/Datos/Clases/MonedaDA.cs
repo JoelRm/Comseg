@@ -206,6 +206,7 @@ namespace Datos.Clases
                 Moneda oMoneda = db.Moneda.Where(p => p.IdMoneda.Equals(idMoneda)).First();
                 objMonedaCLS.IdMoneda = oMoneda.IdMoneda;
                 objMonedaCLS.NombreMoneda = oMoneda.NombreMoneda;
+                objMonedaCLS.SimboloMoneda = oMoneda.SimboloMoneda;
             }
             return objMonedaCLS;
         }

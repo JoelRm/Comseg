@@ -69,6 +69,7 @@ namespace Datos.Clases
             }
             return CodResult;
         }
+
         public int CambiarEstado(ClienteCLS objClienteCls)
         {
             int codigoRpt = 0;
@@ -95,6 +96,7 @@ namespace Datos.Clases
             }
             return codigoRpt;
         }
+
         public List<ClienteCLS> ListarClientePorFiltro(FiltroCLS objFiltro)
         {
             List<ClienteCLS> listaCliente = null;
@@ -202,6 +204,7 @@ namespace Datos.Clases
             }
             return listaCliente;
         }
+
         public int EliminarCliente(ClienteCLS objClienteCls)
         {
             int cdgoRpt = 0;
@@ -221,6 +224,7 @@ namespace Datos.Clases
             }
             return cdgoRpt;
         }
+
         public ClienteCLS ObtenerClientePorId(int idcli)
         {
             ClienteCLS objClienteCls = new ClienteCLS();
@@ -236,6 +240,7 @@ namespace Datos.Clases
             }
             return objClienteCls;
         }
+
         public int EditarCliente(ClienteCLS objClienteCls)
         {
             int cdgoRpt = 0;
@@ -246,8 +251,12 @@ namespace Datos.Clases
                     Cliente oCliente = db.Cliente.Where(p => p.IdCliente.Equals(objClienteCls.IdCliente)).First();
                     oCliente.NombreCliente = objClienteCls.NombreCliente;
                     oCliente.IdTipoPersona = objClienteCls.IdTipoPersona;
-                    objClienteCls.FechaModificacion = DateTime.Now;
-                    objClienteCls.UsuarioModificacion = "Admin";
+                    oCliente.DireccionCliente = objClienteCls.DireccionCliente;
+                    oCliente.NombreCliente = objClienteCls.NombreCliente;
+                    oCliente.NumeroContactoCliente = objClienteCls.NumeroContactoCliente;
+                    oCliente.NroDocumentoCliente = objClienteCls.NroDocumentoCliente;
+                    oCliente.FechaModificacion = DateTime.Now;
+                    oCliente.UsuarioModificacion = "Admin";
                     db.SaveChanges();
                     cdgoRpt = 1;
                 }

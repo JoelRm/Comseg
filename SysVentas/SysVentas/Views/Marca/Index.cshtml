@@ -1,244 +1,136 @@
-﻿@*@using Entidad
-	@model List<MarcaCLS>*@
+﻿
 @{
-	ViewBag.Title = "Index";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
-	<div class="page-header pull-left">
-		<div class="page-title">
-			Marca
-		</div>
-	</div>
-	<ol class="breadcrumb page-breadcrumb pull-right">
-		<li><i class="fa fa-home"></i>&nbsp;<a href="dashboard.html">Inicio</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
-		<li class="hidden"><a href="#">Marca</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
-		<li class="active">Marca</li>
-	</ol>
-	<div class="clearfix">
-	</div>
+    <div class="page-header pull-left">
+        <div class="page-title">
+            Marca
+        </div>
+    </div>
+    <ol class="breadcrumb page-breadcrumb pull-right">
+        <li><i class="fa fa-home"></i>&nbsp;<a href="dashboard.html">Inicio</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li class="hidden"><a href="#">Marca</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li class="active">Marca</li>
+    </ol>
+    <div class="clearfix">
+    </div>
 </div>
 <div class="page-content">
-	<div class="nav nav-tabs responsive">
-		<div class="panel panel-grey">
-			<div class="panel-heading" id="newbotton">
-				<div class="col-sm-8 col-md-8">Listado de Marca</div>
-				@*<div class="col-sm-3 col-md-2">
-					<a href="#" role="button" onclick="abrirFiltros();" data-target="" class="btn btn-info btn-sm btn-block">Filtro</a>
-				</div>*@
-				<div class="col-sm-4 col-md-4">
-					<button type="button" class="btn btn-danger btn-sm btn-block" data-toggle="modal" data-target="#modal-nuevo">
-						Nuevo
-					</button>
-				</div>
+    <div class="nav nav-tabs responsive">
+        <div class="panel panel-grey">
+            <div class="panel-heading" id="newbotton">
+                <div class="col-sm-8 col-md-8">Listado de Marca</div>
+                <div class="col-sm-4 col-md-4">
+                    <button type="button" class="btn btn-danger btn-sm btn-block" data-toggle="modal" data-target="#modalNuevaMarca">
+                        Nuevo
+                    </button>
+                </div>
 
-			</div>
-			<div class="panel-body">
+            </div>
+            <div class="panel-body">
 
-				<div class="form-group row" style="margin-left:0px; margin-right:0px;">
-					<input id="NombreMarcaFiltro" name="NombreMarcaFiltro" type="text" placeholder="Buscar Marcas" class="busqueda col-md-4 col-sm-4" />
+                <div class="form-group row" style="margin-left:0px; margin-right:0px;">
+                    <input id="NombreMarcaFiltro" name="NombreMarcaFiltro" type="text" placeholder="Buscar Marcas" class="busqueda col-md-4 col-sm-4"  autocomplete="off"/>
 
-					<div class="radio-container radio-edit">
-						<input type="radio" name="estado" id="todos" checked value="2" />
-						<label for="todos">Todos los Estados</label>
-						<input type="radio" name="estado" id="activos" value="1" />
-						<label for="activos">Estado Activado</label>
-						<input type="radio" name="estado" id="inactivos" value="0" />
-						<label for="inactivos">Estado Desactivado</label>
-					</div>
-					<button type="button" onclick="cargarTablaMarca()" class="btn btn-primary botonbusqueda">
-						Buscar Marca
-					</button>
-				</div>
+                    <div class="radio-container radio-edit">
+                        <input type="radio" name="estado" id="todos" checked value="2" />
+                        <label for="todos">Todos los Estados</label>
+                        <input type="radio" name="estado" id="activos" value="1" />
+                        <label for="activos">Estado Activado</label>
+                        <input type="radio" name="estado" id="inactivos" value="0" />
+                        <label for="inactivos">Estado Desactivado</label>
+                    </div>
+                    <button type="button" onclick="cargarTablaMarca()" class="btn btn-primary botonbusqueda">
+                        Buscar Marca
+                    </button>
+                </div>
 
-				<table id="tbMarca" class="table table-hover table-bordered">
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Nombre Marca</th>
-							<th>Fecha Creación</th>
-							<th>Usuario</th>
-							<th>Estado</th>
-							<th>Acción</th>
-						</tr>
-					</thead>
-					<tbody id="bodytbMarca">
-						<tr>
-							<td colspan="7">Seleccione filtros para realizar una búsqueda</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
-
-
-	<!--Inicio Modal Nueva Marca-->
-	<div id="modal-nuevo" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
-						&times;
-					</button>
-					<h4 class="modal-title">
-						Nueva Marca
-					</h4>
-				</div>
-				<div class="modal-body">
-					<div class="form-body pal">
-						<div class="form-group">
-							<input id="NombreMarca" name="NombreMarca" type="text" placeholder="Ingrese Nombre Marca" class="form-control" />
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" id="CerrarPopUpMarca" data-dismiss="modal" class="btn btn-danger">
-						Cancelar
-					</button>
-					<button type="button" onclick="agregarMarca()" class="btn btn-primary">
-						Guardar
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--Fin Modal Nueva Marca-->
-	<!--Inicio Modal Filtros-->
-	@*<div id="modalFiltros" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
-						&times;
-					</button>
-					<h4 class="modal-title">
-						Filtros
-					</h4>
-				</div>
-				<div class="modal-body">
-					<div class="form-body pal">
-						<div class="form-group">
-							<input id="NombreMarcaFiltro" name="NombreMarcaFiltro" type="text" placeholder="Ingrese Nombre Marca" class="form-control" />
-						</div>
-						<div class="form-group">
-							<div class="radio-container">
-								<input type="radio" name="estado" id="todos" checked value="2" />
-								<label for="todos">Todos los Estados</label>
-								<input type="radio" name="estado" id="activos" value="1" />
-								<label for="activos">Estado Activado</label>
-								<input type="radio" name="estado" id="inactivos" value="0" />
-								<label for="inactivos">Estado Desactivado</label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" id="CerrarPopUpFiltros" data-dismiss="modal" class="btn btn-danger">
-						Cancelar
-					</button>
-					<button type="button" onclick="cargarTablaMarca()" class="btn btn-primary">
-						Filtrar
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>*@
-	<!--Fin Modal Filtros-->
-	<!--Inicio Modal Editar-->
-	<div id="modalEditar" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
-						&times;
-					</button>
-					<h4 class="modal-title">
-						Editar Marca
-					</h4>
-				</div>
-				<div class="modal-body">
-					<div class="form-body pal">
-						<div class="form-group">
-							<input id="idMarcaEditar" name="idMarcaEditar" type="hidden" placeholder="Ingrese Nombre Marca" class="form-control" />
-							<input id="NombreMarcaEditar" name="NombreMarcaEditar" type="text" placeholder="Ingrese Nombre Marca" class="form-control" />
-						</div>
-
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" id="CerrarPopUpMarca" data-dismiss="modal" class="btn btn-danger">
-						Cancelar
-					</button>
-					<button type="button" onclick="editarMarca()" class="btn btn-primary">
-						Guardar
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--Fin Modal Editar-->
+                <table id="tbMarca" class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre Marca</th>
+                            <th>Fecha Creación</th>
+                            <th>Usuario</th>
+                            <th>Estado</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bodytbMarca">
+                        <tr>
+                            <td colspan="7">Seleccione filtros para realizar una búsqueda</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
 </div>
+
+@Html.Partial("_ModalNuevaMarca");
+@Html.Partial("_ModalEditarMarca");
 
 <script src="~/Content/script/Page/Marca.js"></script>
 
 <style>
-	/*Radio Buttons*/
-	.radio-container {
-		font-size: 20px;
-		padding: 8px;
-	}
+    /*Radio Buttons*/
+    .radio-container {
+        font-size: 20px;
+        padding: 8px;
+    }
 
-	input[type="radio"] {
-		display: none;
-	}
+    input[type="radio"] {
+        display: none;
+    }
 
-	label {
-		color: #808080;
-		background: rgba(0,0,0,.1);
-		padding: 5px 15px 5px 36px;
-		display: inline-block;
-		position: relative;
-		font-size: 12px;
-		border-radius: 3px;
-		cursor: pointer;
-		-moz-transition: all 0.3s ease;
-		-o-transition: all 0.3s ease;
-		-webkit-transition: all 0.3s ease;
-		transition: all 0.3s ease;
-	}
+    label {
+        color: #808080;
+        background: rgba(0,0,0,.1);
+        padding: 5px 15px 5px 36px;
+        display: inline-block;
+        position: relative;
+        font-size: 12px;
+        border-radius: 3px;
+        cursor: pointer;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
 
-		label:hover {
-			background: rgba(0,116,217, 0.2);
-		}
+        label:hover {
+            background: rgba(0,116,217, 0.2);
+        }
 
-		label:before {
-			content: "";
-			width: 12px;
-			height: 12px;
-			display: inline-block;
-			background: none;
-			border: 3px solid #808080;
-			border-radius: 50%;
-			position: absolute;
-			left: 12px;
-			top: 8px;
-		}
+        label:before {
+            content: "";
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            background: none;
+            border: 3px solid #808080;
+            border-radius: 50%;
+            position: absolute;
+            left: 12px;
+            top: 8px;
+        }
 
-	input[type="radio"]:checked + label {
-		padding: 5px 15px;
-		background: #808080;
-		border-radius: 2px;
-		color: #fff;
-	}
+    input[type="radio"]:checked + label {
+        padding: 5px 15px;
+        background: #808080;
+        border-radius: 2px;
+        color: #fff;
+    }
 
-		input[type="radio"]:checked + label:before {
-			display: none;
-		}
+        input[type="radio"]:checked + label:before {
+            display: none;
+        }
 
-	/*Radio Buttons*/
+    /*Radio Buttons*/
 </style>
 
