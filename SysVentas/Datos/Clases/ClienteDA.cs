@@ -18,7 +18,7 @@ namespace Datos.Clases
                                 select new ClienteCLS
                                 {
                                     IdCliente = cli.IdCliente,
-                                    IdTipoPersona = cli.IdTipoPersona,
+                                    IdTipoDocumento = cli.IdTipoDocumento,
                                     NroDocumentoCliente = cli.NroDocumentoCliente,
                                     NombreCliente = cli.NombreCliente,
                                     DireccionCliente = cli.DireccionCliente,
@@ -43,7 +43,7 @@ namespace Datos.Clases
                 using (var db = new BDVentasEntities())
                 {
                     Cliente objCliente = new Cliente();
-                    objCliente.IdTipoPersona = objClienteCls.IdTipoPersona;
+                    objCliente.IdTipoDocumento = objClienteCls.IdTipoDocumento;
                     objCliente.NroDocumentoCliente = objClienteCls.NroDocumentoCliente;
                     objCliente.NombreCliente = objClienteCls.NombreCliente;
                     objCliente.DireccionCliente = objClienteCls.DireccionCliente;
@@ -110,12 +110,12 @@ namespace Datos.Clases
                 {
                     if (objFiltro.Estado == 2)
                     {
-                        listaCliente = (from cli in db.Cliente join TipoT in db.TipoPersona on cli.IdTipoPersona equals TipoT.IdTipoPersona
+                        listaCliente = (from cli in db.Cliente join TipoD in db.TipoDocumento on cli.IdTipoDocumento equals TipoD.IdTipoDocumento
                                         where cli.EstadoEliminacion == false
                                         select new ClienteCLS
                                         {
                                             IdCliente = cli.IdCliente,
-                                            IdTipoPersona = cli.IdTipoPersona,
+                                            IdTipoDocumento = cli.IdTipoDocumento,
                                             NroDocumentoCliente = cli.NroDocumentoCliente,
                                             NombreCliente = cli.NombreCliente,
                                             DireccionCliente = cli.DireccionCliente,
@@ -126,18 +126,18 @@ namespace Datos.Clases
                                             FechaModificacion = cli.FechaModificacion,
                                             UsuarioModificacion = cli.UsuarioModificacion,
                                             FechaCreacionJS = cli.FechaCreacion.ToString(),
-                                            NombreTipoCliente = TipoT.NombreTipoPersona.ToString()
+                                            NombreTipoDocumento = TipoD.AbreviacionTipoDocumento.ToString()
                                         }).ToList();
                     }
                     else
                     {
                         listaCliente = (from cli in db.Cliente
-                                        join TipoT in db.TipoPersona on cli.IdTipoPersona equals TipoT.IdTipoPersona
+                                        join TipoD in db.TipoDocumento on cli.IdTipoDocumento equals TipoD.IdTipoDocumento
                                         where cli.EstadoEliminacion == false && cli.EstadoCliente == estado
                                         select new ClienteCLS
                                         {
                                             IdCliente = cli.IdCliente,
-                                            IdTipoPersona = cli.IdTipoPersona,
+                                            IdTipoDocumento = cli.IdTipoDocumento,
                                             NroDocumentoCliente = cli.NroDocumentoCliente,
                                             NombreCliente = cli.NombreCliente,
                                             DireccionCliente = cli.DireccionCliente,
@@ -148,7 +148,7 @@ namespace Datos.Clases
                                             FechaModificacion = cli.FechaModificacion,
                                             UsuarioModificacion = cli.UsuarioModificacion,
                                             FechaCreacionJS = cli.FechaCreacion.ToString(),
-                                            NombreTipoCliente = TipoT.NombreTipoPersona.ToString()
+                                            NombreTipoDocumento = TipoD.AbreviacionTipoDocumento.ToString()
                                         }).ToList();
                     }
 
@@ -158,12 +158,12 @@ namespace Datos.Clases
                     if (objFiltro.Estado == 2)
                     {
                         listaCliente = (from cli in db.Cliente
-                                        join TipoT in db.TipoPersona on cli.IdTipoPersona equals TipoT.IdTipoPersona
+                                        join TipoD in db.TipoDocumento on cli.IdTipoDocumento equals TipoD.IdTipoDocumento
                                         where cli.EstadoEliminacion == false && cli.NombreCliente.Contains(objFiltro.Nombre)
                                         select new ClienteCLS
                                         {
                                             IdCliente = cli.IdCliente,
-                                            IdTipoPersona = cli.IdTipoPersona,
+                                            IdTipoDocumento = cli.IdTipoDocumento,
                                             NroDocumentoCliente = cli.NroDocumentoCliente,
                                             NombreCliente = cli.NombreCliente,
                                             DireccionCliente = cli.DireccionCliente,
@@ -174,18 +174,18 @@ namespace Datos.Clases
                                             FechaModificacion = cli.FechaModificacion,
                                             UsuarioModificacion = cli.UsuarioModificacion,
                                             FechaCreacionJS = cli.FechaCreacion.ToString(),
-                                            NombreTipoCliente = TipoT.NombreTipoPersona.ToString()
+                                            NombreTipoDocumento = TipoD.AbreviacionTipoDocumento.ToString()
                                         }).ToList();
                     }
                     else
                     {
                         listaCliente = (from cli in db.Cliente
-                                        join TipoT in db.TipoPersona on cli.IdTipoPersona equals TipoT.IdTipoPersona
+                                        join TipoD in db.TipoDocumento on cli.IdTipoDocumento equals TipoD.IdTipoDocumento
                                         where cli.EstadoEliminacion == false && cli.EstadoCliente == estado && cli.NombreCliente.Contains(objFiltro.Nombre) && cli.EstadoCliente == estado
                                         select new ClienteCLS
                                         {
                                             IdCliente = cli.IdCliente,
-                                            IdTipoPersona = cli.IdTipoPersona,
+                                            IdTipoDocumento = cli.IdTipoDocumento,
                                             NroDocumentoCliente = cli.NroDocumentoCliente,
                                             NombreCliente = cli.NombreCliente,
                                             DireccionCliente = cli.DireccionCliente,
@@ -196,7 +196,7 @@ namespace Datos.Clases
                                             FechaModificacion = cli.FechaModificacion,
                                             UsuarioModificacion = cli.UsuarioModificacion,
                                             FechaCreacionJS = cli.FechaCreacion.ToString(),
-                                            NombreTipoCliente = TipoT.NombreTipoPersona.ToString()
+                                            NombreTipoDocumento = TipoD.AbreviacionTipoDocumento.ToString()
                                         }).ToList();
                     }
                 }
@@ -236,7 +236,7 @@ namespace Datos.Clases
                 objClienteCls.NroDocumentoCliente = oCliente.NroDocumentoCliente;
                 objClienteCls.DireccionCliente = oCliente.DireccionCliente;
                 objClienteCls.NumeroContactoCliente = oCliente.NumeroContactoCliente;
-                objClienteCls.IdTipoPersona = oCliente.IdTipoPersona;
+                objClienteCls.IdTipoDocumento = oCliente.IdTipoDocumento;
             }
             return objClienteCls;
         }
@@ -250,7 +250,7 @@ namespace Datos.Clases
                 {
                     Cliente oCliente = db.Cliente.Where(p => p.IdCliente.Equals(objClienteCls.IdCliente)).First();
                     oCliente.NombreCliente = objClienteCls.NombreCliente;
-                    oCliente.IdTipoPersona = objClienteCls.IdTipoPersona;
+                    oCliente.IdTipoDocumento = objClienteCls.IdTipoDocumento;
                     oCliente.DireccionCliente = objClienteCls.DireccionCliente;
                     oCliente.NombreCliente = objClienteCls.NombreCliente;
                     oCliente.NumeroContactoCliente = objClienteCls.NumeroContactoCliente;

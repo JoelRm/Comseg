@@ -233,6 +233,7 @@
     <Content Include="Content\script\Page\Producto.js" />
     <Content Include="Content\script\Page\Proveedor.js" />
     <Content Include="Content\script\Page\Sucursal.js" />
+    <Content Include="Content\script\Page\TipoDocumento.js" />
     <Content Include="Content\script\Page\TipoPersona.js" />
     <Content Include="Content\script\Page\TipoTienda.js" />
     <Content Include="Content\script\Page\Unidad.js" />
@@ -487,6 +488,7 @@
     <Compile Include="Controllers\ProductoController.cs" />
     <Compile Include="Controllers\ProveedorController.cs" />
     <Compile Include="Controllers\SucursalController.cs" />
+    <Compile Include="Controllers\TipoDocumentoController.cs" />
     <Compile Include="Controllers\TipoPersonaController.cs" />
     <Compile Include="Controllers\TipoTiendaController.cs" />
     <Compile Include="Controllers\UnidadController.cs" />
@@ -554,6 +556,9 @@
     <Content Include="Views\Unidad\_ModalEditarUnidad.cshtml" />
     <Content Include="Views\Cliente\_ModalNuevoCliente.cshtml" />
     <Content Include="Views\Cliente\_ModalEditarCliente.cshtml" />
+    <Content Include="Views\TipoDocumento\Index.cshtml" />
+    <Content Include="Views\TipoDocumento\_ModalEditarTipoDocumento.cshtml" />
+    <Content Include="Views\TipoDocumento\_ModalNuevoTipoDocumento.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

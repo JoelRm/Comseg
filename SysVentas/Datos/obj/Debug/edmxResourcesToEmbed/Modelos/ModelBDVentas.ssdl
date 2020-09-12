@@ -21,7 +21,7 @@
       <PropertyRef Name="IdCliente" />
     </Key>
     <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdTipoPersona" Type="int" Nullable="false" />
+    <Property Name="IdTipoDocumento" Type="int" Nullable="false" />
     <Property Name="NroDocumentoCliente" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="NombreCliente" Type="varchar(max)" Nullable="false" />
     <Property Name="DireccionCliente" Type="varchar" MaxLength="100" Nullable="false" />
@@ -179,6 +179,21 @@
     <Property Name="EstadoSucursal" Type="bit" Nullable="false" />
     <Property Name="EstadoEliminacion" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="TipoDocumento">
+    <Key>
+      <PropertyRef Name="IdTipoDocumento" />
+    </Key>
+    <Property Name="IdTipoDocumento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescripcionTipoDocumento" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AbreviacionTipoDocumento" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="LongitudTipoDocumento" Type="int" Nullable="false" />
+    <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+    <Property Name="UsuarioCreacion" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="UsuarioModificacion" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="EstadoTipoDocumento" Type="bit" Nullable="false" />
+    <Property Name="EstadoEliminacion" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="TipoPersona">
     <Key>
       <PropertyRef Name="IdTipoPersona" />
@@ -232,6 +247,7 @@
     <EntitySet Name="ProductoUnidad" EntityType="Self.ProductoUnidad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sucursal" EntityType="Self.Sucursal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoDocumento" EntityType="Self.TipoDocumento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoPersona" EntityType="Self.TipoPersona" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoTienda" EntityType="Self.TipoTienda" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Unidad" EntityType="Self.Unidad" Schema="dbo" store:Type="Tables" />

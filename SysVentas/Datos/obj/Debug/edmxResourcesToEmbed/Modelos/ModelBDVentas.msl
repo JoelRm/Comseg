@@ -18,24 +18,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Cliente">
-      <EntityTypeMapping TypeName="BDVentasModel.Cliente">
-        <MappingFragment StoreEntitySet="Cliente">
-          <ScalarProperty Name="EstadoEliminacion" ColumnName="EstadoEliminacion" />
-          <ScalarProperty Name="EstadoCliente" ColumnName="EstadoCliente" />
-          <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
-          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
-          <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
-          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
-          <ScalarProperty Name="NumeroContactoCliente" ColumnName="NumeroContactoCliente" />
-          <ScalarProperty Name="DireccionCliente" ColumnName="DireccionCliente" />
-          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
-          <ScalarProperty Name="NroDocumentoCliente" ColumnName="NroDocumentoCliente" />
-          <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
-          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Impuesto">
       <EntityTypeMapping TypeName="BDVentasModel.Impuesto">
         <MappingFragment StoreEntitySet="Impuesto">
@@ -232,6 +214,40 @@
           <ScalarProperty Name="Factor" ColumnName="Factor" />
           <ScalarProperty Name="NombreUnidad" ColumnName="NombreUnidad" />
           <ScalarProperty Name="IdUnidad" ColumnName="IdUnidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoDocumento">
+      <EntityTypeMapping TypeName="BDVentasModel.TipoDocumento">
+        <MappingFragment StoreEntitySet="TipoDocumento">
+          <ScalarProperty Name="EstadoEliminacion" ColumnName="EstadoEliminacion" />
+          <ScalarProperty Name="EstadoTipoDocumento" ColumnName="EstadoTipoDocumento" />
+          <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="LongitudTipoDocumento" ColumnName="LongitudTipoDocumento" />
+          <ScalarProperty Name="AbreviacionTipoDocumento" ColumnName="AbreviacionTipoDocumento" />
+          <ScalarProperty Name="DescripcionTipoDocumento" ColumnName="DescripcionTipoDocumento" />
+          <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="BDVentasModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="EstadoEliminacion" ColumnName="EstadoEliminacion" />
+          <ScalarProperty Name="EstadoCliente" ColumnName="EstadoCliente" />
+          <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="NumeroContactoCliente" ColumnName="NumeroContactoCliente" />
+          <ScalarProperty Name="DireccionCliente" ColumnName="DireccionCliente" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="NroDocumentoCliente" ColumnName="NroDocumentoCliente" />
+          <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -12,19 +12,17 @@ namespace Datos.Modelos
     using System;
     using System.Collections.Generic;
     
-    public partial class Cliente
+    public partial class TipoDocumento
     {
-        public int IdCliente { get; set; }
         public int IdTipoDocumento { get; set; }
-        public string NroDocumentoCliente { get; set; }
-        public string NombreCliente { get; set; }
-        public string DireccionCliente { get; set; }
-        public string NumeroContactoCliente { get; set; }
+        public string DescripcionTipoDocumento { get; set; }
+        public string AbreviacionTipoDocumento { get; set; }
+        public int LongitudTipoDocumento { get; set; }
         public System.DateTime FechaCreacion { get; set; }
         public string UsuarioCreacion { get; set; }
         public System.DateTime FechaModificacion { get; set; }
         public string UsuarioModificacion { get; set; }
-        public bool EstadoCliente { get; set; }
+        public bool EstadoTipoDocumento { get; set; }
         public bool EstadoEliminacion { get; set; }
     }
 }

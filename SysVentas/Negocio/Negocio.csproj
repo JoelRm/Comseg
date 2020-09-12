@@ -51,6 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProveedorNE.cs" />
     <Compile Include="SucursalNE.cs" />
+    <Compile Include="TipoDocumentoNE.cs" />
     <Compile Include="TipoPersonaNE.cs" />
     <Compile Include="TipoTiendaNE.cs" />
     <Compile Include="UnidadNE.cs" />

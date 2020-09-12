@@ -26,7 +26,6 @@ namespace Datos.Modelos
         }
     
         public virtual DbSet<Almacen> Almacen { get; set; }
-        public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Impuesto> Impuesto { get; set; }
         public virtual DbSet<Linea> Linea { get; set; }
         public virtual DbSet<Marca> Marca { get; set; }
@@ -40,5 +39,7 @@ namespace Datos.Modelos
         public virtual DbSet<TipoPersona> TipoPersona { get; set; }
         public virtual DbSet<TipoTienda> TipoTienda { get; set; }
         public virtual DbSet<Unidad> Unidad { get; set; }
+        public virtual DbSet<TipoDocumento> TipoDocumento { get; set; }
+        public virtual DbSet<Cliente> Cliente { get; set; }
     }
 }
