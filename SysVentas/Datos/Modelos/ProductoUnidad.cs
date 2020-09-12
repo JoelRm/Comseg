@@ -23,6 +23,7 @@ namespace Datos.Modelos
         public string UsuarioCreacion { get; set; }
         public System.DateTime FechaModificacion { get; set; }
         public string UsuarioModificacion { get; set; }
-        public bool Estado { get; set; }
+        public bool EstadoProductoUnidad { get; set; }
+        public bool EstadoEliminacion { get; set; }
     }
 }

@@ -100,7 +100,7 @@ namespace Datos.Clases
                     if (objFiltro.Estado == 2)
                     {
                         listaProveedor = (from prov in db.Proveedor
-                                          where prov.EstadoEliminacion == false && prov.NombreProveedor.Equals(objFiltro.Nombre)
+                                          where prov.EstadoEliminacion == false && prov.NombreProveedor.Contains(objFiltro.Nombre)
                                           select new ProveedorCLS
                                           {
                                               IdProveedor = prov.IdProveedor,
@@ -121,7 +121,7 @@ namespace Datos.Clases
                     else
                     {
                         listaProveedor = (from prov in db.Proveedor
-                                          where prov.EstadoEliminacion == false && prov.EstadoProveedor == estado && prov.NombreProveedor.Equals(objFiltro.Nombre)
+                                          where prov.EstadoEliminacion == false && prov.EstadoProveedor == estado && prov.NombreProveedor.Contains(objFiltro.Nombre)
                                           select new ProveedorCLS
                                           {
                                               IdProveedor = prov.IdProveedor,

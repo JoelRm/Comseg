@@ -114,7 +114,7 @@ function agregarAlmacen() {
                 }
                 else {
                     if (response.Code == 1) {
-                        $('#modal-nuevo').modal('hide');
+                        $('#modalNuevoAlmacen').modal('hide');
                         limpiarValoresAlmacen();
                         cargarTablaAlmacen();
                         toastr.success('Se agregaron los datos correctamente', 'Éxito');

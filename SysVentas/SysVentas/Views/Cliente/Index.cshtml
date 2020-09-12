@@ -1,285 +1,134 @@
 ﻿@using Entidad
 @model List<TipoPersonaCLS>
 @{
-	ViewBag.Title = "Index";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
-	<div class="page-header pull-left">
-		<div class="page-title">
-			Cliente
-		</div>
-	</div>
-	<ol class="breadcrumb page-breadcrumb pull-right">
-		<li><i class="fa fa-home"></i>&nbsp;<a href="dashboard.html">Inicio</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
-		<li class="hidden"><a href="#">Cliente</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
-		<li class="active">Cliente</li>
-	</ol>
-	<div class="clearfix">
-	</div>
+    <div class="page-header pull-left">
+        <div class="page-title">
+            Cliente
+        </div>
+    </div>
+    <ol class="breadcrumb page-breadcrumb pull-right">
+        <li><i class="fa fa-home"></i>&nbsp;<a href="dashboard.html">Inicio</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li class="hidden"><a href="#">Cliente</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li class="active">Cliente</li>
+    </ol>
+    <div class="clearfix">
+    </div>
 </div>
 <div class="page-content">
-	<div class="nav nav-tabs responsive">
-		<div class="panel panel-grey">
-			<div class="panel-heading" id="newbotton">
-				<div class="col-sm-8 col-md-10">Listado de Clientes</div>
-				<!--
-				<div class="col-sm-3 col-md-2">
-					<a href="#" role="button" onclick="abrirFiltros();" data-target="" class="btn btn-info btn-sm btn-block">Filtro</a>
-				</div>
-				-->
-				<div class="col-sm-4 col-md-2">
-					<button type="button" class="btn btn-danger btn-sm btn-block " data-toggle="modal" data-target="#modal-nuevo">
-						Nuevo
-					</button>
-				</div>
+    <div class="nav nav-tabs responsive">
+        <div class="panel panel-grey">
+            <div class="panel-heading" id="newbotton">
+                <div class="col-sm-8 col-md-8">Listado de Clientes</div>
+                <div class="col-sm-4 col-md-4">
+                    <button type="button" class="btn btn-danger btn-sm btn-block " data-toggle="modal" data-target="#modalNuevoCliente">
+                        Nuevo
+                    </button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="form-group row" style="margin-left:0px; margin-right:0px;">
 
-			</div>
-			<div class="panel-body">
+                    <input id="NombreClienteFiltro" type="text" placeholder="Buscar Clientes" class="busqueda col-md-4 col-sm-4"  autocomplete="off"/>
 
-
-				<div class="form-group row" style="margin-left:0px; margin-right:0px;">
-					<!--Busqueda en tiempo real-->
-					<input id="idCliente" type="hidden" class="form-control" />
-					<input id="nombreCliente" type="hidden" class="form-control" />
-					<input onkeyup="buscarCliente(event)" id="NombreClienteFiltro" type="text" placeholder="Buscar Clientes" class="busqueda col-md-4 col-sm-4" />
-					
-					<!--Busqueda en tiempo real-->
-					<div class="radio-container radio-edit">
-						<input type="radio" name="estado" id="todos" checked value="2" />
-						<label for="todos">Todos los Estados</label>
-						<input type="radio" name="estado" id="activos" value="1" />
-						<label for="activos">Estado Activado</label>
-						<input type="radio" name="estado" id="inactivos" value="0" />
-						<label for="inactivos">Estado Desactivado</label>
-					</div>
-					<button type="button" onclick="cargarTablaClientes()" class="btn btn-primary botonbusqueda">
-						Buscar Cliente
-					</button>
-				</div>
-
-
-				<table id="tbCliente" class="table table-hover table-bordered">
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Numero DNI</th>
-							<th>Nombre Cliente</th>
-							<th>Cargo</th>
-							<th>Numero de celular</th>
-							<th>Direccion</th>
-							<th>Fecha Creación</th>
-							<th>Estado</th>
-							<th>Acción</th>
-						</tr>
-					</thead>
-					<tbody id="bodytbCliente">
-						<tr>
-							<td colspan="7">Seleccione filtros para realizar una búsqueda</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
-
-
-	<!--Inicio Modal Nueva Cliente-->
-	<div id="modal-nuevo" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
-						&times;
-					</button>
-					<h4 class="modal-title">
-						Nueva Cliente
-					</h4>
-				</div>
-				<div class="modal-body">
-					<div class="form-body pal row">
-
-						<div class="form-group col-md-6">
-							<input id="NroDocumentoCliente" name="NroDocumentoCliente" type="text" placeholder="Ingrese el DNI del cliente" class="form-control" />
-						</div>
-						<div class="form-group col-md-6">
-							<input id="NombreCliente" name="NombreCliente" type="text" placeholder="Ingrese Nombre Cliente" class="form-control" />
-						</div>
-						<div class="form-group col-md-6">
-							<input id="DireccionCliente" name="DireccionCliente" type="text" placeholder="Ingrese la dirección del cliente" class="form-control" />
-						</div>
-						<div class="form-group col-md-6">
-							<input id="NumeroContactoCliente" name="NumeroContactoCliente" type="text" placeholder="Ingrese el numero de telefono" class="form-control" />
-						</div>
-						<div class="form-group col-md-12">
-							<select class="form-control" id="IdTipoPersona">
-								@foreach (var lsTipoPersona in Model)
-								{
-									<option id="IdTipoPersona" name="IdTipoPersona" value="@lsTipoPersona.IdTipoPersona">@lsTipoPersona.NombreTipoPersona</option>
-								}
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" id="CerrarPopUpCliente" data-dismiss="modal" class="btn btn-danger">
-						Cancelar
-					</button>
-					<button type="button" onclick="agregarCliente()" class="btn btn-primary">
-						Guardar
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--Fin Modal Nueva Cliente-->
-	<!--Inicio Modal Filtros-->
-	@*<div id="modalFiltros" class="modal fade">
-			<div class="modal-dialog">
-
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
-							&times;
-						</button>
-						<h4 class="modal-title">
-							Filtros
-						</h4>
-					</div>
-					<div class="modal-body">
-						<div class="form-body pal">
-							<div class="form-group">
-								<input id="NombreClienteFiltro" name="NombreClienteFiltro" type="text" placeholder="Ingrese Nombre Cliente" class="form-control" />
-							</div>
-							<div class="form-group">
-								<div class="radio-container">
-									<input type="radio" name="estado" id="todos" checked value="2" />
-									<label for="todos">Todos los Estados</label>
-									<input type="radio" name="estado" id="activos" value="1" />
-									<label for="activos">Estado Activado</label>
-									<input type="radio" name="estado" id="inactivos" value="0" />
-									<label for="inactivos">Estado Desactivado</label>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" id="CerrarPopUpFiltros" data-dismiss="modal" class="btn btn-danger">
-							Cancelar
-						</button>
-						<button type="button" onclick="cargarTablaClientes()" class="btn btn-primary">
-							Filtrar
-						</button>
-					</div>
-				</div>
-
-			</div>
-		</div>*@
-	<!--Fin Modal Filtros-->
-	<!--Inicio Modal Editar-->
-	<div id="modalEditar" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" data-dismiss="modal" aria-hidden="true" class="close">
-						&times;
-					</button>
-					<h4 class="modal-title">
-						Editar Cliente
-					</h4>
-				</div>
-				<div class="modal-body">
-					<div class="form-body pal">
-						<div class="form-group">
-							<input id="idClienteEditar" name="idClienteEditar" type="hidden" placeholder="Ingrese Nombre Cliente" class="form-control" />
-							<input id="NombreClienteEditar" name="NombreClienteEditar" type="text" placeholder="Ingrese Nombre Cliente" class="form-control" />
-							<input id="NroDocumentoCliente" name="NroDocumentoCliente" type="number" max="9" placeholder="Ingrese Nro DNI" class="form-control" />
-							<input id="DireccionCliente" name="DireccionCliente" type="text" placeholder="Ingrese direccion del cliente" class="form-control" />
-							<input id="NumeroContactoCliente" name="NumeroContactoCliente" type="text" placeholder="Ingrese numero de contacto" class="form-control" />
-							<select class="form-control" id="IdTipoPersona">
-								@foreach (var lsTipoPersona in Model)
-								{
-									<option id="IdTipoPersonaEditar" name="IdTipoPersonaEditar" value="@lsTipoPersona.IdTipoPersona">@lsTipoPersona.NombreTipoPersona</option>
-								}
-							</select>
-
-						</div>
-						<div class="form-group">
-							<input onkeypress="return soloNumeros(event)" id="FactorClienteEditar" name="FactorClienteEditar" type="text" placeholder="Ingrese Número Factor de Cliente" class="form-control" />
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" id="CerrarPopUpCliente" data-dismiss="modal" class="btn btn-danger">
-						Cancelar
-					</button>
-					<button type="button" onclick="editarCliente()" class="btn btn-primary">
-						Guardar
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--Fin Modal Editar-->
-
+                    <div class="radio-container radio-edit">
+                        <input type="radio" name="estado" id="todos" checked value="2" />
+                        <label for="todos">Todos los Estados</label>
+                        <input type="radio" name="estado" id="activos" value="1" />
+                        <label for="activos">Estado Activado</label>
+                        <input type="radio" name="estado" id="inactivos" value="0" />
+                        <label for="inactivos">Estado Desactivado</label>
+                    </div>
+                    <button type="button" onclick="cargarTablaClientes()" class="btn btn-primary botonbusqueda">
+                        Buscar Cliente
+                    </button>
+                </div>
+                <table id="tbCliente" class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Número Documento</th>
+                            <th>Nombre Cliente</th>
+                            <th>Tipo De Persona</th>
+                            <th>Fecha Creación</th>
+                            <th>Usuario</th>
+                            <th>Estado</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bodytbCliente">
+                        <tr>
+                            <td colspan="7">Seleccione filtros para realizar una búsqueda</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
+
+@Html.Partial("_ModalNuevoCliente",Model);
+@Html.Partial("_ModalEditarCliente",Model);
 
 <script src="~/Content/script/Page/Cliente.js"></script>
 
 <style>
-	/*Radio Buttons*/
-	.radio-container {
-		font-size: 20px;
-		padding: 8px;
-	}
+    /*Radio Buttons*/
+    .radio-container {
+        font-size: 20px;
+        padding: 8px;
+    }
 
-	input[type="radio"] {
-		display: none;
-	}
+    input[type="radio"] {
+        display: none;
+    }
 
-	label {
-		color: #808080;
-		background: rgba(0,0,0,.1);
-		padding: 5px 15px 5px 36px;
-		display: inline-block;
-		position: relative;
-		font-size: 12px;
-		border-radius: 3px;
-		cursor: pointer;
-		-moz-transition: all 0.3s ease;
-		-o-transition: all 0.3s ease;
-		-webkit-transition: all 0.3s ease;
-		transition: all 0.3s ease;
-	}
+    label {
+        color: #808080;
+        background: rgba(0,0,0,.1);
+        padding: 5px 15px 5px 36px;
+        display: inline-block;
+        position: relative;
+        font-size: 12px;
+        border-radius: 3px;
+        cursor: pointer;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
 
-		label:hover {
-			background: rgba(0,116,217, 0.2);
-		}
+        label:hover {
+            background: rgba(0,116,217, 0.2);
+        }
 
-		label:before {
-			content: "";
-			width: 12px;
-			height: 12px;
-			display: inline-block;
-			background: none;
-			border: 3px solid #808080;
-			border-radius: 50%;
-			position: absolute;
-			left: 12px;
-			top: 8px;
-		}
+        label:before {
+            content: "";
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            background: none;
+            border: 3px solid #808080;
+            border-radius: 50%;
+            position: absolute;
+            left: 12px;
+            top: 8px;
+        }
 
-	input[type="radio"]:checked + label {
-		padding: 5px 15px;
-		background: #808080;
-		border-radius: 2px;
-		color: #fff;
-	}
+    input[type="radio"]:checked + label {
+        padding: 5px 15px;
+        background: #808080;
+        border-radius: 2px;
+        color: #fff;
+    }
 
-		input[type="radio"]:checked + label:before {
-			display: none;
-		}
+        input[type="radio"]:checked + label:before {
+            display: none;
+        }
 
-	/*Radio Buttons*/
+    /*Radio Buttons*/
 </style>

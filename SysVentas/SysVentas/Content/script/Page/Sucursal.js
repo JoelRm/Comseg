@@ -1,8 +1,4 @@
-﻿
-
-
-
-function cargarTablaSucursales() {
+﻿function cargarTablaSucursales() {
     mostrarLoader();
     var flt = {};
     flt.Nombre = $("#NombreSucursalFiltro").val();
@@ -35,7 +31,6 @@ function cargarTablaSucursales() {
                 rows += '</tr>';
             }
             document.getElementById("bodytbSucursal").innerHTML = rows;
-            $('#modalFiltros').modal('hide');
             ocultarLoader();
         },
         error: function (ex) {
@@ -81,10 +76,6 @@ function validarSucursalesEditar() {
     return true;
 }
 
-function abrirFiltros() {
-    $('#modalFiltros').modal('show');
-};
-
 function agregarSucursal() {
     mostrarLoader();
     if (validarSucursales()) {
@@ -104,7 +95,7 @@ function agregarSucursal() {
                 }
                 else {
                     if (response.Code == 1) {
-                        $('#modal-nuevo').modal('hide');
+                        $('#modalNuevaSucursal').modal('hide');
                         limpiarValoresSucursal();
                         cargarTablaSucursales();
                         toastr.success('Se agregaron los datos correctamente', 'Éxito');
@@ -183,7 +174,7 @@ function eliminarSucursal(idSucursal) {
 
 function obtenerSucursal(idSucursal) {
     mostrarLoader();
-    $('#modalEditar').modal('show');
+    $('#modalEditarSucursal').modal('show');
     var IdSucursal = idSucursal;
     $.ajax({
         type: "POST",
@@ -194,7 +185,7 @@ function obtenerSucursal(idSucursal) {
         success: function (response) {
             $("#idSucursalEditar").val(response.SucursalCLS.IdSucursal);
             $("#NombreSucursalEditar").val(response.SucursalCLS.NombreSucursal);
-            $("#FactorSucursalEditar").val(response.SucursalCLS.Factor);
+            $("#IdTipoTiendaEditar").val(response.SucursalCLS.IdTipoTienda);
             ocultarLoader();
         },
         error: function () {
@@ -221,7 +212,7 @@ function editarSucursal() {
                 if (response.Code == 1) {
                     toastr.success('Se realizaron los cambios con éxito', 'Éxito');
                     cargarTablaSucursales();
-                    $('#modalEditar').modal('hide');
+                    $('#modalEditarSucursal').modal('hide');
                     ocultarLoader();
                 }
                 else {

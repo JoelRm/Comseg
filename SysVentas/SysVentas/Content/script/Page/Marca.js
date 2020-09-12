@@ -30,7 +30,6 @@
                 rows += '</tr>';
             }
             document.getElementById("bodytbMarca").innerHTML = rows;
-            $('#modalFiltros').modal('hide');
             ocultarLoader();
         },
         error: function (ex) {
@@ -61,7 +60,7 @@ function validarMarca() {
 
 function validarMarcaEditar() {
     var NombreUnidad = $("#NombreMarcaEditar").val();
-    var Factor = $("#FactorMarcaEditar").val();
+
     if (NombreUnidad == '') {
         toastr.error('Se requiere del campo Nombre Marca', 'Error');
         return false;
@@ -69,10 +68,6 @@ function validarMarcaEditar() {
 
     return true;
 }
-
-function abrirFiltros() {
-    $('#modalFiltros').modal('show');
-};
 
 function agregarMarca() {
     mostrarLoader();
@@ -93,7 +88,7 @@ function agregarMarca() {
                 }
                 else {
                     if (response.Code == 1) {
-                        $('#modal-nuevo').modal('hide');
+                        $('#modalNuevaMarca').modal('hide');
                         limpiarValoresMarca();
                         cargarTablaMarca();
                         toastr.success('Se agregaron los datos correctamente', 'Éxito');
@@ -172,7 +167,7 @@ function eliminarMarca(idMarca) {
 
 function obtenerMarca(idMarca) {
     mostrarLoader();
-    $('#modalEditar').modal('show');
+    $('#modalEditarMarca').modal('show');
     var IdMarca = idMarca;
     $.ajax({
         type: "POST",
@@ -208,7 +203,7 @@ function editarMarca() {
                 if (response.Code == 1) {
                     toastr.success('Se realizaron los cambios con éxito', 'Éxito');
                     cargarTablaMarca();
-                    $('#modalEditar').modal('hide');
+                    $('#modalEditarMarca').modal('hide');
                     ocultarLoader();
                 }
                 else {

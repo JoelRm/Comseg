@@ -15,7 +15,7 @@ namespace Datos.Modelos
     public partial class Cliente
     {
         public int IdCliente { get; set; }
-        public int IdTipoPersona { get; set; }
+        public int IdTipoDocumento { get; set; }
         public string NroDocumentoCliente { get; set; }
         public string NombreCliente { get; set; }
         public string DireccionCliente { get; set; }

@@ -31,7 +31,6 @@
                 rows += '</tr>';
             }
             document.getElementById("bodytbUnidad").innerHTML = rows;
-            $('#modalFiltros').modal('hide');
             ocultarLoader();
         },
         error: function (ex) {
@@ -76,10 +75,6 @@ function validarUnidadesEditar() {
         return false;
     }
     return true;
-}
-
-function abrirFiltros() {
-    $('#modalFiltros').modal('show');
 };
 
 function agregarUnidad() {
@@ -101,7 +96,7 @@ function agregarUnidad() {
                 }
                 else {
                     if (response.Code == 1) {
-                        $('#modal-nuevo').modal('hide');
+                        $('#modalNuevaUnidad').modal('hide');
                         limpiarValoresUnidad();
                         cargarTablaUnidades();
                         toastr.success('Se agregaron los datos correctamente', 'Éxito');
@@ -148,7 +143,7 @@ function cambiarEstado(idUnidad) {
             ocultarLoader();
         }
     });
-}
+};
 
 function eliminarUnidad(idUnidad) {
     mostrarLoader();
@@ -176,11 +171,11 @@ function eliminarUnidad(idUnidad) {
             ocultarLoader();
         }
     });
-}
+};
 
 function obtenerUnidad(idUnidad) {
     mostrarLoader();
-    $('#modalEditar').modal('show');
+    $('#modalEditarUnidad').modal('show');
     var IdUnidad = idUnidad;
     $.ajax({
         type: "POST",
@@ -199,7 +194,7 @@ function obtenerUnidad(idUnidad) {
             ocultarLoader();
         }
     });
-}
+};
 
 function editarUnidad() {
     mostrarLoader();
@@ -218,7 +213,7 @@ function editarUnidad() {
                 if (response.Code == 1) {
                     toastr.success('Se realizaron los cambios con éxito', 'Éxito');
                     cargarTablaUnidades();
-                    $('#modalEditar').modal('hide');
+                    $('#modalEditarUnidad').modal('hide');
                     ocultarLoader();
                 }
                 else {
@@ -233,4 +228,4 @@ function editarUnidad() {
         });
     }
     ocultarLoader();
-}
+};

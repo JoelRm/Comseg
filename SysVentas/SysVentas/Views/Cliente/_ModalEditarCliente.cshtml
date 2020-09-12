@@ -1,0 +1,49 @@
+﻿	<!--Inicio Modal Editar-->
+<div id="modalEditarCliente" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                    Editar Cliente
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-body pal row">
+                    <div class="form-group col-md-12">
+                        <select class="form-control" id="IdTipoPersonaEditar">
+                            @foreach (var lsTipoPersona in Model)
+                            {
+                                <option id="IdTipoPersonaEditar" name="IdTipoPersonaEditar" value="@lsTipoPersona.IdTipoPersona">@lsTipoPersona.NombreTipoPersona</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input id="NroDocumentoClienteEditar" name="NroDocumentoCliente" type="text" maxlength="8" placeholder="Ingrese Nro DNI" class="form-control" autocomplete="off" />
+                        <input id="idClienteEditar" name="idClienteEditar" type="hidden" placeholder="Ingrese Nombre Cliente" class="form-control" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input id="NombreClienteEditar" name="NombreClienteEditar" type="text" placeholder="Ingrese Nombre Cliente" class="form-control" autocomplete="off" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input id="DireccionClienteEditar" name="DireccionCliente" type="text" placeholder="Ingrese direccion del cliente" class="form-control" autocomplete="off" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input id="NumeroContactoClienteEditar" name="NumeroContactoCliente" type="text" placeholder="Ingrese numero de contacto" class="form-control" autocomplete="off" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="CerrarPopUpEditarCliente" data-dismiss="modal" class="btn btn-danger">
+                    Cancelar
+                </button>
+                <button type="button" onclick="editarCliente()" class="btn btn-primary">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Fin Modal Editar-->

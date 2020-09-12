@@ -1,0 +1,33 @@
+﻿<!--Inicio Modal Editar-->
+<div id="modalEditarMarca" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                    Editar Marca
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-body pal">
+                    <div class="form-group">
+                        <input id="idMarcaEditar" name="idMarcaEditar" type="hidden" placeholder="Ingrese Nombre Marca" class="form-control" />
+                        <input id="NombreMarcaEditar" name="NombreMarcaEditar" type="text" placeholder="Ingrese Nombre Marca" class="form-control"  autocomplete="off"/>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="CerrarPopUpMarca" data-dismiss="modal" class="btn btn-danger">
+                    Cancelar
+                </button>
+                <button type="button" onclick="editarMarca()" class="btn btn-primary">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Fin Modal Editar-->

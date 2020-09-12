@@ -9,7 +9,7 @@ namespace Entidad
     public class ClienteCLS
     {
         public int IdCliente { get; set; }
-        public int IdTipoPersona { get; set; }
+        public int IdTipoDocumento { get; set; }
         public string NroDocumentoCliente { get; set; }
         public string NombreCliente { get; set; }
         public string DireccionCliente { get; set; }
@@ -21,6 +21,6 @@ namespace Entidad
         public bool EstadoCliente { get; set; }
         public string FechaCreacionJS { get; set; }
 
-        public string NombreTipoCliente { get; set; }
+        public string NombreTipoDocumento { get; set; }
     }
 }

@@ -30,7 +30,6 @@
                 rows += '</tr>';
             }
             document.getElementById("bodytbTipoTienda").innerHTML = rows;
-            $('#modalFiltros').modal('hide');
             ocultarLoader();
         },
         error: function (ex) {
@@ -44,11 +43,9 @@
     ocultarLoader();
 };
 
-
 function limpiarValoresTipoTienda() {
     $("#NombreTipoTienda").val('');
 };
-
 
 function validarTipoTienda() {
     var NombreTipoTienda = $("#NombreTipoTienda").val();
@@ -61,23 +58,14 @@ function validarTipoTienda() {
     return true;
 };
 
-
-
 function validarTipoTiendaEditar() {
     var NombreUnidad = $("#NombreTipoTiendaEditar").val();
-    var Factor = $("#FactorTipoTiendaEditar").val();
     if (NombreUnidad == '') {
         toastr.error('Se requiere del campo Nombre TipoTienda', 'Error');
         return false;
     }
 
     return true;
-}
-
-
-
-function abrirFiltros() {
-    $('#modalFiltros').modal('show');
 };
 
 function agregarTipoTienda() {
@@ -99,7 +87,7 @@ function agregarTipoTienda() {
                 }
                 else {
                     if (response.Code == 1) {
-                        $('#modal-nuevo').modal('hide');
+                        $('#modalNuevoTipoTienda').modal('hide');
                         limpiarValoresTipoTienda();
                         cargarTablaTipoTienda();
                         toastr.success('Se agregaron los datos correctamente', 'Éxito');
@@ -119,8 +107,6 @@ function agregarTipoTienda() {
     }
     ocultarLoader();
 };
-
-
 
 function cambiarEstado(idTipoTienda) {
     mostrarLoader();
@@ -148,9 +134,7 @@ function cambiarEstado(idTipoTienda) {
             ocultarLoader();
         }
     });
-}
-
-
+};
 
 function eliminarTipoTienda(idTipoTienda) {
     mostrarLoader();
@@ -178,13 +162,11 @@ function eliminarTipoTienda(idTipoTienda) {
             ocultarLoader();
         }
     });
-}
-
-
+};
 
 function obtenerTipoTienda(idTipoTienda) {
     mostrarLoader();
-    $('#modalEditar').modal('show');
+    $('#modalEditarTipoTienda').modal('show');
     var IdTipoTienda = idTipoTienda;
     $.ajax({
         type: "POST",
@@ -202,10 +184,7 @@ function obtenerTipoTienda(idTipoTienda) {
             ocultarLoader();
         }
     });
-}
-
-
-
+};
 
 function editarTipoTienda() {
     mostrarLoader();
@@ -223,7 +202,7 @@ function editarTipoTienda() {
                 if (response.Code == 1) {
                     toastr.success('Se realizaron los cambios con éxito', 'Éxito');
                     cargarTablaTipoTienda();
-                    $('#modalEditar').modal('hide');
+                    $('#modalEditarTipoTienda').modal('hide');
                     ocultarLoader();
                 }
                 else {

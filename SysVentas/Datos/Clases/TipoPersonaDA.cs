@@ -158,7 +158,7 @@ namespace Datos.Clases
                     else
                     {
                         listaTipoPersona = (from per in db.TipoPersona
-                                           where per.EstadoEliminacion == false && per.EstadoTipoPersona == estado && per.NombreTipoPersona.Contains(objFiltro.Nombre) && per.EstadoTipoPersona == estado
+                                           where per.EstadoEliminacion == false && per.EstadoTipoPersona == estado && per.NombreTipoPersona.Contains(objFiltro.Nombre)
                                            select new TipoPersonaCLS
                                            {
                                                IdTipoPersona = per.IdTipoPersona,

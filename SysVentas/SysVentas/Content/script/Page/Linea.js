@@ -30,7 +30,6 @@
                 rows += '</tr>';
             }
             document.getElementById("bodytbLinea").innerHTML = rows;
-            $('#modalFiltros').modal('hide');
             ocultarLoader();
         },
         error: function (ex) {
@@ -89,7 +88,7 @@ function agregarLinea() {
                 }
                 else {
                     if (response.Code == 1) {
-                        $('#modal-nuevo').modal('hide');
+                        $('#modalNuevaLinea').modal('hide');
                         limpiarValoresLinea();
                         cargarTablaLinea();
                         toastr.success('Se agregaron los datos correctamente', 'Éxito');
@@ -168,7 +167,7 @@ function eliminarLinea(idLinea) {
 
 function obtenerLinea(idLinea) {
     mostrarLoader();
-    $('#modalEditar').modal('show');
+    $('#modalEditarLinea').modal('show');
     var IdLinea = idLinea;
     $.ajax({
         type: "POST",
@@ -204,7 +203,7 @@ function editarLinea() {
                 if (response.Code == 1) {
                     toastr.success('Se realizaron los cambios con éxito', 'Éxito');
                     cargarTablaLinea();
-                    $('#modalEditar').modal('hide');
+                    $('#modalEditarLinea').modal('hide');
                     ocultarLoader();
                 }
                 else {

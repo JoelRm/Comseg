@@ -17,11 +17,13 @@ namespace Datos.Modelos
         public int IdProductoAlmacen { get; set; }
         public int IdProducto { get; set; }
         public int IdAlmacen { get; set; }
+        public int StockFisico { get; set; }
+        public int StockSistema { get; set; }
         public bool IsActivo { get; set; }
         public System.DateTime FechaCreacion { get; set; }
         public string UsuarioCreacion { get; set; }
         public System.DateTime FechaModificacion { get; set; }
         public string UsuarioModificacion { get; set; }
-        public bool Estado { get; set; }
+        public bool EstadoEliminación { get; set; }
     }
 }

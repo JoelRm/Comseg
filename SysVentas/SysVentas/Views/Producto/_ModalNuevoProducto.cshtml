@@ -20,19 +20,19 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input id="codProductoNuevo" type="text" placeholder="Ingrese Código Producto" class="form-control" required />
+                                <input id="codProductoNuevo" type="text" placeholder="Ingrese Código Producto" class="form-control" autocomplete="off"/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input id="nombreProductoNuevo" type="text" placeholder="Ingrese Nombre Producto" class="form-control" />
+                                <input id="nombreProductoNuevo" type="text" placeholder="Ingrese Nombre Producto" class="form-control" autocomplete="off"/>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <select class="form-control">
+                                <select id="idMonedaNuevo" class="form-control">
                                     @foreach (var item in listaMoneda)
                                     {
                                         <option value="@item.IdMoneda">@item.NombreMoneda</option>
@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <select class="form-control">
+                                <select id="idImpuestoNuevo" class="form-control">
                                     @foreach (var item in listaImpuesto)
                                     {
                                         <option value="@item.IdImpuesto">@item.NombreImpuesto</option>
@@ -54,8 +54,8 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input id="idLinea" type="hidden" class="form-control" />
-                                <input id="nombreLinea" type="hidden" class="form-control" />
+                                <input id="idLineaNuevo" type="hidden" class="form-control" />
+                                <input id="nombreLineaNuevo" type="hidden" class="form-control" />
                                 <input onkeyup="buscarLinea(event)" id="lineaProdNuevo" type="text" placeholder="Ingrese Nombre Línea" class="form-control" autocomplete="off" />
                                 <div class="divPredictivo" id="divPredictivoLinea">
                                     <div class="divPredictivob">
@@ -68,8 +68,8 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input id="idMarca" type="hidden" class="form-control" />
-                                <input id="nombreMarca" type="hidden" class="form-control" />
+                                <input id="idMarcaNuevo" type="hidden" class="form-control" />
+                                <input id="nombreMarcaNuevo" type="hidden" class="form-control" />
                                 <input onkeyup="buscarMarca(event)" id="marcaProdNuevo" type="text" placeholder="Ingrese Nombre Marca" class="form-control" autocomplete="off" />
                                 <div class="divPredictivo" id="divPredictivoMarca">
                                     <div class="divPredictivob">
@@ -128,6 +128,7 @@
                                                 <th>Estado</th>
                                                 <th>Quitar</th>
                                                 <th style="display:none">IdAlmacen</th>
+                                                <th style="display:none">IdSucursal</th>
                                             </tr>
                                         </thead>
                                         <tbody id="bodytbProductoAlmacen">
@@ -149,10 +150,10 @@
                             <div id="tab-prov" class="tab-pane fade in">
                                 <div class="form-body pal">
                                     <div class="form-group">
-                                        <input id="idProveedor" type="hidden" class="form-control" />
-                                        <input id="nombreProveedor" type="hidden" class="form-control" />
+                                        <input id="idProveedorNuevo" type="hidden" class="form-control" />
+                                        <input id="nombreProveedorNuevo" type="hidden" class="form-control" />
                                         <input onkeyup="buscarProveedor(event)" id="ProveedorProdNuevo" type="text" placeholder="Ingrese Nombre Proveedor" class="form-control" autocomplete="off" />
-                                        <div class="divPredictivo" id="divPredictivoProveedor">
+                                        <div class="divPredictivo" id="divPredictivoProveedor" style="min-width: 80%;">
                                             <div class="divPredictivob">
                                                 <div class="divPredictivoa">
                                                     <ul class="ulPredictivo" role="listbox" id="ulPredictivoProveedorJRM"></ul>
@@ -179,10 +180,10 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" id="CerrarPopUpUnidad" data-dismiss="modal" class="btn btn-danger">
+                <button type="button" id="CerrarPopUpProducto" data-dismiss="modal" class="btn btn-danger">
                     Cancelar
                 </button>
-                <button type="button" onclick="agregarUnidad()" class="btn btn-primary">
+                <button type="button" onclick="agregarProducto()" class="btn btn-primary">
                     Guardar
                 </button>
             </div>

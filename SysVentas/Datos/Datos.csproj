@@ -56,8 +56,10 @@
     <Compile Include="Clases\LineaDA.cs" />
     <Compile Include="Clases\MarcaDA.cs" />
     <Compile Include="Clases\MonedaDA.cs" />
+    <Compile Include="Clases\ProductoDA.cs" />
     <Compile Include="Clases\ProveedorDA.cs" />
     <Compile Include="Clases\SucursalDA.cs" />
+    <Compile Include="Clases\TipoDocumentoDA.cs" />
     <Compile Include="Clases\TipoPersonaDA.cs" />
     <Compile Include="Clases\TipoTiendaDA.cs" />
     <Compile Include="Clases\UnidadDA.cs" />
@@ -100,6 +102,9 @@
     <Compile Include="Modelos\ProductoAlmacen.cs">
       <DependentUpon>ModelBDVentas.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\ProductoSucursalCosto.cs">
+      <DependentUpon>ModelBDVentas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\ProductoUnidad.cs">
       <DependentUpon>ModelBDVentas.tt</DependentUpon>
     </Compile>
@@ -107,6 +112,9 @@
       <DependentUpon>ModelBDVentas.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\Sucursal.cs">
+      <DependentUpon>ModelBDVentas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\TipoDocumento.cs">
       <DependentUpon>ModelBDVentas.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\TipoPersona.cs">

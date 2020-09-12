@@ -31,7 +31,6 @@
                 rows += '</tr>';
             }
             document.getElementById("bodytbImpuesto").innerHTML = rows;
-            $('#modalFiltros').modal('hide');
             ocultarLoader();
         },
         error: function (ex) {
@@ -78,10 +77,6 @@ function validarImpuestoEditar() {
     return true;
 }
 
-function abrirFiltros() {
-    $('#modalFiltros').modal('show');
-};
-
 function agregarImpuesto() {
     mostrarLoader();
     if (validarImpuesto()) {
@@ -101,7 +96,7 @@ function agregarImpuesto() {
                 }
                 else {
                     if (response.Code == 1) {
-                        $('#modal-nuevo').modal('hide');
+                        $('#modalNuevoImpuesto').modal('hide');
                         limpiarValoresImpuesto();
                         cargarTablaImpuesto();
                         toastr.success('Se agregaron los datos correctamente', 'Éxito');
@@ -180,7 +175,7 @@ function eliminarImpuesto(idImpuesto) {
 
 function obtenerImpuesto(idImpuesto) {
     mostrarLoader();
-    $('#modalEditar').modal('show');
+    $('#modalEditarImpuesto').modal('show');
     var IdImpuesto = idImpuesto;
     $.ajax({
         type: "POST",
@@ -218,7 +213,7 @@ function editarImpuesto() {
                 if (response.Code == 1) {
                     toastr.success('Se realizaron los cambios con éxito', 'Éxito');
                     cargarTablaImpuesto();
-                    $('#modalEditar').modal('hide');
+                    $('#modalEditarImpuesto').modal('hide');
                     ocultarLoader();
                 }
                 else {

@@ -31,7 +31,6 @@
                 rows += '</tr>';
             }
             document.getElementById("bodytbMoneda").innerHTML = rows;
-            $('#modalFiltros').modal('hide');
             ocultarLoader();
         },
         error: function (ex) {
@@ -78,10 +77,6 @@ function validarMonedaEditar() {
     return true;
 }
 
-function abrirFiltros() {
-    $('#modalFiltros').modal('show');
-};
-
 function agregarMoneda() {
     mostrarLoader();
     if (validarMoneda()) {
@@ -101,7 +96,7 @@ function agregarMoneda() {
                 }
                 else {
                     if (response.Code == 1) {
-                        $('#modal-nuevo').modal('hide');
+                        $('#modalnuevoMoneda').modal('hide');
                         limpiarValoresMoneda();
                         cargarTablaMoneda();
                         toastr.success('Se agregaron los datos correctamente', 'Éxito');
@@ -180,7 +175,7 @@ function eliminarMoneda(idMoneda) {
 
 function obtenerMoneda(idMoneda) {
     mostrarLoader();
-    $('#modalEditar').modal('show');
+    $('#modalEditarMoneda').modal('show');
     var IdMoneda = idMoneda;
     $.ajax({
         type: "POST",
@@ -218,7 +213,7 @@ function editarMoneda() {
                 if (response.Code == 1) {
                     toastr.success('Se realizaron los cambios con éxito', 'Éxito');
                     cargarTablaMoneda();
-                    $('#modalEditar').modal('hide');
+                    $('#modalEditarMoneda').modal('hide');
                     ocultarLoader();
                 }
                 else {

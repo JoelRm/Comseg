@@ -1,5 +1,4 @@
-﻿@*@using Entidad
-@model List<UnidadCLS>*@
+﻿
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -23,179 +22,67 @@
     <div class="nav nav-tabs responsive">
         <div class="panel panel-grey">
             <div class="panel-heading" id="newbotton">
-                <div class="col-sm-8 col-md-10">Listado de Unidades</div>
-                @*<div class="col-sm-3 col-md-2">
-                    <a href="#" role="button" onclick="abrirFiltros();" data-target="" class="btn btn-info btn-sm btn-block">Filtro</a>
-                </div>*@
-                <div class="col-sm-4 col-md-2">
-                    <button type="button" class="btn btn-danger btn-sm btn-block" data-toggle="modal" data-target="#modal-nuevo">
+                <div class="col-sm-8 col-md-8">Listado de Unidades</div>
+                <div class="col-sm-4 col-md-4">
+                    <button type="button" class="btn btn-danger btn-sm btn-block" data-toggle="modal" data-target="#modalNuevaUnidad">
                         Nuevo
                     </button>
                 </div>
 
             </div>
-			<div class="panel-body">
+            <div class="panel-body">
 
-				<div class="form-group row" style="margin-left:0px; margin-right:0px;">
-					<input id="NombreUnidadFiltro" name="NombreUnidadFiltro" type="text" placeholder="Buscar Unidades" class="busqueda col-md-4 col-sm-4" />
+                <div class="form-group row" style="margin-left:0px; margin-right:0px;">
+                    <input id="NombreUnidadFiltro" name="NombreUnidadFiltro" type="text" placeholder="Buscar Unidades" class="busqueda col-md-4 col-sm-4" autocomplete="off"/>
 
-					<div class="radio-container radio-edit">
-						<input type="radio" name="estado" id="todos" checked value="2" />
-						<label for="todos">Todos los Estados</label>
-						<input type="radio" name="estado" id="activos" value="1" />
-						<label for="activos">Estado Activado</label>
-						<input type="radio" name="estado" id="inactivos" value="0" />
-						<label for="inactivos">Estado Desactivado</label>
-					</div>
-					<button type="button" onclick="cargarTablaUnidades()" class="btn btn-primary botonbusqueda">
-						Buscar Unidad
-					</button>
-				</div>
-
-				<table id="tbUnidad" class="table table-hover table-bordered">
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Nombre Unidad</th>
-							<th>Factor</th>
-							<th>Fecha Creación</th>
-							<th>Usuario</th>
-							<th>Estado</th>
-							<th>Acción</th>
-						</tr>
-					</thead>
-					<tbody id="bodytbUnidad">
-						<tr>
-							<td colspan="7">Seleccione filtros para realizar una búsqueda</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-        </div>
-    </div>
-
-
-    <!--Inicio Modal Nueva Unidad-->
-    <div id="modal-nuevo" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" data-dismiss="modal" aria-hidden="true" class="close">
-                        &times;
-                    </button>
-                    <h4 class="modal-title">
-                        Nueva Unidad
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-body pal">
-                        <div class="form-group">
-                            <input id="NombreUnidad" name="NombreUnidad" type="text" placeholder="Ingrese Nombre Unidad" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <input onkeypress="return soloNumeros(event)" id="FactorUnidad" name="FactorUnidad" type="text" placeholder="Ingrese Número Factor de Unidad" class="form-control" />
-                        </div>
+                    <div class="radio-container radio-edit">
+                        <input type="radio" name="estado" id="todos" checked value="2" />
+                        <label for="todos">Todos los Estados</label>
+                        <input type="radio" name="estado" id="activos" value="1" />
+                        <label for="activos">Estado Activado</label>
+                        <input type="radio" name="estado" id="inactivos" value="0" />
+                        <label for="inactivos">Estado Desactivado</label>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="CerrarPopUpUnidad" data-dismiss="modal" class="btn btn-danger">
-                        Cancelar
-                    </button>
-                    <button type="button" onclick="agregarUnidad()" class="btn btn-primary">
-                        Guardar
+                    <button type="button" onclick="cargarTablaUnidades()" class="btn btn-primary botonbusqueda">
+                        Buscar Unidad
                     </button>
                 </div>
+
+                <table id="tbUnidad" class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre Unidad</th>
+                            <th>Factor</th>
+                            <th>Fecha Creación</th>
+                            <th>Usuario</th>
+                            <th>Estado</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bodytbUnidad">
+                        <tr>
+                            <td colspan="7">Seleccione filtros para realizar una búsqueda</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    <!--Fin Modal Nueva Unidad-->
-    <!--Inicio Modal Filtros-->
-    @*<div id="modalFiltros" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" data-dismiss="modal" aria-hidden="true" class="close">
-                        &times;
-                    </button>
-                    <h4 class="modal-title">
-                        Filtros
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-body pal">
-                        <div class="form-group">
-                            <input id="NombreUnidadFiltro" name="NombreUnidadFiltro" type="text" placeholder="Ingrese Nombre Unidad" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <div class="radio-container">
-                                <input type="radio" name="estado" id="todos" checked value="2" />
-                                <label for="todos">Todos los Estados</label>
-                                <input type="radio" name="estado" id="activos" value="1" />
-                                <label for="activos">Estado Activado</label>
-                                <input type="radio" name="estado" id="inactivos" value="0" />
-                                <label for="inactivos">Estado Desactivado</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="CerrarPopUpFiltros" data-dismiss="modal" class="btn btn-danger">
-                        Cancelar
-                    </button>
-                    <button type="button" onclick="cargarTablaUnidades()" class="btn btn-primary">
-                        Filtrar
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>*@
-    <!--Fin Modal Filtros-->
-    <!--Inicio Modal Editar-->
-    <div id="modalEditar" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" data-dismiss="modal" aria-hidden="true" class="close">
-                        &times;
-                    </button>
-                    <h4 class="modal-title">
-                        Editar Unidad
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-body pal">
-                        <div class="form-group">
-                            <input id="idUnidadEditar" name="idUnidadEditar" type="hidden" placeholder="Ingrese Nombre Unidad" class="form-control" />
-                            <input id="NombreUnidadEditar" name="NombreUnidadEditar" type="text" placeholder="Ingrese Nombre Unidad" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <input onkeypress="return soloNumeros(event)" id="FactorUnidadEditar" name="FactorUnidadEditar" type="text" placeholder="Ingrese Número Factor de Unidad" class="form-control" />
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="CerrarPopUpUnidad" data-dismiss="modal" class="btn btn-danger">
-                        Cancelar
-                    </button>
-                    <button type="button" onclick="editarUnidad()" class="btn btn-primary">
-                        Guardar
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Fin Modal Editar-->
-
 </div>
+
+@Html.Partial("_ModalNuevaUnidad");
+@Html.Partial("_ModalEditarUnidad");
 
 <script src="~/Content/script/Page/Unidad.js"></script>
 
 <style>
     /*Radio Buttons*/
-    .radio-container{
-        font-size:20px;
-        padding:8px;
+    .radio-container {
+        font-size: 20px;
+        padding: 8px;
     }
+
     input[type="radio"] {
         display: none;
     }
@@ -215,22 +102,22 @@
         transition: all 0.3s ease;
     }
 
-    label:hover{
-        background:rgba(0,116,217, 0.2);
-    }
+        label:hover {
+            background: rgba(0,116,217, 0.2);
+        }
 
-    label:before {
-        content: "";
-        width: 12px;
-        height: 12px;
-        display: inline-block;
-        background: none;
-        border: 3px solid #808080;
-        border-radius: 50%;
-        position: absolute;
-        left: 12px;
-        top:8px;
-    }
+        label:before {
+            content: "";
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            background: none;
+            border: 3px solid #808080;
+            border-radius: 50%;
+            position: absolute;
+            left: 12px;
+            top: 8px;
+        }
 
     input[type="radio"]:checked + label {
         padding: 5px 15px;
@@ -239,9 +126,9 @@
         color: #fff;
     }
 
-    input[type="radio"]:checked + label:before{
-        display:none;
-    }
+        input[type="radio"]:checked + label:before {
+            display: none;
+        }
 
     /*Radio Buttons*/
 </style>
